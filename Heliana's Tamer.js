@@ -28,7 +28,13 @@ ClassList["tamer"] = {
 	subclasses : ["Training Paradigm", []],
 	spellcastingFactor : 2,
 	spellcastingKnown : {
-		spells : [0, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11]
+		cantrips : [0, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4],
+		spells : [0, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11],
+		prepared : false,
+	},
+	spellcastingList : {
+		class : "druid",
+		level : [0, 5],
 	},
 	features : {
 		"pocket familiar" : {
@@ -127,6 +133,38 @@ ClassList["tamer"] = {
 				"If the creature has either fewer than ten hit points or one-quarter of its hit points, it automatically fails the saving throw.",
 				"I cannot tame a creature with a higher CR than the one for which a vessel was created.",
 			]),
-		} //tame creature
-	} //features
+		}, //tame creature
+		"spellcasting" : {
+			name : "Spellcasting",
+			source : [["HGtMH", 199]],
+			minlevel : 2,
+			description : desc([
+				"I can cast prepared tamer cantrips/spells, using Intelligence, Wisdom, or Charisma as my spellcasting ability",
+				"I can use a companion's vessel as a spellcasting focus for my tamer spells. This vessel can be used for material components for a spell, provided the material component has no cost and isn’t consumed by the casting.",
+				]),
+			additional : ["0 cantrips known", 
+						  "2 cantrips known", 
+						  "2 cantrips known", 
+						  "2 cantrips known", 
+						  "2 cantrips known", 
+						  "2 cantrips known", 
+						  "2 cantrips known", 
+						  "2 cantrips known", 
+						  "2 cantrips known", 
+						  "3 cantrips known", 
+						  "3 cantrips known", 
+						  "3 cantrips known",
+						  "3 cantrips known", 
+						  "4 cantrips known", 
+						  "4 cantrips known", 
+						  "4 cantrips known", 
+						  "4 cantrips known", 
+						  "4 cantrips known", 
+						  "4 cantrips known", 
+						  "4 cantrips known"],
+		}, //spellcasting
+		"bolster" : {
+			name : "Bolster"
+		},
+	}, //features
 }; //tamer
