@@ -169,7 +169,8 @@ ClassList["tamer"] = {
 			minlevel : 2,
 			description : desc([
 				"I can communicate with my companion while it is within 100 feet. As an action, I can see through your companion’s eyes and hear what it hears until the start of your next turn. While my companion is summoned, is within 100 feet of me, and I hold its vessel, any spells my companion knows are added to my known spells. In addition, when I cast a spell with a range of self or touch, my companion can be the target of that spell.",
-			])
+			]),
+			action : ["action", "Psychic Bond"],
 		}, //psychic bond
 		"subclassfeature3" : { 
 			name : "Training Paradigm",
@@ -192,8 +193,8 @@ ClassList["tamer"] = {
 				limfeaname : "Adopt behavior",
 				name : "Malleable Presence behaviours",
 				note : [
-					" \u2022 Aggressive. The creature has disadvantage on attack rolls it makes against creatures other than your companion.",
-					" \u2022 Cautious. The creature has disadvantage on attack rolls against your companion if there is another creature hostile towards the attacker within 5 feet of the attacker.",
+					" \u2022 Aggressive. The creature has disadvantage on attack rolls it makes against creatures other than my companion.",
+					" \u2022 Cautious. The creature has disadvantage on attack rolls against my companion if there is another creature hostile towards the attacker within 5 feet of the attacker.",
 				],
 				page3notes : true,
 			}],
@@ -205,7 +206,7 @@ ClassList["tamer"] = {
 			description : desc([
 				"I can give a command to my partner at the same time as I summon it."
 			]),
-			usages : [4, 5, 6],
+			usages : "Spellcastin Ability modifier",
 			recovery: "long rest",
 		},
 		"wilful blows" : {
@@ -223,6 +224,12 @@ ClassList["tamer"] = {
 			description : desc([
 				"With my companion 100 feet away or less, I can magically switch places with it as a bonus action or when me or my companion is the target of an attack by an attacker I can see, becoming the target.",
 			]),
+			action : [
+				["action", "Switcheroo"],
+				["reaction", "Switcheroo"]
+			],
+			usages : "Spellcastin Ability modifier",
+			recovery: "short rest",
 		}, //switcheroo
 		"magnificent presence" : {
 			name : "Magnificent Presence",
@@ -234,14 +241,22 @@ ClassList["tamer"] = {
 				toNotesPage : [{
 					name : "Magnificent Presence behaviours",
 					note : [
-						" \u2022 Provoking Poise. For the next minute, your companion draws the attention of nearby creatures. While within 15 feet of your companion, any creature that is hostile towards your companion and that can see it has disadvantage on attack rolls it makes against creatures other than your companion.",
-						" \u2022 Shrinking Violet. For the next minute, your companion appears small and unassuming, making little noise. Any creature that is hostile towards your companion has disadvantage on attack rolls against your companion if there is another creature hostile towards the attacker within 15 feet of the attacker.",
+						" \u2022 Provoking Poise. For the next minute, my companion draws the attention of nearby creatures. While within 15 feet of my companion, any creature that is hostile towards my companion and that can see it has disadvantage on attack rolls it makes against creatures other than my companion.",
+						" \u2022 Shrinking Violet. For the next minute, my companion appears small and unassuming, making little noise. Any creature that is hostile towards my companion has disadvantage on attack rolls against my companion if there is another creature hostile towards the attacker within 15 feet of the attacker.",
 						],
+					page3notes : true,
 				}],
 		}, //magnificent presence
 		"summon the horde" : {
 			name : "Summon the Horde",
 			source : [["HGtMH", 202]],
+			minlevel : 20,
+			description : desc([
+				"I can summon additional companions to a total of 3 which remain summoned for 1 minute. I can commands to all my companions at once. When the minute ends, all aditional companion return to their vessels and a I can’t move or take actions until the end of my next turn."
+			]),
+			usages : 1,
+			recovery: "long rest",
+			action : ["action", "Summon the Horde"],
 		},
 	}, //features
 }; //tamer
