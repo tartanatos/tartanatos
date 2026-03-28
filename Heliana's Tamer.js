@@ -53,9 +53,9 @@ ClassList["tamer"] = {
 				name : " Lost Traits.",
 				source : [["HGtMH", 199]],
 				note : [
-					"When a creature becomes my companion, it loses the following from its stat block:",
+					"When a creature becomes my companion, stops being able to use following traits:",
 					" \u2022 The Multiattack action, recovering it when I reach level 5.",
-					" \u2022 The ability to cast any spells (though it retains its spells known, see Psychic Bond, page 711).",
+					" \u2022 The ability to cast any spells (though it retains its spells known, see Psychic Bond, page 201).",
 					" \u2022 Any summoning actions or actions that create additional creatures",
 					" \u2022 The Regeneration, Rejuvenation, and Legendary Resistance traits.",
 					" \u2022 Any legendary actions and legendary action options.",
@@ -84,8 +84,10 @@ ClassList["tamer"] = {
 						  "at most 6 Huge or smaller creature, CR: 6", //19th
 						  "at most 6 Huge or smaller creature, CR: 6" //20th
 						 ],
-			action : ["action", "Summon/dismiss companion"],
-			action : ["aditional action", "Dismiss companion"],
+			action : [
+				["action", "Summon/dismiss companion"],
+				["bonus action", "Dismiss companion"],
+					  ],
 			creaturesAdd : [["Ranger's Companion", false, false, "companion"]], //creaturesAdd
 		}, //pocket familiar
 		"soul bond" : {
@@ -140,7 +142,7 @@ ClassList["tamer"] = {
 			minlevel : 2,
 			description : desc([
 				"I can cast prepared tamer cantrips/spells, using Intelligence, Wisdom, or Charisma as my spellcasting ability",
-				"I can use a companion's vessel as a spellcasting focus for my tamer spells. This vessel can be used for material components for a spell, provided the material component has no cost and isn’t consumed by the casting.",
+				"I can use a companion's vessel as a spellcasting focus for my tamer spells.",
 				]),
 			additional : ["0 cantrips known", 
 						  "2 cantrips known", 
@@ -164,7 +166,94 @@ ClassList["tamer"] = {
 						  "4 cantrips known"],
 		}, //spellcasting
 		"bolster" : {
-			name : "Bolster"
+			name : "Bolster",
+			source : [["HGtMH", 199]],
+			minlevel : 2,
+			description : desc([
+				"At a distance of 100 feet or inside its vessel, I can an use an action to expend one spell slot to restore hit points to my companion."
+			]),
+			additional : [
+				"Spellcasting Ability Modifier + 2d4 per SS level"
+				],
+		}, //bolster
+		"psychic bond" : {
+			name : "Psychic Bond",
+			source : [["HGtMH", 201]],
+			minlevel : 2,
+			description : desc([
+				"I can communicate with my companion while it is within 100 feet.",
+				"As an action, I can see through your companion’s eyes and hear what it hears until the start of your next turn.",
+				"While my companion is summoned, is within 100 feet of me, and I hold its vessel, any spells my companion knows are added to my known spells. In addition, when I cast a spell with a range of self or touch, my companion can be the target of that spell.",
+			])
+		}, //psychic bond
+		"subclassfeature3" : { 
+			name : "Training Paradigm",
+			source : [["HGtMH", 201]],
+			minlevel : 3,
+			description : desc([
+				"Choose a Training Paradigm that strengthens your relationship with your companions and put it in the \"Class\" field",
+				"Choose either Leader, Infuser, Necromancer, or Splicer",
+				])
+		},
+		"malleable presence" : {
+			name : "Malleable Presence",
+			source : [["HGtMH", 201]],
+			minlevel : 5,
+			description : desc([
+				"With my companion 100 feet away or less, I can command it to adopt a behavior against a creature i can see. The objective creature must succeed on a Wisdom saving throw against my spell save DC or suffer the effects of the behavior.",
+				]),
+            usages : 1,
+			recovery: "short rest",
+			toNotesPage : [{
+				name : "Companion behaviours",
+				note : [
+					" \u2022 Aggressive. The creature has disadvantage on attack rolls it makes against creatures other than your companion.",
+					" \u2022 Cautious. The creature has disadvantage on attack rolls against your companion if there is another creature hostile towards the attacker within 5 feet of the attacker.",
+				],
+				page3notes : true,
+			}],
+        },//malleable presence
+		"alpha strike" : {
+			name : "Alpha Strike",
+			source : [["HGtMH", 201]],
+			minlevel : 6,
+			description : desc([
+				"I can give a command to my partner at the same time as I summon it."
+			]),
+			usages : "Spellcasting Ability modifier per",
+			recovery: "long rest",
 		},
 	}, //features
 }; //tamer
+AddSubClass("tamer", "tamer-leader", {
+	regExpSearch : /^(?=.*leader).*$/i,
+	subname : "Leader tamer",
+	source : [["HGtMH", 202]],
+	fullname : "Leader tamer",
+	features : {
+	}, //features
+}); //leader subclass
+AddSubClass("tamer", "tamer-infuser", {
+	regExpSearch : /^(?=.*infuser).*$/i,
+	subname : "Infuser tamer",
+	source : [["HGtMH", 204]],
+	fullname : "Infuser tamer",
+	features : {
+	}, //features
+}); //infuser subclass
+AddSubClass("tamer", "tamer-necromancer", {
+	regExpSearch : /^(?=.*necromancer).*$/i,
+	subname : "Necromancer tamer",
+	source : [["HGtMH", 205]],
+	fullname : "Necromancer tamer",
+	features : {
+	}, //features
+}); //necromancer subclass
+AddSubClass("tamer", "tamer-splicer", {
+	regExpSearch : /^(?=.*splicer).*$/i,
+	subname : "Splicer tamer",
+	source : [["HGtMH", 207]],
+	fullname : "Splicer tamer",
+	features : {
+	}, //features
+}); //splicer subclass
