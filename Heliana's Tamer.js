@@ -223,6 +223,13 @@ ClassList["tamer"] = {
 			usages : "Spellcasting Ability modifier per",
 			recovery: "long rest",
 		},
+		"wilful blows" : {
+			name : "Wildul Blows",
+			source : [[]],
+			minlevel : 6,
+			description : desc([
+					" Your companions’ attacks count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage."
+			]),
 	}, //features
 }; //tamer
 AddSubClass("tamer", "tamer-leader", {
