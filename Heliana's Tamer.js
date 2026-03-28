@@ -26,6 +26,7 @@ ClassList["tamer"] = {
 		"\n \u2022 A dungeoneer’s pack -or- an explorer’s pack." +
 		"\n\nAlternatively, choose 5d4 \xD7 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
 	subclasses : ["Training Paradigm", []],
+	spellcastingAbility : [4, 5, 6],
 	spellcastingFactor : 2,
 	spellcastingKnown : {
 		cantrips : [0, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4],
@@ -42,12 +43,7 @@ ClassList["tamer"] = {
 			source : [["HGtMH", 194]],
 			minlevel : 1,
 			description : desc([
-				"I choose a creature that isn’t a humanoid, giant, or swarm to become my companion.", 
-				"As I level up, the maximum size and CR of my companions increase.",
-				"I can summon my companion as an action, an dismiss it as a bonus action, in an unoccupied space that I can see within 30 feet of me. I must be holding its vessel in hand.",
-				"I can only have one companion summoned at a time.",
-				"It takes a turn on my initiative. If i'm not incapacitated, it takes the Dodge action unless I command it otherwise",
-				"As an action, I can have it take any action it posses on its turn. Check the Notes page for exceptions."
+				"I choose a creature that isn’t a humanoid, giant, or swarm to become my companion. I can summon my companion as an action, an dismiss it as a bonus action, in an unoccupied space that I can see within 30 feet of me. I must be holding its vessel in hand. I can only have one companion summoned at a time. It takes a turn on my initiative. If i'm not incapacitated, it takes the Dodge action unless I command it otherwise. As an action, I can have it take any action it posses on its turn. Check the Notes page for exceptions."
 			]),
 			toNotesPage : [{
 				name : " Lost Traits.",
@@ -106,10 +102,7 @@ ClassList["tamer"] = {
 			source : [["HGtMH", 197]],
 			minlevel : 1,
 			description : desc([
-				"My companions use my proficiency bonus instead of their own.",
-				"When I reach 4th, 8th, 12th, 16th, and 19th level, my companions increase their Maximum Hit Points by gaining one aditional Hit Dice.",
-				"Whenever I gain a Tamer level beyond 1st, each bonded companion gains one improvement.",
-				"All of this feature are applied retroactively to future companions."
+				"My companions use my proficiency bonus instead of their own. When I reach 4th, 8th, 12th, 16th, and 19th level, my companions increase their Maximum Hit Points by gaining one aditional Hit Dice. Whenever I gain a Tamer level beyond 1st, each bonded companion gains one improvement. All of this feature are applied retroactively to future companions."
 			]),
 			toNotesPage : [{
 				name : " Companion Improvement Training Table",
@@ -128,12 +121,7 @@ ClassList["tamer"] = {
 			source : [["HGtMH", 197]],
 			minlevel : 1,
 			description : desc([
-				"I can tame additional creatures to make them my companions." ,
-				"The maximum number, size, and CR of the creatures I can tame will increase as I level up.",
-				"Before taming a creature, I must invest 8 hours of work and 100 gp by the creature's CR creating a vessel.",
-				"If the creature meets the conditions, I can throw the vessel up to 30 feet and force it to make a Charisma saving throw against my tamer spell save DC or be trapped",
-				"If the creature has either fewer than ten hit points or one-quarter of its hit points, it automatically fails the saving throw.",
-				"I cannot tame a creature with a higher CR than the one for which a vessel was created.",
+				"I can tame additional creatures to make them my companions. The maximum number, size, and CR of the creatures I can tame will increase as I level up. Before taming a creature, I must invest 8 hours of work and 100 gp by the creature's CR creating a vessel. If the creature meets the conditions, I can throw the vessel up to 30 feet and force it to make a Charisma saving throw against my tamer spell save DC or be trapped. If the creature has either fewer than ten hit points or one-quarter of its hit points, it automatically fails the saving throw. I cannot tame a creature with a higher CR than the one for which a vessel was created.",
 			]),
 		}, //tame creature
 		"spellcasting" : {
@@ -141,8 +129,7 @@ ClassList["tamer"] = {
 			source : [["HGtMH", 199]],
 			minlevel : 2,
 			description : desc([
-				"I can cast prepared tamer cantrips/spells, using Intelligence, Wisdom, or Charisma as my spellcasting ability",
-				"I can use a companion's vessel as a spellcasting focus for my tamer spells.",
+				"I can cast prepared tamer cantrips/spells, using Intelligence, Wisdom, or Charisma as my spellcasting ability. I can use a companion's vessel as a spellcasting focus for my tamer spells.",
 				]),
 			additional : ["0 cantrips known", 
 						  "2 cantrips known", 
@@ -181,9 +168,7 @@ ClassList["tamer"] = {
 			source : [["HGtMH", 201]],
 			minlevel : 2,
 			description : desc([
-				"I can communicate with my companion while it is within 100 feet.",
-				"As an action, I can see through your companion’s eyes and hear what it hears until the start of your next turn.",
-				"While my companion is summoned, is within 100 feet of me, and I hold its vessel, any spells my companion knows are added to my known spells. In addition, when I cast a spell with a range of self or touch, my companion can be the target of that spell.",
+				"I can communicate with my companion while it is within 100 feet. As an action, I can see through your companion’s eyes and hear what it hears until the start of your next turn. While my companion is summoned, is within 100 feet of me, and I hold its vessel, any spells my companion knows are added to my known spells. In addition, when I cast a spell with a range of self or touch, my companion can be the target of that spell.",
 			])
 		}, //psychic bond
 		"subclassfeature3" : { 
@@ -191,8 +176,7 @@ ClassList["tamer"] = {
 			source : [["HGtMH", 201]],
 			minlevel : 3,
 			description : desc([
-				"Choose a Training Paradigm that strengthens your relationship with your companions and put it in the \"Class\" field",
-				"Choose either Leader, Infuser, Necromancer, or Splicer",
+				"Choose a Training Paradigm that strengthens your relationship with your companions and put it in the \"Class\" field."
 				])
 		},
 		"malleable presence" : {
@@ -205,7 +189,8 @@ ClassList["tamer"] = {
             usages : 1,
 			recovery: "short rest",
 			toNotesPage : [{
-				name : "Companion behaviours",
+				limfeaname : "Adopt behavior",
+				name : "Malleable Presence behaviours",
 				note : [
 					" \u2022 Aggressive. The creature has disadvantage on attack rolls it makes against creatures other than your companion.",
 					" \u2022 Cautious. The creature has disadvantage on attack rolls against your companion if there is another creature hostile towards the attacker within 5 feet of the attacker.",
@@ -220,16 +205,44 @@ ClassList["tamer"] = {
 			description : desc([
 				"I can give a command to my partner at the same time as I summon it."
 			]),
-			usages : "Spellcasting Ability modifier per",
+			usages : [4, 5, 6],
 			recovery: "long rest",
 		},
 		"wilful blows" : {
-			name : "Wildul Blows",
-			source : [[]],
+			name : "Wilful Blows",
+			source : [["HGtMH", 202]],
 			minlevel : 6,
 			description : desc([
-					" Your companions’ attacks count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage."
+					" My companions’ attacks count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage."
 			]),
+		},
+		"switcheroo" : {
+			name : "Switcheroo",
+			source : [["HGtMH", 202]],
+			minlevel : 13,
+			description : desc([
+				"With my companion 100 feet away or less, I can magically switch places with it as a bonus action or when me or my companion is the target of an attack by an attacker I can see, becoming the target.",
+			]),
+		}, //switcheroo
+		"magnificent presence" : {
+			name : "Magnificent Presence",
+			source : [["HGtMH", 202]],
+			minlevel : 17,
+			description : desc([
+				"I can command my companion to adopt a new behaviors."
+					]),
+				toNotesPage : [{
+					name : "Magnificent Presence behaviours",
+					note : [
+						" \u2022 Provoking Poise. For the next minute, your companion draws the attention of nearby creatures. While within 15 feet of your companion, any creature that is hostile towards your companion and that can see it has disadvantage on attack rolls it makes against creatures other than your companion.",
+						" \u2022 Shrinking Violet. For the next minute, your companion appears small and unassuming, making little noise. Any creature that is hostile towards your companion has disadvantage on attack rolls against your companion if there is another creature hostile towards the attacker within 15 feet of the attacker.",
+						],
+				}],
+		}, //magnificent presence
+		"summon the horde" : {
+			name : "Summon the Horde",
+			source : [["HGtMH", 202]],
+		},
 	}, //features
 }; //tamer
 AddSubClass("tamer", "tamer-leader", {
