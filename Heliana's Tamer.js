@@ -367,7 +367,7 @@ AddSubClass("tamer", "tamer-infuser", {
 		"subclassfeature3" : { 
 			name : "Infuse",
 			source : [["HGtMH", 204]],
-			spellcastingExtra : ["hellish rebuke", "peppermint plate," eelskin", "riptide", "protection from energy", "wind wall", "control water", "fire shield", "feverskin", "wall of stone"],
+			spellcastingExtra : ["hellish rebuke", "peppermint plate", "eelskin", "riptide", "protection from energy", "wind wall", "control water", "fire shield", "feverskin", "wall of stone"],
 			minlevel : 3,
 			description : desc([
 				"By finishing s long rest, I can infuse my companion with an element. Use the \"Choose Feature\" button above. The first time it hits a target with an attack on its turn, it deals additional damage."
@@ -387,13 +387,13 @@ AddSubClass("tamer", "tamer-infuser", {
 				name : "Fire",
 				description : "",
 			}, //fire
-			"Lightning" : {
+			"lightning" : {
 				name : "Lightning",
 				description : "",
 			}, //lightning
 		}, //subclassfeature3
 		"subclassfeature3.1" : { 
-			name : " Elemental Discharge",
+			name : "Elemental Discharge",
 			source : [["HGtMH", 204]],
 			minlevel : 7,
 			description : desc([
@@ -402,6 +402,14 @@ AddSubClass("tamer", "tamer-infuser", {
 			usages : ["", "", "", "", "", "", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "2", "2", "2"],
 			recovery: "short rest",
 		}, //subclassfeature3.1
+		"subclassfeature3.2" : { 
+			name : "Patata",
+			source : [["HGtMH", 999]],
+			minlevel : 3,
+			description : desc([
+				"Patata"
+			]),
+		}, //subclassfeature3.2
 	}, //features
 }); //infuser subclass
 AddSubClass("tamer", "tamer-necromancer", {
