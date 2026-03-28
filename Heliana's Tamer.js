@@ -367,12 +367,12 @@ AddSubClass("tamer", "tamer-infuser", {
 		"subclassfeature3" : { 
 			name : "Infuse",
 			source : [["HGtMH", 204]],
-			spellcastingExtra : [],
+			spellcastingExtra : ["hellish rebuke", "peppermint plate," eelskin", "riptide", "protection from energy", "wind wall", "control water", "fire shield", "feverskin", "wall of stone"],
 			minlevel : 3,
 			description : desc([
-				"I can infuse my companion with an item. Use the \"Choose Feature\" button above. The first time it hits a target with an attack on its turn, it deals additional damage."
+				"By finishing s long rest, I can infuse my companion with an element. Use the \"Choose Feature\" button above. The first time it hits a target with an attack on its turn, it deals additional damage."
 			]),
-			additional : [
+			additional : ["", "", "1d4", "1d4", "1d4", "1d6", "1d6", "1d6", "1d6", "1d8", "1d8", "1d8", "1d8", "1d10", "1d10", "1d10", "1d10", "1d10", "1d10", "1d10"],
 			extraname: "Infuse",
 			extrachoices : ["Acid", "Cold", "Fire", "Lightning"],
 			"acid" : {
@@ -392,6 +392,16 @@ AddSubClass("tamer", "tamer-infuser", {
 				description : "",
 			}, //lightning
 		}, //subclassfeature3
+		"subclassfeature3.1" : { 
+			name : " Elemental Discharge",
+			source : [["HGtMH", 204]],
+			minlevel : 7,
+			description : desc([
+				"By infusing my companion after finishing a long rest, it gains an element-related action option to use once. At 18th level, it can do so twice between rests, but once per turn.",
+			]),
+			usages : ["", "", "", "", "", "", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "2", "2", "2"],
+			recovery: "short rest",
+		}, //subclassfeature3.1
 	}, //features
 }); //infuser subclass
 AddSubClass("tamer", "tamer-necromancer", {
