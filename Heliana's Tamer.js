@@ -38,15 +38,16 @@ ClassList["tamer"] = {
 		level : [0, 5],
 	},
 	features : {
-		"pocket familiar" : {
+		"01.pocket familiar" : {
 			name : "Pocket Familiar",
 			source : [["HGtMH", 194]],
 			minlevel : 1,
 			description : desc([
-				"I choose a creature that isn’t a humanoid, giant, or swarm to become my companion. I can summon my companion as an action, an dismiss it as a bonus action, in an unoccupied space that I can see within 30 feet of me. I must be holding its vessel in hand. I can only have one companion summoned at a time. It takes a turn on my initiative. If i'm not incapacitated, it takes the Dodge action unless I command it otherwise. As an action, I can have it take any action it posses on its turn. Check the Notes page for exceptions."
+				"I can only have one companion summoned at a time. It takes a turn on my initiative.",
+				"As I hold its vessel, I can summon and dismiss it in an space that I can see within 30 feet.",
 			]),
 			toNotesPage : [{
-				name : " Lost Traits.",
+				name : "Lost Traits.",
 				source : [["HGtMH", 199]],
 				note : [
 					"When a creature becomes my companion, stops being able to use following traits:",
@@ -81,50 +82,81 @@ ClassList["tamer"] = {
 						  "at most 6 Huge or smaller creature, CR: 6" //20th
 						 ],
 			action : [
+				["action", "Command companion"],
 				["action", "Summon/dismiss companion"],
 				["bonus action", "Dismiss companion"],
 					  ],
-			creaturesAdd : [["Ranger's Companion", false, false, "companion"]], //creaturesAdd
+			creaturesAdd : [["Ranger's Companion", false, false, "companion"]], //companion placeholder
 		}, //pocket familiar
-		"soul bond" : {
+		"02.soul bond" : {
 			name : "Soul Bond",
 			source : [["HGtMH", 197]],
 			minlevel : 1,
 			description : desc([
-				"I have a pool of healing power. Whenever I finish a short rest, I can restore a total number of hit points amongst my companions"
+				"Whenever I finish a short rest, I can restore a total number of hit points amongst my companions"
 			]),
 			limfeaname: "Healing Power",
 			usages: levels.map(function(n) { return n * 5 }),
             recovery: "long rest",
 		}, //soul bond
-		"monster trainer" : {
+		"03.monster trainer" : {
 			name : "Monster Trainer",
 			source : [["HGtMH", 197]],
 			minlevel : 1,
 			description : desc([
-				"My companions use my proficiency bonus instead of their own. When I reach 4th, 8th, 12th, 16th, and 19th level, my companions increase their Maximum Hit Points by gaining one aditional Hit Dice. Whenever I gain a Tamer level beyond 1st, each bonded companion gains one improvement. All of this feature are applied retroactively to future companions."
+				"My companions use my proficiency bonus instead of their own."
 			]),
 			toNotesPage : [{
 				name : " Companion Improvement Training Table",
 				source : [["HGtMH", 197]],
 				note : [
-						" \u2022 Speed Training: Increase one existing speed by 15 feet up to a maximum of 150% of the creature’s base speed, rounded up to the nearest 5-foot increment*.",
-						" \u2022 Toughen Up (once per companion until 5th level, twice until 9th level and thrice as maximum): Your companion gains an additional Hit Die, increasing its hit point maximum. Increase your companion’s hit point maximum by rolling this Hit Die and adding (minimum of 0). your companion’s Constitution modifier Ability Boost Increase one of your companion's ability scores by 1, to a maximum of 20.",
-						" \u2022 Go For the Throat: Your companion gains a +1 bonus to its attack and damage rolls made with its natural weapons or unarmed strikes**.",
-						" \u2022 Survival Instincts: Your companion gains proficiency in one saving throw.",
-						" \u2022 War Training: Your companion gains proficiency with one armour type or two weapons (Proficiency in the previous armor tier is required to acquire the following one.)."
-					]
+						" \u2022 Speed Training.",
+						"      Increase one existing speed by 15 feet up to a maximum of 150% of the creature’s base speed, rounded up to the nearest 5-foot increment.",
+						" \u2022 Toughen Up.",
+						"      Your companion gains an additional Hit Die, increasing its hit point maximum. Increase your companion’s hit point maximum by rolling this Hit Die and adding (minimum of 0). your companion’s Constitution modifier Ability Boost Increase one of your companion's ability scores by 1, to a maximum of 20 (once per companion until 5th level, twice until 9th level and thrice as maximum).",
+						" \u2022 Go For the Throat.",
+						"      Your companion gains a +1 bonus to its attack and damage rolls made with its natural weapons or unarmed strikes.",
+						" \u2022 Survival Instincts.", 
+						"      Your companion gains proficiency in one saving throw.",
+						" \u2022 War Training.", 
+						"      Your companion gains proficiency with one armour type or two weapons (proficiency in the previous armor tier is required to acquire the following one)."
+					],
 			}], //toNotesPage
+			toNotesPage : [{ //placeholder
+				name : " Compaion's feats",
+				source : [["HGtMH", 197]],
+				note : [
+				" \u2022 When I reach 4th, 8th, 12th, 16th, and 19th level, my companions gains 1 aditional Hit Dice.",
+				" \u2022 Whenever I gain a Tamer level beyond 1st, each bonded companion gains one improvement.",
+				" \u2022 All of this feature are applied retroactively to future companions.",
+				" \u2022 If i'm not incapacitated, it takes the Dodge action unless I command it otherwise.",
+			   	" \u2022 I can command it take any action it posses on its turn. Check the Notes page for exceptions.",
+				]
+			}],
 		}, //monster trainer
-		"tame creature" : {
+		"04.tame creature" : {
 			name : "Tame Creature",
-			source : [["HGtMH", 197]],
+			source : [["HGtMH", 198]],
 			minlevel : 1,
 			description : desc([
-				"I can tame additional creatures to make them my companions. The maximum number, size, and CR of the creatures I can tame will increase as I level up. Before taming a creature, I must invest 8 hours of work and 100 gp by the creature's CR creating a vessel. If the creature meets the conditions, I can throw the vessel up to 30 feet and force it to make a Charisma saving throw against my tamer spell save DC or be trapped. If the creature has either fewer than ten hit points or one-quarter of its hit points, it automatically fails the saving throw. I cannot tame a creature with a higher CR than the one for which a vessel was created.",
-			]),
+				"I can tame additional creatures to make them my companions."
+				]),
+			toNotesPage : [{
+				name : " Tame Creature",
+				source : [["HGtMH", 198]],
+				note : [
+					" \u2022 The creature cant be a humanoid, giant, or swarm",
+					" \u2022 The maximum number, size, and CR of the creatures I can tame will increase as I level up.",
+					" \u2022 Before taming a creature, I must invest 8 hours of work and 100 gp by the creature's CR creating a vessel.",
+					" \u2022 If the creature meets the conditions, I can throw the vessel up to 30 feet and force it to make a Charisma saving throw against my tamer spell save DC or be trapped.",
+					" \u2022 If the creature has either fewer than ten hit points or one-quarter of its hit points, it automatically fails the saving throw.",
+					" \u2022 I cannot tame a creature with a higher CR than the one for which a vessel was created.",
+					"",
+				],
+				page3notes : true,
+			}],
 		}, //tame creature
-		"spellcasting" : {
+		"05.spellcasting" : {
 			name : "Spellcasting",
 			source : [["HGtMH", 199]],
 			minlevel : 2,
@@ -152,7 +184,7 @@ ClassList["tamer"] = {
 						  "4 cantrips known", 
 						  "4 cantrips known"],
 		}, //spellcasting
-		"bolster" : {
+		"06.bolster" : {
 			name : "Bolster",
 			source : [["HGtMH", 199]],
 			minlevel : 2,
@@ -163,29 +195,38 @@ ClassList["tamer"] = {
 				"Spellcasting Ability Modifier + 2d4 per SS level"
 				],
 		}, //bolster
-		"psychic bond" : {
+		"07.psychic bond" : {
 			name : "Psychic Bond",
 			source : [["HGtMH", 201]],
 			minlevel : 2,
 			description : desc([
-				"I can communicate with my companion while it is within 100 feet. As an action, I can see through your companion’s eyes and hear what it hears until the start of your next turn. While my companion is summoned, is within 100 feet of me, and I hold its vessel, any spells my companion knows are added to my known spells. In addition, when I cast a spell with a range of self or touch, my companion can be the target of that spell.",
+				"I can telepathically communicate with my companion while it is within 100 feet.",
+				"As an action, I can use it's eyes and hears until the start my next turn.",
 			]),
 			action : ["action", "Psychic Bond"],
+			toNotesPage : [{
+				name : "Psychic Bond",
+				source : [["HGtMH", 201]],
+				note : [
+					" \u2022 While is summoned, any spells my companion knows are added to my known spells.",
+				],
+				amendTo : "Compaion's feats",
+			}],
 		}, //psychic bond
 		"subclassfeature3" : { 
 			name : "Training Paradigm",
 			source : [["HGtMH", 201]],
 			minlevel : 3,
 			description : desc([
-				"Choose a Training Paradigm that strengthens your relationship with your companions and put it in the \"Class\" field."
+				"Choose a Training Paradigm in the \"Class\" field."
 				])
 		},
-		"malleable presence" : {
+		"09.malleable presence" : {
 			name : "Malleable Presence",
 			source : [["HGtMH", 201]],
 			minlevel : 5,
 			description : desc([
-				"With my companion 100 feet away or less, I can command it to adopt a behavior against a creature i can see. The objective creature must succeed on a Wisdom saving throw against my spell save DC or suffer the effects of the behavior.",
+				"With my companion 100 feet away or less, I can command it to adopt a behavior.",
 				]),
             usages : 1,
 			recovery: "short rest",
@@ -193,31 +234,33 @@ ClassList["tamer"] = {
 				limfeaname : "Adopt behavior",
 				name : "Malleable Presence behaviours",
 				note : [
+					"I need to be able to see the objective creature must succeed on a Wisdom saving throw against my spell save DC or suffer the effects of the chosen behavior.",
 					" \u2022 Aggressive. The creature has disadvantage on attack rolls it makes against creatures other than my companion.",
 					" \u2022 Cautious. The creature has disadvantage on attack rolls against my companion if there is another creature hostile towards the attacker within 5 feet of the attacker.",
+					"",
 				],
 				page3notes : true,
 			}],
         },//malleable presence
-		"alpha strike" : {
+		"10.alpha strike" : {
 			name : "Alpha Strike",
 			source : [["HGtMH", 201]],
 			minlevel : 6,
 			description : desc([
 				"I can give a command to my partner at the same time as I summon it."
 			]),
-			usages : "Spellcastin Ability modifier",
+			usages : "Spellcastin Ability modifier per ",
 			recovery: "long rest",
 		},
-		"wilful blows" : {
+		"11.wilful blows" : {
 			name : "Wilful Blows",
 			source : [["HGtMH", 202]],
 			minlevel : 6,
 			description : desc([
-					" My companions’ attacks count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage."
+					"My companions’ attacks count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage."
 			]),
 		},
-		"switcheroo" : {
+		"12.switcheroo" : {
 			name : "Switcheroo",
 			source : [["HGtMH", 202]],
 			minlevel : 13,
@@ -228,10 +271,10 @@ ClassList["tamer"] = {
 				["action", "Switcheroo"],
 				["reaction", "Switcheroo"]
 			],
-			usages : "Spellcastin Ability modifier",
+			usages : "Spellcastin Ability modifier per ",
 			recovery: "short rest",
 		}, //switcheroo
-		"magnificent presence" : {
+		"13.magnificent presence" : {
 			name : "Magnificent Presence",
 			source : [["HGtMH", 202]],
 			minlevel : 17,
@@ -243,11 +286,12 @@ ClassList["tamer"] = {
 					note : [
 						" \u2022 Provoking Poise. For the next minute, my companion draws the attention of nearby creatures. While within 15 feet of my companion, any creature that is hostile towards my companion and that can see it has disadvantage on attack rolls it makes against creatures other than my companion.",
 						" \u2022 Shrinking Violet. For the next minute, my companion appears small and unassuming, making little noise. Any creature that is hostile towards my companion has disadvantage on attack rolls against my companion if there is another creature hostile towards the attacker within 15 feet of the attacker.",
+						"",
 						],
 					page3notes : true,
 				}],
 		}, //magnificent presence
-		"summon the horde" : {
+		"14.summon the horde" : {
 			name : "Summon the Horde",
 			source : [["HGtMH", 202]],
 			minlevel : 20,
@@ -266,6 +310,13 @@ AddSubClass("tamer", "tamer-leader", {
 	source : [["HGtMH", 202]],
 	fullname : "Leader tamer",
 	features : {
+		"subclassfeature3" : { 
+			name : "Patata",
+			source : [["HGtMH", 999]],
+			minlevel : 3,
+			description : desc([
+				"Patata"
+				])
 	}, //features
 }); //leader subclass
 AddSubClass("tamer", "tamer-infuser", {
@@ -274,6 +325,13 @@ AddSubClass("tamer", "tamer-infuser", {
 	source : [["HGtMH", 204]],
 	fullname : "Infuser tamer",
 	features : {
+		"subclassfeature3" : { 
+			name : "Patata",
+			source : [["HGtMH", 999]],
+			minlevel : 3,
+			description : desc([
+				"Patata"
+				])
 	}, //features
 }); //infuser subclass
 AddSubClass("tamer", "tamer-necromancer", {
@@ -282,6 +340,13 @@ AddSubClass("tamer", "tamer-necromancer", {
 	source : [["HGtMH", 205]],
 	fullname : "Necromancer tamer",
 	features : {
+		"subclassfeature3" : { 
+			name : "Patata",
+			source : [["HGtMH", 999]],
+			minlevel : 3,
+			description : desc([
+				"Patata"
+				])
 	}, //features
 }); //necromancer subclass
 AddSubClass("tamer", "tamer-splicer", {
@@ -290,5 +355,21 @@ AddSubClass("tamer", "tamer-splicer", {
 	source : [["HGtMH", 207]],
 	fullname : "Splicer tamer",
 	features : {
+		"subclassfeature3" : { 
+			name : "Patata",
+			source : [["HGtMH", 999]],
+			minlevel : 3,
+			description : desc([
+				"Patata"
+				])
+		},
 	}, //features
 }); //splicer subclass
+
+// "subclassfeature3.1.2.3.4.5.6" : { 
+			//name : "Patata",
+			//source : [["HGtMH", 999]],
+			//minlevel : 3,
+			//description : desc([
+				//"Patata"
+				//])
