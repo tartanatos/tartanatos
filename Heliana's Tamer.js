@@ -296,7 +296,7 @@ ClassList["tamer"] = {
 			source : [["HGtMH", 202]],
 			minlevel : 20,
 			description : desc([
-				"I can summon additional companions to a total of 3 which remain summoned for 1 minute. I can commands to all my companions at once. When the minute ends, all aditional companion return to their vessels and a I can’t move or take actions until the end of my next turn."
+				"I can summon additional companions to a total of 3 which remain summoned for 1 minute. I can command all my companions at once. When the minute ends, all aditional companion return to their vessels and a I can’t move or take actions until the end of my next turn."
 			]),
 			usages : 1,
 			recovery: "long rest",
@@ -305,38 +305,98 @@ ClassList["tamer"] = {
 	}, //features
 }; //tamer
 AddSubClass("tamer", "tamer-leader", {
-	regExpSearch : /^(?=.*leader).*$/i,
-	subname : "Leader tamer",
+	regExpSearch : /^(?=.*tamer-leader).*$/i,
+	subname : "Leader",
 	source : [["HGtMH", 202]],
+	spellcastingExtra : ["divine favor", "protection from evil and good", "inequality", "warding bond", "beacon of hope", "haste", "death ward", "freedom of movement", "dispel evil and good", "endure"],
 	fullname : "Leader tamer",
 	features : {
 		"subclassfeature3" : { 
-			name : "Patata",
-			source : [["HGtMH", 999]],
+			name : "Inpsire",
+			source : [["HGtMH", 202]],
 			minlevel : 3,
 			description : desc([
-				"Patata"
-				])
+				"As an action, I can inspire my companion, adding a bonus to its saving throw or attack roll."
+			]),
+			usages : "Spellcastin Ability modifier per ",
+			recovery: "long rest",
+			additional : ["", "", "1d6", "1d6", "1d6", "1d8", "1d8", "1d8", "1d8", "1d10", "1d10", "1d10", "1d10", "1d12", "1d12", "1d12", "1d12", "1d12", "1d12", "1d12"],
+			action : [
+				["action", "Inpsire"],
+			],
+		}, //subclassfeature3
+		"subclassfeature3.1" : { 
+			name : "Action Burst",
+			source : [["HGtMH", 203]],
+			minlevel : 7,
+			description : desc([
+				"When command, my companion can perform one more action on its turn. At 18th level, it can do so twice between rests, but once per turn."
+			]),
+			usages : ["", "", "", "", "", "", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "2", "2", "2"],
+			recovery: "short rest",
+		}, //subclassfeature3.1
+		"subclassfeature3.2" : { 
+			name : "Leader’s Fortitude",
+			source : [["HGtMH", 203]],
+			minlevel : 10,
+			description : desc([
+				"Using both my and my companion's reaction, I can halve damage it receives."
+			]),
+			action : [
+				["reaction", "Leader’s Fortitude"],
+			],
+		},//subclassfeature3.2
+		"subclassfeature3.3" : { 
+			name : "Combo",
+			source : [["HGtMH", 203]],
+			minlevel : 14,
+			description : desc([
+				"I can summon a second companion which remain for 1 minute. I can command all my companions at once. When the minute ends, the second companion return to its vessels."
+			]),
+			usages : 1,
+			recovery: "long rest",
+		},
 	}, //features
 }); //leader subclass
 AddSubClass("tamer", "tamer-infuser", {
-	regExpSearch : /^(?=.*infuser).*$/i,
-	subname : "Infuser tamer",
+	regExpSearch : /^(?=.*tamer-infuser).*$/i,
+	subname : "Infuser",
 	source : [["HGtMH", 204]],
 	fullname : "Infuser tamer",
 	features : {
 		"subclassfeature3" : { 
-			name : "Patata",
-			source : [["HGtMH", 999]],
+			name : "Infuse",
+			source : [["HGtMH", 204]],
+			spellcastingExtra : [],
 			minlevel : 3,
 			description : desc([
-				"Patata"
-				])
+				"I can infuse my companion with an item. Use the \"Choose Feature\" button above. The first time it hits a target with an attack on its turn, it deals additional damage."
+			]),
+			additional : [
+			extraname: "Infuse",
+			extrachoices : ["Acid", "Cold", "Fire", "Lightning"],
+			"acid" : {
+				name : "Acid",
+				description : "",
+			},	//acid
+			"cold" : {
+				name : "Cold",
+				description : "",
+			}, //cold
+			"fire" : {
+				name : "Fire",
+				description : "",
+			}, //fire
+			"Lightning" : {
+				name : "Lightning",
+				description : "",
+			}, //lightning
+		}, //subclassfeature3
 	}, //features
 }); //infuser subclass
 AddSubClass("tamer", "tamer-necromancer", {
-	regExpSearch : /^(?=.*necromancer).*$/i,
-	subname : "Necromancer tamer",
+	regExpSearch : /^(?=.*tamer-necromancer).*$/i,
+	subname : "Necromancer",
 	source : [["HGtMH", 205]],
 	fullname : "Necromancer tamer",
 	features : {
@@ -346,12 +406,13 @@ AddSubClass("tamer", "tamer-necromancer", {
 			minlevel : 3,
 			description : desc([
 				"Patata"
-				])
+			]),
+		},
 	}, //features
 }); //necromancer subclass
 AddSubClass("tamer", "tamer-splicer", {
-	regExpSearch : /^(?=.*splicer).*$/i,
-	subname : "Splicer tamer",
+	regExpSearch : /^(?=.*tamer-splicer).*$/i,
+	subname : "Splicer",
 	source : [["HGtMH", 207]],
 	fullname : "Splicer tamer",
 	features : {
@@ -361,15 +422,18 @@ AddSubClass("tamer", "tamer-splicer", {
 			minlevel : 3,
 			description : desc([
 				"Patata"
-				])
+			]),
 		},
 	}, //features
 }); //splicer subclass
 
-// "subclassfeature3.1.2.3.4.5.6" : { 
-			//name : "Patata",
-			//source : [["HGtMH", 999]],
-			//minlevel : 3,
-			//description : desc([
-				//"Patata"
-				//])
+
+//ayuda
+"subclassfeature3.1.2.3.4.5.6" : { 
+	name : "Patata",
+	source : [["HGtMH", 999]],
+	minlevel : 3,
+	description : desc([
+		"Patata"
+	]),
+},
