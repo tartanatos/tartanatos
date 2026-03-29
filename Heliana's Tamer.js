@@ -305,56 +305,55 @@ ClassList["tamer"] = {
 	}, //features
 }; //tamer
 AddSubClass("tamer", "leaderpar", {
-	regExpSearch : /leaderpar/i,
+	regExpSearch : /^(?=.*leader)(?=.*paradigm).*$/i,
 	subname : "Leader Paradigm",
 	source : [["HGtMH", 202]],
 	spellcastingExtra : ["divine favor", "protection from evil and good", "inequality", "warding bond", "beacon of hope", "haste", "death ward", "freedom of movement", "dispel evil and good", "endure"],
 	features : {
-		"leader spells3" : {
+		"necromancer spells3" : {//cambiar a conrujos de leader
 			minlevel : 3,
 			spellcastingBonus : [{
-				name : "Leader Spells (level 3)",
-				spells : ["divine favor", "protection from evil and good"],
-				selection : ["divine favor", "protection from evil and good"],
+				name : "Necromancer Spells (level 3)",
+				spells : ["false life", "inflict wounds"],
+				selection : ["false life", "inflict wounds"],
 				times : 2,
 			}]
 		},
-		"leader spells5" : {
+		"necromancer spells5" : {//cambiar a conrujos de leader
 			minlevel : 5,
 			spellcastingBonus : [{
-				name : "Leader Spells (level 5)",
-				spells : ["inequality", "warding bond"],
-				selection : ["inequality", "warding bond"],
+				name : "Necromancer Spells (level 5)",
+				spells : ["blindness/deafness", "ray of enfeeblement"],
+				selection : ["blindness/deafness", "ray of enfeeblement"],
 				times : 2,
 			}]
 		},
-		"leader spells9" : {
+		"necromancer spells9" : {//cambiar a conrujos de leader
 			minlevel : 9,
 			spellcastingBonus : [{
-				name : "Leader Spells (level 9)",
-				spells : ["beacon of hope", "haste"],
-				selection : ["beacon of hope", "haste"],
+				name : "Necromancer Spells (level 9)",
+				spells : ["influenza", "vampiric touch"],
+				selection : ["influenza", "vampiric touch"],
 				times : 2,
 			}]
 		},
-		"leader spells13" : {
+		"necromancer spells13" : {//cambiar a conrujos de leader
 			minlevel : 13,
 			spellcastingBonus : [{
-				name : "Leader Spells (level 13)",
-				spells : ["death ward", "freedom of movement"],
-				selection : ["death ward", "freedom of movement"],
+				name : "Necromancer Spells (level 13)",
+				spells : ["confusion", "death ward"],
+				selection : ["confusion", "death ward"],
 				times : 2,
 			}]
 		},
-		"leader spells17" : {
+		"necromancer spells17" : { //cambiar a conrujos de leader
 			minlevel : 17,
 			spellcastingBonus : [{
-				name : "Leader Spells (level 17)",
-				spells : ["dispel evil and good", "endure"],
-				selection : ["dispel evil and good", "endure"],
+				name : "Necromancer Spells (level 17)",
+				spells : ["bone cage", "endure"],
+				selection : ["bone cage", "endure"],
 				times : 2,
 			}]
-		},
 		"subclassfeature3" : { 
 			name : "Inpsire",
 			source : [["HGtMH", 202]],
@@ -403,7 +402,7 @@ AddSubClass("tamer", "leaderpar", {
 	}, //features
 }); //leader subclass
 AddSubClass("tamer", "infuserpar", {
-	regExpSearch : /infuserpar/i,
+	regExpSearch : /^(?=.*infuser)(?=.*paradigm).*$/i,
 	subname : "Infuser Paradigm",
 	source : [["HGtMH", 204]],
 	spellcastingExtra : ["hellish rebuke", "peppermint plate", "eelskin", "riptide", "protection from energy", "wind wall", "control water", "fire shield", "feverskin", "wall of stone"],
@@ -537,11 +536,10 @@ AddSubClass("tamer", "infuserpar", {
 	}, //features
 }); //infuser subclass
 AddSubClass("tamer", "necromanticpar", {
-	regExpSearch : /necromanticpar/i,
-	subname : "Necromancer Paradigm",
+	regExpSearch : /^(?=.*necromantic)(?=.*paradigm).*$/i,
+	subname : "Necromantic Paradigm",
 	source : [["HGtMH", 205]],
 	spellcastingExtra : ["false life", "inflict wounds", "blindness/deafness", "ray of enfeeblement", "influenza", "vampiric touch", "confusion", "death ward", "bone cage", "endure"],
-	selection : ["false life", "inflict wounds", "blindness/deafness", "ray of enfeeblement", "influenza", "vampiric touch", "confusion", "death ward", "bone cage", "endure"],
 	features : {
 		"necromancer spells3" : {
 			minlevel : 3,
@@ -602,15 +600,15 @@ AddSubClass("tamer", "necromanticpar", {
 			source : [["HGtMH", 205]],
 			minlevel : 3,
 			description : desc([
-				"I can attempt to tame one creature within 1 minute of it dying. Check 3rd page Notes for additional rules."
+				"I can attempt to tame one creature within 1 minute of it dying. Check 3rd page Notes for additional rules.",
 			]),
 			toNotesPage : [{
 				name : "Post-Mortem",
 				note : [
 					" \u2022 When I attempt to tame a dead creature, its soul makes a Charisma saving throw against my tamer spell save DC.",
-					"Humanoids and giants don’t automatically succeed on this saving throw.",
-					"On a failure, the creature’s soul becomes bound to its body; its type changes to undead and it becomes one of your companions.",
-					"On a success, you fail to tame the creature and you can’t attempt to tame the creature again until it has been brought back to life by other means.",
+					" \u2022 Humanoids and giants don’t automatically succeed on this saving throw.",
+					" \u2022 On a failure, the creature’s soul becomes bound to its body; its type changes to undead and it becomes one of your companions.",
+					" \u2022 On a success, you fail to tame the creature and you can’t attempt to tame the creature again until it has been brought back to life by other means.",
 				],
 				page3notes : true,
 			}],
@@ -620,7 +618,7 @@ AddSubClass("tamer", "necromanticpar", {
 			source : [["HGtMH", 206]],
 			minlevel : 7,
 			description : desc([
-				"I learn the Animate Dead spell and I can cast it once without using a spell slot, but can control 1 creature per casting."
+				"I learn the Animate Dead spell and I can cast it once without using a spell slot, but can control 1 creature per casting.",
 			]),
 			recovery: "long rest",
 			usages : 1,
@@ -638,17 +636,36 @@ AddSubClass("tamer", "necromanticpar", {
 			}],
 		}, //subclassfeature3.2
 		"subclassfeature3.3" : { 
-			name : "Patata",
-			source : [["HGtMH", 999]],
+			name : "Enervate",
+			source : [["HGtMH", 207]],
 			minlevel : 10,
 			description : desc([
-				"Patata"
+				"While my companion is within 100 feet, I can deal necrotic damage to me or my companion to twice My tamer level, then restore hit points equal to the damage."
 			]),
+			action : [
+				["action", "Enervate"],
+			]
 		}, //subclassfeature3.3
+		"subclassfeature3.4" : { 
+			name : "Aura of Undeath",
+			source : [["HGtMH", 207]],
+			minlevel : 14,
+			description : desc([
+				"I imbui my companion with a 15-foot aura of undeath for 1 minute.",
+				]),
+			toNotesPages : [{
+				name : "Aura of Undeath",
+				source : [["HGtMH", 207]],
+				note : [
+					"While Aura of Undeath efects, my companion can, as a bonus action, force one creature within the aura to make a Constitution saving throw against my tamer spell save DC. On a failure, the creature takes 4d8 necrotic damage and my companion gains number of temporary hit points equal to half the damage. In addition, when my companion would be reduced to 0 hit points, it is reduced to 1 hit point and gains one failed death saving throw. If my companion gains three failed death saving throws, or five if it has the undead type, it immediately dies. At the end of the minute, your companion drops to 0 hit points, falls unconscious, and is stable.",
+					],
+				amendTo : "Compaion's feats",
+			}],
+		}, //subclassfeature3.4
 	}, //features
 }); //necromancer subclass
-AddSubClass("tamer", "splicerp", {
-	regExpSearch : /splicerp/i,
+AddSubClass("tamer", "splicerpar", {
+	regExpSearch : /^(?=.*splicer)(?=.*paradigm).*$/i,
 	subname : "Splicer Paradigm",
 	source : [["HGtMH", 207]],
 	spellcastingExtra : [],
