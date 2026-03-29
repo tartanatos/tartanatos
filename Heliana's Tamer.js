@@ -310,50 +310,51 @@ AddSubClass("tamer", "leaderpar", {
 	source : [["HGtMH", 202]],
 	spellcastingExtra : ["divine favor", "protection from evil and good", "inequality", "warding bond", "beacon of hope", "haste", "death ward", "freedom of movement", "dispel evil and good", "endure"],
 	features : {
-		"necromancer spells3" : {//cambiar a conrujos de leader
+		"necromancer spells3" : {
 			minlevel : 3,
 			spellcastingBonus : [{
 				name : "Necromancer Spells (level 3)",
-				spells : ["false life", "inflict wounds"],
-				selection : ["false life", "inflict wounds"],
+				spells : ["divine favor", "protection from evil and good"],
+				selection : ["divine favor", "protection from evil and good"],
 				times : 2,
 			}]
 		},
-		"necromancer spells5" : {//cambiar a conrujos de leader
+		"necromancer spells5" : {
 			minlevel : 5,
 			spellcastingBonus : [{
 				name : "Necromancer Spells (level 5)",
-				spells : ["blindness/deafness", "ray of enfeeblement"],
-				selection : ["blindness/deafness", "ray of enfeeblement"],
+				spells : ["inequality", "warding bond"],
+				selection : ["inequality", "warding bond"],
 				times : 2,
 			}]
 		},
-		"necromancer spells9" : {//cambiar a conrujos de leader
+		"necromancer spells9" : {
 			minlevel : 9,
 			spellcastingBonus : [{
 				name : "Necromancer Spells (level 9)",
-				spells : ["influenza", "vampiric touch"],
-				selection : ["influenza", "vampiric touch"],
+				spells : ["beacon of hope", "haste"],
+				selection : ["beacon of hope", "haste"],
 				times : 2,
 			}]
 		},
-		"necromancer spells13" : {//cambiar a conrujos de leader
+		"necromancer spells13" : {
 			minlevel : 13,
 			spellcastingBonus : [{
 				name : "Necromancer Spells (level 13)",
-				spells : ["confusion", "death ward"],
-				selection : ["confusion", "death ward"],
+				spells : ["death ward", "freedom of movement"],
+				selection : ["death ward", "freedom of movement"],
 				times : 2,
 			}]
 		},
-		"necromancer spells17" : { //cambiar a conrujos de leader
+		"necromancer spells17" : {
 			minlevel : 17,
 			spellcastingBonus : [{
 				name : "Necromancer Spells (level 17)",
-				spells : ["bone cage", "endure"],
-				selection : ["bone cage", "endure"],
+				spells : ["dispel evil and good", "endure"],
+				selection : ["dispel evil and good", "endure"],
 				times : 2,
 			}]
+		},
 		"subclassfeature3" : { 
 			name : "Inpsire",
 			source : [["HGtMH", 202]],
@@ -677,6 +678,43 @@ AddSubClass("tamer", "splicerpar", {
 			description : desc([
 				"Patata"
 			]),
+			toNotesPage : [{
+				note : [
+					"Introduction text of the note. This will be preceded by a line break, but not three spaces as this is the first paragraph.",
+					[ // This will render as a table (i.e. a tab between each column)
+						["Augment", "Effect Summary", "Splicer Point Cost"], // The first row, which will be made bold
+						["Water Breathing", "Can only breathe water", "0"], // The rest of the rows won't be changed
+						["Amphibious", "Can breathe air and water", "1"], // Table row 2
+						["Darkvision", "Gains or extends darkvision", "1"],
+						["Extra Limb (max. 4)", "Can grapple more creatures", "1 per limb"],
+						["Fins & Webbing", "Gains 30-foot swimming speed", "1"],
+						["Illumination", "Sheds light (10 ft./10 ft.)", "1"],
+						["Keen Hearing", "Advantage on hearing", "1"],
+						["Keen Sight", "Advantage on sight", "1"],
+						["Keen Smell", "Advantage on smell", "1"],
+						["Powerful Build", "Can push, drag, and carry more", "1"],
+						["Prehensile Tail", "Gains 30-foot climbing speed", "1"],
+						["Slippery", "Advantage to avoid grapples", "1"],
+						["Sure-Footed", "Advantage to resist prone", "1"],
+						["Web Sense + Web Walk", "Can sense and walk on webs", "1"],
+						["Burrowing Claws", "Gains 15-foot burrowing speed", "2"],
+						["Long Limbed", "Increases reach of attacks", "2"],
+						["Mimicry", "Can mimic sounds", "2"],
+						["Natural Armour (max. 4)", "Gains a +1 bonus to AC", "2 per +1"],
+						["Poisonous Touch (max. 2)", "Deals bonus poison damage", "2"],
+						["Spider Climb", "Can climb without checks", "2"],
+						["Camouflage", "Has advantage to hide while motionless", "3"],
+						["Corrosive Touch max. 2)", "Deals bonus acid damage", "3"],
+						["Tremorsense", "Gains or extends tremorsense", "3 per 15 ft."],
+						["Wings", "Gains 30-foot flying speed", "3"],
+						["Blindsight + Echolocation", "Gains or extends blindsight", "4 per 15 ft."],
+						["Decaying Touch", "Deals bonus necrotic damage", "4"],
+						["Flyby", "Doesn't provoke opportunity attacks", "4"],
+						["Growth Hormone", "Increases size (limited by tamer level)", "category and HP 4"],
+						"A companion can benefit from only one ‘touch’ augment."
+					],
+				],
+			}],
 		}, //subclassfeature3
 	}, //features
 }); //splicer subclass
