@@ -26,6 +26,7 @@ ClassList["tamer"] = {
 		"\n \u2022 A dungeoneer’s pack -or- an explorer’s pack." +
 		"\n\nAlternatively, choose 5d4 \xD7 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
 	subclasses : ["Training Paradigm", []],
+	abilitySave : [4, 5, 6],
 	spellcastingAbility : [4, 5, 6],
 	spellcastingFactor : 2,
 	spellcastingKnown : {
@@ -35,7 +36,7 @@ ClassList["tamer"] = {
 	},
 	spellcastingList : {
 		class : "druid",
-		level : [0, 5],
+		level : [1, 5],
 	},
 	features : {
 		"01.pocket familiar" : {
@@ -113,13 +114,15 @@ ClassList["tamer"] = {
 						" \u2022 Speed Training.",
 						"      Increase one existing speed by 15 feet up to a maximum of 150% of the creature’s base speed, rounded up to the nearest 5-foot increment.",
 						" \u2022 Toughen Up.",
-						"      Your companion gains an additional Hit Die, increasing its hit point maximum. Increase your companion’s hit point maximum by rolling this Hit Die and adding (minimum of 0). your companion’s Constitution modifier Ability Boost Increase one of your companion's ability scores by 1, to a maximum of 20 (once per companion until 5th level, twice until 9th level and thrice as maximum).",
+						"      My companion gains an additional Hit Die, increasing its hit point maximum. My companion’s hit point maximum increase by rolling this Hit Die and adding (minimum of 0). My companion’s Constitution modifier",
+						" \u2022 Ability Boost",
+						"      Increase one of my companion's ability scores by 1, to a maximum of 20 (once per companion until 5th level, twice until 9th level and thrice as maximum).",
 						" \u2022 Go For the Throat.",
-						"      Your companion gains a +1 bonus to its attack and damage rolls made with its natural weapons or unarmed strikes.",
+						"      My companion gains a +1 bonus to its attack and damage rolls made with its natural weapons or unarmed strikes.",
 						" \u2022 Survival Instincts.", 
-						"      Your companion gains proficiency in one saving throw.",
+						"      My companion gains proficiency in one saving throw.",
 						" \u2022 War Training.", 
-						"      Your companion gains proficiency with one armour type or two weapons (proficiency in the previous armor tier is required to acquire the following one)."
+						"      My companion gains proficiency with one armour type or two weapons (proficiency in the previous armor tier is required to acquire the following one)."
 					],
 			}], //toNotesPage
 			toNotesPage : [{ //placeholder
@@ -151,7 +154,6 @@ ClassList["tamer"] = {
 					" \u2022 If the creature meets the conditions, I can throw the vessel up to 30 feet and force it to make a Charisma saving throw against my tamer spell save DC or be trapped.",
 					" \u2022 If the creature has either fewer than ten hit points or one-quarter of its hit points, it automatically fails the saving throw.",
 					" \u2022 I cannot tame a creature with a higher CR than the one for which a vessel was created.",
-					"",
 				],
 				page3notes : true,
 			}],
@@ -161,7 +163,7 @@ ClassList["tamer"] = {
 			source : [["HGtMH", 199]],
 			minlevel : 2,
 			description : desc([
-				"I can cast prepared tamer cantrips/spells, using Intelligence, Wisdom, or Charisma as my spellcasting ability. I can use a companion's vessel as a spellcasting focus for my tamer spells.",
+				"I can cast tamer cantrips/spells, using Intelligence, Wisdom, or Charisma as my spellcasting ability. I can use a companion's vessel as a spellcasting focus for my tamer spells.",
 				]),
 			additional : ["0 cantrips known", 
 						  "2 cantrips known", 
@@ -237,7 +239,6 @@ ClassList["tamer"] = {
 					"I need to be able to see the objective creature must succeed on a Wisdom saving throw against my spell save DC or suffer the effects of the chosen behavior.",
 					" \u2022 Aggressive. The creature has disadvantage on attack rolls it makes against creatures other than my companion.",
 					" \u2022 Cautious. The creature has disadvantage on attack rolls against my companion if there is another creature hostile towards the attacker within 5 feet of the attacker.",
-					"",
 				],
 				page3notes : true,
 			}],
@@ -265,7 +266,7 @@ ClassList["tamer"] = {
 			source : [["HGtMH", 202]],
 			minlevel : 13,
 			description : desc([
-				"With my companion 100 feet away or less, I can magically switch places with it as a bonus action or when me or my companion is the target of an attack by an attacker I can see, becoming the target.",
+				"Within my companion 100 feet, I can magically switch places with it as a bonus action or when one of us is the target of an attack by an attacker I can see.",
 			]),
 			action : [
 				["action", "Switcheroo"],
@@ -279,14 +280,13 @@ ClassList["tamer"] = {
 			source : [["HGtMH", 202]],
 			minlevel : 17,
 			description : desc([
-				"I can command my companion to adopt a new behaviors."
+				"I can command my companion to adopt new behaviors."
 					]),
 				toNotesPage : [{
 					name : "Magnificent Presence behaviours",
 					note : [
 						" \u2022 Provoking Poise. For the next minute, my companion draws the attention of nearby creatures. While within 15 feet of my companion, any creature that is hostile towards my companion and that can see it has disadvantage on attack rolls it makes against creatures other than my companion.",
 						" \u2022 Shrinking Violet. For the next minute, my companion appears small and unassuming, making little noise. Any creature that is hostile towards my companion has disadvantage on attack rolls against my companion if there is another creature hostile towards the attacker within 15 feet of the attacker.",
-						"",
 						],
 					page3notes : true,
 				}],
@@ -304,13 +304,57 @@ ClassList["tamer"] = {
 		},
 	}, //features
 }; //tamer
-AddSubClass("tamer", "tamer-leader", {
-	regExpSearch : /^(?=.*tamer-leader).*$/i,
-	subname : "Leader",
+AddSubClass("tamer", "leaderpar", {
+	regExpSearch : /leaderpar/i,
+	subname : "Leader Paradigm",
 	source : [["HGtMH", 202]],
 	spellcastingExtra : ["divine favor", "protection from evil and good", "inequality", "warding bond", "beacon of hope", "haste", "death ward", "freedom of movement", "dispel evil and good", "endure"],
-	fullname : "Leader tamer",
 	features : {
+		"leader spells3" : {
+			minlevel : 3,
+			spellcastingBonus : [{
+				name : "Leader Spells (level 3)",
+				spells : ["divine favor", "protection from evil and good"],
+				selection : ["divine favor", "protection from evil and good"],
+				times : 2,
+			}]
+		},
+		"leader spells5" : {
+			minlevel : 5,
+			spellcastingBonus : [{
+				name : "Leader Spells (level 5)",
+				spells : ["inequality", "warding bond"],
+				selection : ["inequality", "warding bond"],
+				times : 2,
+			}]
+		},
+		"leader spells9" : {
+			minlevel : 9,
+			spellcastingBonus : [{
+				name : "Leader Spells (level 9)",
+				spells : ["beacon of hope", "haste"],
+				selection : ["beacon of hope", "haste"],
+				times : 2,
+			}]
+		},
+		"leader spells13" : {
+			minlevel : 13,
+			spellcastingBonus : [{
+				name : "Leader Spells (level 13)",
+				spells : ["death ward", "freedom of movement"],
+				selection : ["death ward", "freedom of movement"],
+				times : 2,
+			}]
+		},
+		"leader spells17" : {
+			minlevel : 17,
+			spellcastingBonus : [{
+				name : "Leader Spells (level 17)",
+				spells : ["dispel evil and good", "endure"],
+				selection : ["dispel evil and good", "endure"],
+				times : 2,
+			}]
+		},
 		"subclassfeature3" : { 
 			name : "Inpsire",
 			source : [["HGtMH", 202]],
@@ -358,19 +402,63 @@ AddSubClass("tamer", "tamer-leader", {
 		},
 	}, //features
 }); //leader subclass
-AddSubClass("tamer", "tamer-infuser", {
-	regExpSearch : /^(?=.*tamer-infuser).*$/i,
-	subname : "Infuser",
+AddSubClass("tamer", "infuserpar", {
+	regExpSearch : /infuserpar/i,
+	subname : "Infuser Paradigm",
 	source : [["HGtMH", 204]],
-	fullname : "Infuser tamer",
+	spellcastingExtra : ["hellish rebuke", "peppermint plate", "eelskin", "riptide", "protection from energy", "wind wall", "control water", "fire shield", "feverskin", "wall of stone"],
 	features : {
+		"infuser spells3" : {
+			minlevel : 3,
+			spellcastingBonus : [{
+				name : "Infuser Spells (level 3)",
+				spells : ["hellish rebuke", "peppermint plate"],
+				selection : ["hellish rebuke", "peppermint plate"],
+				times : 2,
+			}]
+		},
+		"infuser spells5" : {
+			minlevel : 5,
+			spellcastingBonus : [{
+				name : "Infuser Spells (level 5)",
+				spells : ["eelskin", "riptide"],
+				selection : ["eelskin", "riptide"],
+				times : 2,
+			}]
+		},
+		"infuser spells9" : {
+			minlevel : 9,
+			spellcastingBonus : [{
+				name : "Infuser Spells (level 9)",
+				spells : ["protection from energy", "wind wall"],
+				selection : ["protection from energy", "wind wall"],
+				times : 2,
+			}]
+		},
+		"infuser spells13" : {
+			minlevel : 13,
+			spellcastingBonus : [{
+				name : "Infuser Spells (level 13)",
+				spells : ["control water", "fire shield"],
+				selection : ["control water", "fire shield"],
+				times : 2,
+			}]
+		},
+		"infuser spells17" : {
+			minlevel : 17,
+			spellcastingBonus : [{
+				name : "Infuser Spells (level 17)",
+				spells : ["feverskin", "wall of stone"],
+				selection : ["feverskin", "wall of stone"],
+				times : 2,
+			}]
+		},
 		"subclassfeature3" : { 
 			name : "Infuse",
 			source : [["HGtMH", 204]],
-			spellcastingExtra : ["hellish rebuke", "peppermint plate", "eelskin", "riptide", "protection from energy", "wind wall", "control water", "fire shield", "feverskin", "wall of stone"],
 			minlevel : 3,
 			description : desc([
-				"By finishing s long rest, I can infuse my companion with an element. Use the \"Choose Feature\" button above. The first time it hits a target with an attack on its turn, it deals additional damage."
+				"By finishing a long rest, I can infuse my companion with an element. The first time it hits a target with an attack on its turn, it deals additional damage."
 			]),
 			additional : ["", "", "1d4", "1d4", "1d4", "1d6", "1d6", "1d6", "1d6", "1d8", "1d8", "1d8", "1d8", "1d10", "1d10", "1d10", "1d10", "1d10", "1d10", "1d10"],
 			extraname: "Infuse",
@@ -401,38 +489,169 @@ AddSubClass("tamer", "tamer-infuser", {
 			]),
 			usages : ["", "", "", "", "", "", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "2", "2", "2"],
 			recovery: "short rest",
+			toNotesPage : [{
+				name : "Elemental Discharge",
+				note : [
+					"The DC for the saving throw equals my tamer spell save DC.",
+					" \u2022 Acid: Caustic Mist. Your companion disperses an acidic vapour into a 20-foot cube originating from it that lasts for 1 minute, or until dispersed by a wind of moderate or greater speed (at least 10 miles per hour). Each other creature that starts its turn in the area must make a Constitution saving throw, taking 4d4 acid damage on a failure, or half as much damage on a success.",
+					" \u2022 Cold: Snap Freeze. Your companion absorbs the heat in a 10-foot-radius sphere around it. Each other creature in the area must make a Constitution saving throw. On a failed save, a creature takes 4d8 cold damage and its speed is halved until the end of its next turn. On a successful save, it takes half as much damage and its speed isn’t affected.",
+					" \u2022 Fire: Flametongue. Your companion unleashes a raging inferno in a 25-foot cone. Each creature in the area must make a Dexterity saving throw, taking 6d6 fire damage on a failure, or half as much damage on a success. The fire ignites any flammable objects in the area that aren’t being worn or carried.",
+					" \u2022 Lightning: Sparkstep. Your companion discharges lightning in a 10-foot-radius sphere centred on itself. Each other creature in the area must make a Dexterity saving throw. On a failure, a creature takes 4d6 lightning damage and it can’t take reactions until the start of its next turn. On a success, it takes half as much damage and can take reactions as normal. After the saving throws are resolved, your companion can immediately fly up to 30 feet as part of this action.",
+				],
+			}],
 		}, //subclassfeature3.1
 		"subclassfeature3.2" : { 
-			name : "Patata",
-			source : [["HGtMH", 999]],
-			minlevel : 3,
+			name : "Primordial Shield",
+			source : [["HGtMH", 205]],
+			minlevel : 10,
 			description : desc([
-				"Patata"
+				"When my companion takes the same damage as it infusion, as a reaction, I can grant it immunity until the start of my next turn."
 			]),
+			recovery: "short rest",
+			usages : 1,
+			action : [
+				["reaction", "Primordial Shield"],
+			],
+			toNotesPage : [{
+				name : "Primordial Shield",
+				source : [["HGtMH", 205]],
+				note : [
+					" \u2022 My companion gains resistance to the infused element", 
+				],
+				amendTo : "Compaion's feats",
+			}],
 		}, //subclassfeature3.2
+		"subclassfeature3.3" : { 
+			name : "Unstable Fusion",
+			source : [["HGtMH", 205]],
+			minlevel : 14,
+			description : desc([
+				"I can infuse my companion with a second element and its previus features for 1 minute."
+			]),
+			recovery: "long rest",
+			usages : 1,
+			action : [
+				["action", "Unstable Fusion"]
+				],
+		}, //subclassfeature3.3
 	}, //features
 }); //infuser subclass
-AddSubClass("tamer", "tamer-necromancer", {
-	regExpSearch : /^(?=.*tamer-necromancer).*$/i,
-	subname : "Necromancer",
+AddSubClass("tamer", "necromanticpar", {
+	regExpSearch : /necromanticpar/i,
+	subname : "Necromancer Paradigm",
 	source : [["HGtMH", 205]],
-	fullname : "Necromancer tamer",
+	spellcastingExtra : ["false life", "inflict wounds", "blindness/deafness", "ray of enfeeblement", "influenza", "vampiric touch", "confusion", "death ward", "bone cage", "endure"],
+	selection : ["false life", "inflict wounds", "blindness/deafness", "ray of enfeeblement", "influenza", "vampiric touch", "confusion", "death ward", "bone cage", "endure"],
 	features : {
+		"necromancer spells3" : {
+			minlevel : 3,
+			spellcastingBonus : [{
+				name : "Necromancer Spells (level 3)",
+				spells : ["false life", "inflict wounds"],
+				selection : ["false life", "inflict wounds"],
+				times : 2,
+			}]
+		},
+		"necromancer spells5" : {
+			minlevel : 5,
+			spellcastingBonus : [{
+				name : "Necromancer Spells (level 5)",
+				spells : ["blindness/deafness", "ray of enfeeblement"],
+				selection : ["blindness/deafness", "ray of enfeeblement"],
+				times : 2,
+			}]
+		},
+		"necromancer spells9" : {
+			minlevel : 9,
+			spellcastingBonus : [{
+				name : "Necromancer Spells (level 9)",
+				spells : ["influenza", "vampiric touch"],
+				selection : ["influenza", "vampiric touch"],
+				times : 2,
+			}]
+		},
+		"necromancer spells13" : {
+			minlevel : 13,
+			spellcastingBonus : [{
+				name : "Necromancer Spells (level 13)",
+				spells : ["confusion", "death ward"],
+				selection : ["confusion", "death ward"],
+				times : 2,
+			}]
+		},
+		"necromancer spells17" : {
+			minlevel : 17,
+			spellcastingBonus : [{
+				name : "Necromancer Spells (level 17)",
+				spells : ["bone cage", "endure"],
+				selection : ["bone cage", "endure"],
+				times : 2,
+			}]
+		},
 		"subclassfeature3" : { 
+			name : "Life Hack",
+			source : [["HGtMH", 205]],
+			minlevel : 3,
+			description : desc([
+				"Once per turn, when my companion deals damage to a creature, it can takes necrotic damage, gaining equal temporary hit points and dealing equal damage as a bonus."
+			]),
+			additional : ["", "", "1d4", "1d4", "1d4", "1d6", "1d6", "1d6", "1d6", "1d8", "1d8", "1d8", "1d8", "1d10", "1d10", "1d10", "1d10", "1d10", "1d10", "1d10"],
+		}, //subclassfeature3	
+		"subclassfeature3.1" : { 
+			name : "Post-Mortem",
+			source : [["HGtMH", 205]],
+			minlevel : 3,
+			description : desc([
+				"I can attempt to tame one creature within 1 minute of it dying. Check 3rd page Notes for additional rules."
+			]),
+			toNotesPage : [{
+				name : "Post-Mortem",
+				note : [
+					" \u2022 When I attempt to tame a dead creature, its soul makes a Charisma saving throw against my tamer spell save DC.",
+					"Humanoids and giants don’t automatically succeed on this saving throw.",
+					"On a failure, the creature’s soul becomes bound to its body; its type changes to undead and it becomes one of your companions.",
+					"On a success, you fail to tame the creature and you can’t attempt to tame the creature again until it has been brought back to life by other means.",
+				],
+				page3notes : true,
+			}],
+		}, //subclassfeature3.1
+		"subclassfeature3.2" : { 
+			name : "Animate Dead",
+			source : [["HGtMH", 206]],
+			minlevel : 7,
+			description : desc([
+				"I learn the Animate Dead spell and I can cast it once without using a spell slot, but can control 1 creature per casting."
+			]),
+			recovery: "long rest",
+			usages : 1,
+			action : [
+				["action", "Animate Dead"]
+				],
+			spellcastingBonus : [{
+				name : "Animate Dead",
+				spells : ["animate dead"],
+				selection : ["animate dead"],
+				spellChanges : {
+					description : "Turn corpses into 1+2/SL Skeletons or Zombies, or 1 Ghast or Minotaur Skeleton from 18th level; control for 24h; bns a command within 18 m",
+					changes : "Starting from 18th level, when I cast this spell using Animate Dead Necromancer's feature, the creature I animate has the statistics of a ghast (if Medium or smaller corpse) or a minotaur skeleton (if Large or larger corpse). When I reassert my control over these creatures, I can maintain control of only 1 creature per casting of the spell, instead of 4."
+				},
+			}],
+		}, //subclassfeature3.2
+		"subclassfeature3.3" : { 
 			name : "Patata",
 			source : [["HGtMH", 999]],
-			minlevel : 3,
+			minlevel : 10,
 			description : desc([
 				"Patata"
 			]),
-		},
+		}, //subclassfeature3.3
 	}, //features
 }); //necromancer subclass
-AddSubClass("tamer", "tamer-splicer", {
-	regExpSearch : /^(?=.*tamer-splicer).*$/i,
-	subname : "Splicer",
+AddSubClass("tamer", "splicerp", {
+	regExpSearch : /splicerp/i,
+	subname : "Splicer Paradigm",
 	source : [["HGtMH", 207]],
-	fullname : "Splicer tamer",
+	spellcastingExtra : [],
 	features : {
 		"subclassfeature3" : { 
 			name : "Patata",
@@ -441,7 +660,7 @@ AddSubClass("tamer", "tamer-splicer", {
 			description : desc([
 				"Patata"
 			]),
-		},
+		}, //subclassfeature3
 	}, //features
 }); //splicer subclass
 
