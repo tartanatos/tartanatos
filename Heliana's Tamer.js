@@ -96,9 +96,9 @@ ClassList["tamer"] = {
 			description : desc([
 				"Whenever I finish a short rest, I can restore a total number of hit points amongst my companions"
 			]),
-			limfeaname: "Healing Power",
-			usages: levels.map(function(n) { return n * 5 }),
-            recovery: "long rest",
+			limfeaname : "Healing Power",
+			usages : levels.map(function(n) { return n * 5 }),
+            recovery : "long rest",
 		}, //soul bond
 		"03.monster trainer" : {
 			name : "Monster Trainer",
@@ -542,46 +542,46 @@ AddSubClass("tamer", "necromanticpar", {
 	source : [["HGtMH", 205]],
 	spellcastingExtra : ["false life", "inflict wounds", "blindness/deafness", "ray of enfeeblement", "influenza", "vampiric touch", "confusion", "death ward", "bone cage", "endure"],
 	features : {
-		"necromancer spells3" : {
+		"necromantic spells3" : {
 			minlevel : 3,
 			spellcastingBonus : [{
-				name : "Necromancer Spells (level 3)",
+				name : "Necromantic Spells (level 3)",
 				spells : ["false life", "inflict wounds"],
 				selection : ["false life", "inflict wounds"],
 				times : 2,
 			}]
 		},
-		"necromancer spells5" : {
+		"necromantic spells5" : {
 			minlevel : 5,
 			spellcastingBonus : [{
-				name : "Necromancer Spells (level 5)",
+				name : "Necromantic Spells (level 5)",
 				spells : ["blindness/deafness", "ray of enfeeblement"],
 				selection : ["blindness/deafness", "ray of enfeeblement"],
 				times : 2,
 			}]
 		},
-		"necromancer spells9" : {
+		"necromantic spells9" : {
 			minlevel : 9,
 			spellcastingBonus : [{
-				name : "Necromancer Spells (level 9)",
+				name : "Necromantic Spells (level 9)",
 				spells : ["influenza", "vampiric touch"],
 				selection : ["influenza", "vampiric touch"],
 				times : 2,
 			}]
 		},
-		"necromancer spells13" : {
+		"necromantic spells13" : {
 			minlevel : 13,
 			spellcastingBonus : [{
-				name : "Necromancer Spells (level 13)",
+				name : "Necromantic Spells (level 13)",
 				spells : ["confusion", "death ward"],
 				selection : ["confusion", "death ward"],
 				times : 2,
 			}]
 		},
-		"necromancer spells17" : {
+		"necromantic spells17" : {
 			minlevel : 17,
 			spellcastingBonus : [{
-				name : "Necromancer Spells (level 17)",
+				name : "Necromantic Spells (level 17)",
 				spells : ["bone cage", "endure"],
 				selection : ["bone cage", "endure"],
 				times : 2,
@@ -669,53 +669,126 @@ AddSubClass("tamer", "splicerpar", {
 	regExpSearch : /^(?=.*splicer)(?=.*paradigm).*$/i,
 	subname : "Splicer Paradigm",
 	source : [["HGtMH", 207]],
-	spellcastingExtra : [],
+	spellcastingExtra : ["chameleon skin", "disguise self", "barkskin", "eelskin", "mass leech", "zippit!", "frogskin", "stoneskin", "contagion", "feverskin"],
 	features : {
+		"splicer spells3" : {
+			name : false,
+			minlevel : 3,
+			spellcastingBonus : [{
+				name : "Splicer Spells (level 3)",
+				spells : ["chameleon skin", "disguise self"],
+				selection : ["chameleon skin", "disguise self"],
+				times : 2,
+			}]
+		},
+		"splicer spells5" : {
+			name : false,
+			minlevel : 5,
+			spellcastingBonus : [{
+				name : "Splicer Spells (level 5)",
+				spells : ["barkskin", "eelskin"],
+				selection : ["barkskin", "eelskin"],
+				times : 2,
+			}]
+		},
+		"splicer spells9" : {
+			name : false,
+			minlevel : 9,
+			spellcastingBonus : [{
+				name : "Splicer Spells (level 9)",
+				spells : ["mass leech", "zippit!"],
+				selection : ["mass leech", "zippit!"],
+				times : 2,
+			}]
+		},
+		"splicer spells13" : {
+			name : false,
+			minlevel : 13,
+			spellcastingBonus : [{
+				name : "Splicer Spells (level 13)",
+				spells : ["frogskin", "stoneskin"],
+				selection : ["frogskin", "stoneskin"],
+				times : 2,
+			}]
+		},
+		"splicer spells17" : {
+			name : false,
+			minlevel : 17,
+			spellcastingBonus : [{
+				name : "Splicer Spells (level 17)",
+				spells : ["contagion", "feverskin"],
+				selection : ["contagion", "feverskin"],
+				times : 2,
+			}]
+		},
 		"subclassfeature3" : { 
 			name : "Patata",
-			source : [["HGtMH", 999]],
+			source : [["HGtMH", 207]],
 			minlevel : 3,
 			description : desc([
-				"Patata"
+				"At the end of a long rest, I can use Surgeon’s Tools spending Splicer Points to modify my companions."
 			]),
+			limfeaname : "Splicer Points",
+			usages : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+			toolProfs : [
+				"Surgeon’s Tools"
+			],
 			toNotesPage : [{
 				note : [
-					"Introduction text of the note. This will be preceded by a line break, but not three spaces as this is the first paragraph.",
-					[ // This will render as a table (i.e. a tab between each column)
-						["Augment", "Effect Summary", "Splicer Point Cost"], // The first row, which will be made bold
-						["Water Breathing", "Can only breathe water", "0"], // The rest of the rows won't be changed
-						["Amphibious", "Can breathe air and water", "1"], // Table row 2
-						["Darkvision", "Gains or extends darkvision", "1"],
-						["Extra Limb (max. 4)", "Can grapple more creatures", "1 per limb"],
-						["Fins & Webbing", "Gains 30-foot swimming speed", "1"],
-						["Illumination", "Sheds light (10 ft./10 ft.)", "1"],
-						["Keen Hearing", "Advantage on hearing", "1"],
-						["Keen Sight", "Advantage on sight", "1"],
-						["Keen Smell", "Advantage on smell", "1"],
-						["Powerful Build", "Can push, drag, and carry more", "1"],
-						["Prehensile Tail", "Gains 30-foot climbing speed", "1"],
-						["Slippery", "Advantage to avoid grapples", "1"],
-						["Sure-Footed", "Advantage to resist prone", "1"],
-						["Web Sense + Web Walk", "Can sense and walk on webs", "1"],
-						["Burrowing Claws", "Gains 15-foot burrowing speed", "2"],
-						["Long Limbed", "Increases reach of attacks", "2"],
-						["Mimicry", "Can mimic sounds", "2"],
-						["Natural Armour (max. 4)", "Gains a +1 bonus to AC", "2 per +1"],
-						["Poisonous Touch (max. 2)", "Deals bonus poison damage", "2"],
-						["Spider Climb", "Can climb without checks", "2"],
-						["Camouflage", "Has advantage to hide while motionless", "3"],
-						["Corrosive Touch max. 2)", "Deals bonus acid damage", "3"],
-						["Tremorsense", "Gains or extends tremorsense", "3 per 15 ft."],
-						["Wings", "Gains 30-foot flying speed", "3"],
-						["Blindsight + Echolocation", "Gains or extends blindsight", "4 per 15 ft."],
-						["Decaying Touch", "Deals bonus necrotic damage", "4"],
-						["Flyby", "Doesn't provoke opportunity attacks", "4"],
-						["Growth Hormone", "Increases size (limited by tamer level)", "category and HP 4"],
-						"A companion can benefit from only one ‘touch’ augment."
-					],
+					"Augments can be gained only once unless otherwise stated.",
+					"Splicer points are shared across all your companions.",
+					"I can regain the points by spending 1 h. removing all augments from one companion or realising it.",
+					"(Augment | Effect Summary | Splicer Point Cost)",
+					" \u2022 Water Breathing | Can only breathe water | 0",
+					" \u2022 Amphibious | Can breathe air and water | 1",
+					" \u2022 Darkvision | Gains or extends darkvision | 1",
+					" \u2022 Extra Limb (max. 4) | Can grapple more creatures | 1 per limb",
+					" \u2022 Fins & Webbing | Gains 30-foot swimming speed | 1",
+					" \u2022 Illumination | Sheds light (10 ft./10 ft.) | 1",
+					" \u2022 Keen Hearing | Advantage on hearing | 1",
+					" \u2022 Keen Sight | Advantage on sight | 1",
+					" \u2022 Keen Smell | Advantage on smell | 1",
+					" \u2022 Powerful Build | Can push, drag, and carry more | 1",
+					" \u2022 Prehensile Tail | Gains 30-foot climbing speed | 1",
+					" \u2022 Slippery | Advantage to avoid grapples | 1",
+					" \u2022 Sure-Footed | Advantage to resist prone | 1",
+					" \u2022 Web Sense + Web Walk | Can sense and walk on webs | 1",
+					" \u2022 Burrowing Claws | Gains 15-foot burrowing speed | 2",
+					" \u2022 Long Limbed | Increases reach of attacks | 2",
+					" \u2022 Mimicry | Can mimic sounds | 2",
+					" \u2022 Natural Armour (max. 4) | Gains a +1 bonus to AC | 2 per +1",
+					" \u2022 Poisonous Touch (max. 2) | Deals bonus poison damage | 2",
+					" \u2022 Spider Climb | Can climb without checks | 2",
+					" \u2022 Camouflage | Has advantage to hide while motionless | 3",
+					" \u2022 Corrosive Touch max. 2) | Deals bonus acid damage | 3",
+					" \u2022 Tremorsense | Gains or extends tremorsense | 3 per 15 ft.",
+					" \u2022 Wings | Gains 30-foot flying speed | 3",
+					" \u2022 Blindsight + Echolocation | Gains or extends blindsight | 4 per 15 ft.",
+					" \u2022 Decaying Touch | Deals bonus necrotic damage | 4",
+					" \u2022 Flyby | Doesn't provoke opportunity attacks | 4",
+					" \u2022 Growth Hormone | Increases size category (limited by tamer level) and HP | 4",
+					"A companion can benefit from only one type of ‘touch’ augment at a time."
 				],
 			}],
 		}, //subclassfeature3
+		"subclassfeature3.1" : { 
+			name : "Modular Upgrades",
+			source : [["HGtMH", 209]],
+			minlevel : 7,
+			description : desc([
+				"During a long rest, I can improve a companion with a special organ."
+			]),
+			addToNotes: [{
+				note : [
+					"The DC for the saving throw equals my tamer spell save DC",
+					"Once a companion uses one of these actions, it can’t do so again until it finishes a short or long rest. Starting at 18th level, a companion can use this action twice before a rest.",
+					" \u2022 Compelling Plumage. Each creature in a 25-foot cone that can see my companion must succeed on a Wisdom saving throw or be charmed by my companion for the next minute. While charmed, the creature is incapacitated and has a speed of 0 feet. The effect ends for an affected creature if it takes any damage, if someone else uses an action to shake the creature out of its stupor, if it no longer has line of sight to my companion, or is ever more than 25 feet away from it.",
+					" \u2022 Phosphoburst. Each other creature in a 10-foot-radius sphere centred on my companion must make a Constitution saving throw against the dizzying burst of light my companion emits. On a failure, a creature takes 2d10 radiant damage and is blinded until the end of its next turn. On a success, a creature takes half as much damage and isn’t blinded.",
+					" \u2022 Poison Web. Your companion launches an unfurling web of sticky silk in a 20-foot cube originating from it. All surfaces in the area become lined with webbing for the next minute. Each creature that touches one of these surfaces for the first time on its turn or starts its turn doing so must succeed on a Dexterity saving throw or become restrained for the duration, or until it breaks free. A creature restrained by the webs takes 2d4 poison damage when it becomes restrained and at the start of each of its turns. A creature can use its action to make a Strength check against your tamer spell save DC, freeing itself or another creature restrained by this web on a success.",
+					"Sirenshriek. Each other creature in a 15-foot-radius sphere centred on your companion must make an Intelligence saving throw as your companion lets forth a brain-curdling mental shriek. On a failure, a creature takes 3d8 psychic damage and, if it is concentrating on a spell, loses its concentration. On a success, a creature takes half as much damage and makes saving throws to maintain its concentration as normal.",
+				], //notes
+			}], //addToNotes
+		}, //subclassfeature3.1
 	}, //features
 }); //splicer subclass
 
