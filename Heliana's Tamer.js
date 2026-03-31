@@ -734,11 +734,13 @@ AddSubClass("tamer", "splicerpar", {
 				"Surgeon’s Tools"
 			],
 			toNotesPage : [{
+				name : "Companion's augments",
 				note : [
 					"Augments can be gained only once unless otherwise stated.",
 					"Splicer points are shared across all your companions.",
-					"I can regain the points by spending 1 h. removing all augments from one companion or realising it.",
-					"(Augment | Effect Summary | Splicer Point Cost)",
+					"A companion can benefit from only one type of ‘touch’ augment at a time."
+					"I can regain the points by releasing the companion or spending 1 h. removing all augments from it.",
+					" \u2022 (Augment | Effect Summary | Splicer Point Cost)",
 					" \u2022 Water Breathing | Can only breathe water | 0",
 					" \u2022 Amphibious | Can breathe air and water | 1",
 					" \u2022 Darkvision | Gains or extends darkvision | 1",
@@ -766,8 +768,7 @@ AddSubClass("tamer", "splicerpar", {
 					" \u2022 Blindsight + Echolocation | Gains or extends blindsight | 4 per 15 ft.",
 					" \u2022 Decaying Touch | Deals bonus necrotic damage | 4",
 					" \u2022 Flyby | Doesn't provoke opportunity attacks | 4",
-					" \u2022 Growth Hormone | Increases size category (limited by tamer level) and HP | 4",
-					"A companion can benefit from only one type of ‘touch’ augment at a time."
+					" \u2022 Growth Hormone | Increases size category (limited by tamer level) and HP | 4"
 				],
 			}],
 		}, //subclassfeature3
@@ -778,7 +779,8 @@ AddSubClass("tamer", "splicerpar", {
 			description : desc([
 				"During a long rest, I can improve a companion with a special organ."
 			]),
-			addToNotes: [{
+			toNotesPage: [{
+				name : "Special organs",
 				note : [
 					"The DC for the saving throw equals my tamer spell save DC",
 					"Once a companion uses one of these actions, it can’t do so again until it finishes a short or long rest. Starting at 18th level, a companion can use this action twice before a rest.",
@@ -787,7 +789,8 @@ AddSubClass("tamer", "splicerpar", {
 					" \u2022 Poison Web. Your companion launches an unfurling web of sticky silk in a 20-foot cube originating from it. All surfaces in the area become lined with webbing for the next minute. Each creature that touches one of these surfaces for the first time on its turn or starts its turn doing so must succeed on a Dexterity saving throw or become restrained for the duration, or until it breaks free. A creature restrained by the webs takes 2d4 poison damage when it becomes restrained and at the start of each of its turns. A creature can use its action to make a Strength check against your tamer spell save DC, freeing itself or another creature restrained by this web on a success.",
 					"Sirenshriek. Each other creature in a 15-foot-radius sphere centred on your companion must make an Intelligence saving throw as your companion lets forth a brain-curdling mental shriek. On a failure, a creature takes 3d8 psychic damage and, if it is concentrating on a spell, loses its concentration. On a success, a creature takes half as much damage and makes saving throws to maintain its concentration as normal.",
 				], //notes
-			}], //addToNotes
+			amendTo : "Modular Upgrades",
+			}], //toNotesPage
 		}, //subclassfeature3.1
 	}, //features
 }); //splicer subclass
