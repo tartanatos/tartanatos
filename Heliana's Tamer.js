@@ -2,7 +2,7 @@ ClassList["tamer"] = {
 	regExpSearch : /^(?=.*tamer).*$/i,
 	name : "Tamer",
 	source : [["HGtMH", 194]],
-	primaryAbility : "Wisdom, Intelligence, or Charisma and Constitution",
+	primaryAbility : "Wisdom, Intelligence, or Charisma; and Constitution",
 	prereqs : "Intelligence, Wisdom, or Charisma 13",
 	improvements : [0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5],
   	die : 8,
@@ -738,7 +738,7 @@ AddSubClass("tamer", "splicerpar", {
 				note : [
 					"Augments can be gained only once unless otherwise stated.",
 					"Splicer points are shared across all your companions.",
-					"A companion can benefit from only one type of ‘touch’ augment at a time."
+					"A companion can benefit from only one type of ‘touch’ augment at a time.",
 					"I can regain the points by releasing the companion or spending 1 h. removing all augments from it.",
 					" \u2022 (Augment | Effect Summary | Splicer Point Cost)",
 					" \u2022 Water Breathing | Can only breathe water | 0",
@@ -792,14 +792,168 @@ AddSubClass("tamer", "splicerpar", {
 			amendTo : "Modular Upgrades",
 			}], //toNotesPage
 		}, //subclassfeature3.1
+		"subclassfeature3.2" : { 
+			name : "Battlefield Harvester",
+			source : [["HGtMH", 210]],
+			minlevel : 10,
+			description : desc([
+				"My companion consume consume the corpse of a non-swarm creature that has been dead for less than 1 minute. All my companions gain one of the creature's damage resistance or a damage or condition immunity until another creature it's consumed."
+			]),
+			usages : 1,
+			recovery: "long rest",
+		}, //subclassfeature3.2
+		"subclassfeature3.3" : { 
+			name : "Adrenal Overload",
+			source : [["HGtMH", 210]],
+			minlevel : 14,
+			description : desc([
+				"For one minute, my companion earns the benefits of Adrenal Overload for 1 minute."
+			]),
+			toNotesPage : [{
+				name : "Adrenal Overload",
+				note : [
+					" \u2022 It immediately grows to Huge size (if it isn’t already).",
+					" \u2022 Its weight increases by a factor of 8 per size category increased.",
+					" \u2022 It gains temporary hit points equal to ten times your tamer level.",
+					" \u2022 Its Strength score increases to 22 (if it isn’t already higher).",
+					" \u2022 It gains proficiency in the Athletics skill.",
+					" \u2022 It sprouts an appendage with which it can make melee weapon attacks with a reach of 5 feet that deal bludgeoning, piercing, or slashing damage (your choice when you take the action) equal to 3d6 plus its Strength modifier (+6) on a hit.",
+					" \u2022 It gains the Multiattack action option: My companion makes three attacks with its appendage.",
+					"*After the minute elapses, my companion falls unconscious for 1d4 hours and gains 2 levels of exhaustion."
+				],
+				amendTo : "Compaion's feats",
+			}], //toNotesPage
+			action : [
+				["action", "Adrenal Overload"]
+			],
+		}, //subclassfeature3.3
 	}, //features
 }); //splicer subclass
 
+AddSubClass("tamer", "senseipar", {
+	regExpSearch : /^(?=.*sensei)(?=.*paradigm).*$/i,
+	subname : "Sensei Paradigm",
+	source : [["RGtYR", 207]],
+	spellcastingExtra : ["flash", "repulsing palm", "earthskin", "wind strike", "create food and water", "haste", "freedom of movement", "steelskin", "endure", "greater restoration"],
+	features : {
+		"sensei spells3" : {
+			name : false,
+			minlevel : 3,
+			spellcastingBonus : [{
+				name : "Sensei Spells (level 3)",
+				spells : ["flash", "repulsing palm"],
+				selection : ["flash", "repulsing palm"],
+				times : 2,
+			}]
+		},
+		"sensei spells5" : {
+			name : false,
+			minlevel : 5,
+			spellcastingBonus : [{
+				name : "Sensei Spells (level 5)",
+				spells : ["earthskin", "wind strike"],
+				selection : ["earthskin", "wind strike"],
+				times : 2,
+			}]
+		},
+		"sensei spells9" : {
+			name : false,
+			minlevel : 9,
+			spellcastingBonus : [{
+				name : "Sensei Spells (level 9)",
+				spells : ["create food and water", "haste"],
+				selection : ["create food and water", "haste"],
+				times : 2,
+			}]
+		},
+		"sensei spells13" : {
+			name : false,
+			minlevel : 13,
+			spellcastingBonus : [{
+				name : "Sensei Spells (level 13)",
+				spells : ["freedom of movement", "steelskin"],
+				selection : ["freedom of movement", "steelskin"],
+				times : 2,
+			}]
+		},
+		"sensei spells17" : {
+			name : false,
+			minlevel : 17,
+			spellcastingBonus : [{
+				name : "Sensei Spells (level 17)",
+				spells : ["endure", "greater restoration"],
+				selection : ["endure", "greater restoration"],
+				times : 2,
+			}]
+		},
+		"subclassfeature3" : { 
+			name : "Martial Strikes",
+			source : [["RGtYR", 201]],
+			minlevel : 3,
+			description : desc([
+				"My companion gains Martial Strike as a attack. It can use Strength or Dexterity. It can make two attacks at 5th level and three at 14th level."
+			]),
+		}, //subclassfeature3
+		"subclassfeature3.1" : { 
+			name : "Martial Techniques",
+			source : [["RGtYR", 201]],
+			minlevel : 3,
+			description : desc([
+				"I can teach three Martial Techniques to each of my companions. I can teach it one more at 7th, 10th, 14th, and 18th levels."
+			]),
+			choices : ["Avoid", "Block", "Charge", "Dancing Feet", "Grapple", "Sweep", "Throw", "People's Elbow", "Uppercut"],
+			"avoid" : {
+				name : "Avoid" ,
+				description : " \u2022 As a bonus action, your companion can take the Dodge action."
+			},
+			"block" : {
+				name : "Block",
+				description : " \u2022 As a reaction when your companion is attacked by a creature it can see and that attack deals bludgeoning, piercing, or slashing damage, your companion can add your proficiency bonus to its AC against that attack, potentially turning a hit into a miss. If the attack still hits, the damage dealt is reduced by an amount equal to 1d6 plus your proficiency bonus."
+			},
+			"charge" : {
+				name : "Charge",
+				description : " \u2022 As an action, your companion gains additional movement equal to its speed, and it can make one Martial Strike attack. If your companion moves up to 20 feet straight towards a creature and then hits it with a Martial Strike, the attack deals an extra 1d10 damage, and the target must succeed on a Strength saving throw (DC equals 8 + your companion’s Strength modifier + your proficiency bonus) or be knocked prone. A creature more than one size larger than your companion automatically succeeds on this saving throw."
+			},
+			"dancing feet" : {
+				name : "Dancing Feet",
+				description : " \u2022 As a bonus action, your companion can take the Disengage action."
+			},
+			"grapple" : {
+				name : "Grapple",
+				description : " \u2022 As a bonus action, your companion can attempt to grapple one creature within its reach by making a grapple check."
+			},
+			"sweep" : {
+				name : "Sweep",
+				description : " \u2022 As a bonus action, your companion can attempt to sweep a creature’s legs (or other anatomy) to knock it prone using the Shoving a Creature rules. The companion can choose to make a Strength (Athletics) or Dexterity (Athletics) check for the contest. A creature more than one size larger than your companion automatically succeeds on this check."
+			},
+			"throw" : {
+				name : "Throw",
+				description : " \u2022 Once per turn, when your companion has a creature grappled and takes the Attack action, it can replace one of its attacks with a special melee attack. Instead of an attack roll, it makes a Strength or Dexterity (Athletics) check contested by the target’s Strength (Athletics) or Dexterity (Acrobatics) check (target’s choice). If your companion succeeds, it can move the creature to an unoccupied space within 5 feet of it and can knock it prone, dealing bludgeoning damage to it equal to two rolls of your companion’s Martial Strikes damage dice."
+			},
+			"people's elbow" : {
+				name : "People's Elbow",
+				description : " \u2022 Once per turn, when your companion takes the Attack action, it can replace one of its attacks with a special melee attack, which must be against a prone target. Your companion leaps into the air and places its full bodyweight behind a particularly hard or sharp part of its anatomy. It makes a melee attack roll against the target. The critical hit threshold (see page 83) for this attack is reduced by 1 for each size category that your companion is larger than the target. On a hit, the target takes damage equal to two rolls of your companion’s Martial Strikes damage dice, of the same type as your companion’s Martial Strike attacks. Hit or miss, your companion falls prone.",
+			},
+			"uppercut" : {
+				name : "Uppercut",
+				description : " \u2022 Once per turn, when your companion takes the Attack action, it can replace one of its attacks with a special melee attack, which must be against a target that isn’t prone. It makes a melee attack roll against the target. The critical hit threshold (see page 83) for this attack is reduced by 1 for each size category that your companion is smaller than the target. On a hit, the target takes damage equal to two rolls of your companion’s Martial Strikes damage dice, of the same type as your companion’s Martial Strike attacks.",
+			}
+		}, //subclassfeature3.1
+		"subclassfeature3.2" : { 
+			name : "Patata",
+			source : [["RGtYR", 201]],
+			minlevel : 3,
+			description : desc([
+				"Patata"
+			]),
+		}, //subclassfeature3.2
+	}, //features
+}); //sensei subclass
 
 //ayuda
 "subclassfeature3.1.2.3.4.5.6" : { 
 	name : "Patata",
-	source : [["HGtMH", 999]],
+	source : [["RGtYR", 999]],
 	minlevel : 3,
 	description : desc([
 		"Patata"
