@@ -487,7 +487,7 @@ AddSubClass("tamer", "infuserpar", {
 			description : desc([
 				"By infusing my companion after finishing a long rest, it gains an element-related action option to use once. At 18th level, it can do so twice between rests, but once per turn.",
 			]),
-			usages : ["", "", "", "", "", "", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "2", "2", "2"],
+			usages : [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2],
 			recovery: "short rest",
 			toNotesPage : [{
 				name : "Elemental Discharge",
@@ -722,14 +722,14 @@ AddSubClass("tamer", "splicerpar", {
 			}]
 		},
 		"subclassfeature3" : { 
-			name : "Patata",
+			name : "Splicer Points",
 			source : [["HGtMH", 207]],
 			minlevel : 3,
 			description : desc([
 				"At the end of a long rest, I can use Surgeon’s Tools spending Splicer Points to modify my companions."
 			]),
 			limfeaname : "Splicer Points",
-			usages : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+			additional : ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"],
 			toolProfs : [
 				"Surgeon’s Tools"
 			],
@@ -787,7 +787,7 @@ AddSubClass("tamer", "splicerpar", {
 					" \u2022 Compelling Plumage. Each creature in a 25-foot cone that can see my companion must succeed on a Wisdom saving throw or be charmed by my companion for the next minute. While charmed, the creature is incapacitated and has a speed of 0 feet. The effect ends for an affected creature if it takes any damage, if someone else uses an action to shake the creature out of its stupor, if it no longer has line of sight to my companion, or is ever more than 25 feet away from it.",
 					" \u2022 Phosphoburst. Each other creature in a 10-foot-radius sphere centred on my companion must make a Constitution saving throw against the dizzying burst of light my companion emits. On a failure, a creature takes 2d10 radiant damage and is blinded until the end of its next turn. On a success, a creature takes half as much damage and isn’t blinded.",
 					" \u2022 Poison Web. Your companion launches an unfurling web of sticky silk in a 20-foot cube originating from it. All surfaces in the area become lined with webbing for the next minute. Each creature that touches one of these surfaces for the first time on its turn or starts its turn doing so must succeed on a Dexterity saving throw or become restrained for the duration, or until it breaks free. A creature restrained by the webs takes 2d4 poison damage when it becomes restrained and at the start of each of its turns. A creature can use its action to make a Strength check against your tamer spell save DC, freeing itself or another creature restrained by this web on a success.",
-					"Sirenshriek. Each other creature in a 15-foot-radius sphere centred on your companion must make an Intelligence saving throw as your companion lets forth a brain-curdling mental shriek. On a failure, a creature takes 3d8 psychic damage and, if it is concentrating on a spell, loses its concentration. On a success, a creature takes half as much damage and makes saving throws to maintain its concentration as normal.",
+					" \u2022 Sirenshriek. Each other creature in a 15-foot-radius sphere centred on your companion must make an Intelligence saving throw as your companion lets forth a brain-curdling mental shriek. On a failure, a creature takes 3d8 psychic damage and, if it is concentrating on a spell, loses its concentration. On a success, a creature takes half as much damage and makes saving throws to maintain its concentration as normal.",
 				], //notes
 			amendTo : "Modular Upgrades",
 			}], //toNotesPage
@@ -829,11 +829,10 @@ AddSubClass("tamer", "splicerpar", {
 		}, //subclassfeature3.3
 	}, //features
 }); //splicer subclass
-
 AddSubClass("tamer", "senseipar", {
 	regExpSearch : /^(?=.*sensei)(?=.*paradigm).*$/i,
 	subname : "Sensei Paradigm",
-	source : [["RGtYR", 207]],
+	source : [["RGttYR", 207]],
 	spellcastingExtra : ["flash", "repulsing palm", "earthskin", "wind strike", "create food and water", "haste", "freedom of movement", "steelskin", "endure", "greater restoration"],
 	features : {
 		"sensei spells3" : {
@@ -888,7 +887,7 @@ AddSubClass("tamer", "senseipar", {
 		},
 		"subclassfeature3" : { 
 			name : "Martial Strikes",
-			source : [["RGtYR", 201]],
+			source : [["RGttYR", 201]],
 			minlevel : 3,
 			description : desc([
 				"My companion gains Martial Strike as a attack. It can use Strength or Dexterity. It can make two attacks at 5th level and three at 14th level."
@@ -896,12 +895,13 @@ AddSubClass("tamer", "senseipar", {
 		}, //subclassfeature3
 		"subclassfeature3.1" : { 
 			name : "Martial Techniques",
-			source : [["RGtYR", 201]],
+			source : [["RGttYR", 201]],
 			minlevel : 3,
+			extraTimes : [0, 0, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5],
 			description : desc([
-				"I can teach three Martial Techniques to each of my companions. I can teach it one more at 7th, 10th, 14th, and 18th levels."
+				"I can teach three Martial Techniques to each of my companions."
 			]),
-			choices : ["Avoid", "Block", "Charge", "Dancing Feet", "Grapple", "Sweep", "Throw", "People's Elbow", "Uppercut"],
+			extrachoices : ["Avoid", "Block", "Charge", "Dancing Feet", "Grapple", "Sweep", "Throw", "People's Elbow", "Uppercut"],
 			"avoid" : {
 				name : "Avoid" ,
 				description : " \u2022 As a bonus action, your companion can take the Dodge action."
@@ -940,13 +940,39 @@ AddSubClass("tamer", "senseipar", {
 			}
 		}, //subclassfeature3.1
 		"subclassfeature3.2" : { 
-			name : "Patata",
-			source : [["RGtYR", 201]],
-			minlevel : 3,
+			name : "Unleash",
+			source : [["RGttYR", 201]],
+			minlevel : 7,
 			description : desc([
-				"Patata"
+				"My companion moves up to its speed and make up to six Martial Strike attacks, each against a different target. My companion’s movement does not provoke opportunity attacks."
 			]),
+			action : [
+				["action", "Unleash"]
+			],
+			usages : [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2],
+			recovery: "short rest",
 		}, //subclassfeature3.2
+		"subclassfeature3.3" : { 
+			name : "Shrug It Off",
+			source : [["RGttYR", 201]],
+			minlevel : 10,
+			description : desc([
+				"I can reduce the bludgeoning, piercing, or slashingby damage my companion take by my tamer spellcasting ability modifier (minimum reduction of 1)."
+			]),
+		}, //subclassfeature3.3
+		"subclassfeature3.4" : { 
+			name : "Martial Prodigy",
+			source : [["RGttYR", 201]],
+			minlevel : 14,
+			description : desc([
+				"For 1 minute, my companion can make four Martial Strike attacks, it can take two bonus actions on each turn, and it gains temporary hit points equal to my spellcasting ability modifier at the start of each of its turns."
+			]),
+			action : [
+				["action", "Martial Prodigy"]
+			],
+			usages : 1,
+			recovery: "long rest",
+		}, //subclassfeature3.4
 	}, //features
 }); //sensei subclass
 
