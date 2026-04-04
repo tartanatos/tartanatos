@@ -35,7 +35,7 @@ ClassList["tamer"] = {
 		prepared : false,
 	},
 	spellcastingList : {
-		class : "druid",
+		list : "tamer",
 		level : [1, 5],
 	},
 	features : {
@@ -309,52 +309,8 @@ AddSubClass("tamer", "leaderpar", {
 	subname : "Leader Paradigm",
 	source : [["HGtMH", 202]],
 	spellcastingExtra : ["divine favor", "protection from evil and good", "inequality", "warding bond", "beacon of hope", "haste", "death ward", "freedom of movement", "dispel evil and good", "endure"],
+	spellcastingExtraApplyNonconform : true,
 	features : {
-		"necromancer spells3" : {
-			minlevel : 3,
-			spellcastingBonus : [{
-				name : "Necromancer Spells (level 3)",
-				spells : ["divine favor", "protection from evil and good"],
-				selection : ["divine favor", "protection from evil and good"],
-				times : 2,
-			}]
-		},
-		"necromancer spells5" : {
-			minlevel : 5,
-			spellcastingBonus : [{
-				name : "Necromancer Spells (level 5)",
-				spells : ["inequality", "warding bond"],
-				selection : ["inequality", "warding bond"],
-				times : 2,
-			}]
-		},
-		"necromancer spells9" : {
-			minlevel : 9,
-			spellcastingBonus : [{
-				name : "Necromancer Spells (level 9)",
-				spells : ["beacon of hope", "haste"],
-				selection : ["beacon of hope", "haste"],
-				times : 2,
-			}]
-		},
-		"necromancer spells13" : {
-			minlevel : 13,
-			spellcastingBonus : [{
-				name : "Necromancer Spells (level 13)",
-				spells : ["death ward", "freedom of movement"],
-				selection : ["death ward", "freedom of movement"],
-				times : 2,
-			}]
-		},
-		"necromancer spells17" : {
-			minlevel : 17,
-			spellcastingBonus : [{
-				name : "Necromancer Spells (level 17)",
-				spells : ["dispel evil and good", "endure"],
-				selection : ["dispel evil and good", "endure"],
-				times : 2,
-			}]
-		},
 		"subclassfeature3" : { 
 			name : "Inpsire",
 			source : [["HGtMH", 202]],
@@ -407,52 +363,8 @@ AddSubClass("tamer", "infuserpar", {
 	subname : "Infuser Paradigm",
 	source : [["HGtMH", 204]],
 	spellcastingExtra : ["hellish rebuke", "peppermint plate", "eelskin", "riptide", "protection from energy", "wind wall", "control water", "fire shield", "feverskin", "wall of stone"],
+	spellcastingExtraApplyNonconform : true,
 	features : {
-		"infuser spells3" : {
-			minlevel : 3,
-			spellcastingBonus : [{
-				name : "Infuser Spells (level 3)",
-				spells : ["hellish rebuke", "peppermint plate"],
-				selection : ["hellish rebuke", "peppermint plate"],
-				times : 2,
-			}]
-		},
-		"infuser spells5" : {
-			minlevel : 5,
-			spellcastingBonus : [{
-				name : "Infuser Spells (level 5)",
-				spells : ["eelskin", "riptide"],
-				selection : ["eelskin", "riptide"],
-				times : 2,
-			}]
-		},
-		"infuser spells9" : {
-			minlevel : 9,
-			spellcastingBonus : [{
-				name : "Infuser Spells (level 9)",
-				spells : ["protection from energy", "wind wall"],
-				selection : ["protection from energy", "wind wall"],
-				times : 2,
-			}]
-		},
-		"infuser spells13" : {
-			minlevel : 13,
-			spellcastingBonus : [{
-				name : "Infuser Spells (level 13)",
-				spells : ["control water", "fire shield"],
-				selection : ["control water", "fire shield"],
-				times : 2,
-			}]
-		},
-		"infuser spells17" : {
-			minlevel : 17,
-			spellcastingBonus : [{
-				name : "Infuser Spells (level 17)",
-				spells : ["feverskin", "wall of stone"],
-				selection : ["feverskin", "wall of stone"],
-				times : 2,
-			}]
-		},
 		"subclassfeature3" : { 
 			name : "Infuse",
 			source : [["HGtMH", 204]],
@@ -541,52 +453,8 @@ AddSubClass("tamer", "necromanticpar", {
 	subname : "Necromantic Paradigm",
 	source : [["HGtMH", 205]],
 	spellcastingExtra : ["false life", "inflict wounds", "blindness/deafness", "ray of enfeeblement", "influenza", "vampiric touch", "confusion", "death ward", "bone cage", "endure"],
+	spellcastingExtraApplyNonconform : true,
 	features : {
-		"necromantic spells3" : {
-			minlevel : 3,
-			spellcastingBonus : [{
-				name : "Necromantic Spells (level 3)",
-				spells : ["false life", "inflict wounds"],
-				selection : ["false life", "inflict wounds"],
-				times : 2,
-			}]
-		},
-		"necromantic spells5" : {
-			minlevel : 5,
-			spellcastingBonus : [{
-				name : "Necromantic Spells (level 5)",
-				spells : ["blindness/deafness", "ray of enfeeblement"],
-				selection : ["blindness/deafness", "ray of enfeeblement"],
-				times : 2,
-			}]
-		},
-		"necromantic spells9" : {
-			minlevel : 9,
-			spellcastingBonus : [{
-				name : "Necromantic Spells (level 9)",
-				spells : ["influenza", "vampiric touch"],
-				selection : ["influenza", "vampiric touch"],
-				times : 2,
-			}]
-		},
-		"necromantic spells13" : {
-			minlevel : 13,
-			spellcastingBonus : [{
-				name : "Necromantic Spells (level 13)",
-				spells : ["confusion", "death ward"],
-				selection : ["confusion", "death ward"],
-				times : 2,
-			}]
-		},
-		"necromantic spells17" : {
-			minlevel : 17,
-			spellcastingBonus : [{
-				name : "Necromantic Spells (level 17)",
-				spells : ["bone cage", "endure"],
-				selection : ["bone cage", "endure"],
-				times : 2,
-			}]
-		},
 		"subclassfeature3" : { 
 			name : "Life Hack",
 			source : [["HGtMH", 205]],
@@ -670,57 +538,8 @@ AddSubClass("tamer", "splicerpar", {
 	subname : "Splicer Paradigm",
 	source : [["HGtMH", 207]],
 	spellcastingExtra : ["chameleon skin", "disguise self", "barkskin", "eelskin", "mass leech", "zippit!", "frogskin", "stoneskin", "contagion", "feverskin"],
+	spellcastingExtraApplyNonconform : true,
 	features : {
-		"splicer spells3" : {
-			name : false,
-			minlevel : 3,
-			spellcastingBonus : [{
-				name : "Splicer Spells (level 3)",
-				spells : ["chameleon skin", "disguise self"],
-				selection : ["chameleon skin", "disguise self"],
-				times : 2,
-			}]
-		},
-		"splicer spells5" : {
-			name : false,
-			minlevel : 5,
-			spellcastingBonus : [{
-				name : "Splicer Spells (level 5)",
-				spells : ["barkskin", "eelskin"],
-				selection : ["barkskin", "eelskin"],
-				times : 2,
-			}]
-		},
-		"splicer spells9" : {
-			name : false,
-			minlevel : 9,
-			spellcastingBonus : [{
-				name : "Splicer Spells (level 9)",
-				spells : ["mass leech", "zippit!"],
-				selection : ["mass leech", "zippit!"],
-				times : 2,
-			}]
-		},
-		"splicer spells13" : {
-			name : false,
-			minlevel : 13,
-			spellcastingBonus : [{
-				name : "Splicer Spells (level 13)",
-				spells : ["frogskin", "stoneskin"],
-				selection : ["frogskin", "stoneskin"],
-				times : 2,
-			}]
-		},
-		"splicer spells17" : {
-			name : false,
-			minlevel : 17,
-			spellcastingBonus : [{
-				name : "Splicer Spells (level 17)",
-				spells : ["contagion", "feverskin"],
-				selection : ["contagion", "feverskin"],
-				times : 2,
-			}]
-		},
 		"subclassfeature3" : { 
 			name : "Splicer Points",
 			source : [["HGtMH", 207]],
@@ -834,57 +653,8 @@ AddSubClass("tamer", "senseipar", {
 	subname : "Sensei Paradigm",
 	source : [["RGttYR", 207]],
 	spellcastingExtra : ["flash", "repulsing palm", "earthskin", "wind strike", "create food and water", "haste", "freedom of movement", "steelskin", "endure", "greater restoration"],
+	spellcastingExtraApplyNonconform : true,
 	features : {
-		"sensei spells3" : {
-			name : false,
-			minlevel : 3,
-			spellcastingBonus : [{
-				name : "Sensei Spells (level 3)",
-				spells : ["flash", "repulsing palm"],
-				selection : ["flash", "repulsing palm"],
-				times : 2,
-			}]
-		},
-		"sensei spells5" : {
-			name : false,
-			minlevel : 5,
-			spellcastingBonus : [{
-				name : "Sensei Spells (level 5)",
-				spells : ["earthskin", "wind strike"],
-				selection : ["earthskin", "wind strike"],
-				times : 2,
-			}]
-		},
-		"sensei spells9" : {
-			name : false,
-			minlevel : 9,
-			spellcastingBonus : [{
-				name : "Sensei Spells (level 9)",
-				spells : ["create food and water", "haste"],
-				selection : ["create food and water", "haste"],
-				times : 2,
-			}]
-		},
-		"sensei spells13" : {
-			name : false,
-			minlevel : 13,
-			spellcastingBonus : [{
-				name : "Sensei Spells (level 13)",
-				spells : ["freedom of movement", "steelskin"],
-				selection : ["freedom of movement", "steelskin"],
-				times : 2,
-			}]
-		},
-		"sensei spells17" : {
-			name : false,
-			minlevel : 17,
-			spellcastingBonus : [{
-				name : "Sensei Spells (level 17)",
-				spells : ["endure", "greater restoration"],
-				selection : ["endure", "greater restoration"],
-				times : 2,
-			}]
-		},
 		"subclassfeature3" : { 
 			name : "Martial Strikes",
 			source : [["RGttYR", 201]],
@@ -975,6 +745,20 @@ AddSubClass("tamer", "senseipar", {
 		}, //subclassfeature3.4
 	}, //features
 }); //sensei subclass
+["can’t trip", "ferocious strike", "guidance", "howl", "light", "primal scent", "resistance", "smokescreen", "spare the dying", "stalker’s eye", "vicious mockery",
+//1st Level
+"chameleon skin", "cure wounds", "detect magic", "expeditious retreat", "faerie fire", "false life", "feather fall", "flipperform", "grease", "healing word", "heroism", "identify", "initiative", "jump", "longstrider", "peppermint plate", "protection from evil and good", "purify food and drink", "sanctuary", "shield of faith", "silent image", "sleep", "speak with animals",
+//2nd level" 
+"aid", "alter self", "animal messenger", "barkskin", "blur", "calm emotions", "darkvision", "detect thoughts", "eelskin", "enhance ability", "enlarge/reduce", "inequality", "invisibility", "lesser restoration", "levitate", "locate animals or plants", "locate object", "mirror image", "pass without trace", "preserve", "protection", "protection from poison", "see invisibility", "shielding word", "silence", "spider climb", "sugar rush", "warding bond",
+ //3rd level 
+ "blink", "create food and water", "daylight", "dispel magic", "fear", "fly", "food coma", "haste", "mass leech", "nondetection", "protection from energy", "remove curse", "switcheroo", "tongues", "water breathing", "water walk",
+ //4th level
+"aura of impurity", "control water", "death ward", "dimension door", "dominate beast", "fire shield", "freedom of movement", "frogskin*", "greater invisibility", "locate creature", "resilient sphere", "stoneskin",
+ //5th level
+"antilife shell", "awaken", "dispel evil and good", "dominate person", "endure", "feverskin", "geas", "greater restoration", "incorporeality", "legend lore", "mislead", "telepathic bond", "scrying"
+].forEach( function (s) {
+    if(SpellsList[s] && SpellsList[s].classes && SpellsList[s].classes.indexOf("tamer") === -1) SpellsList[s].classes.push("tamer");
+}); //tamer spell list
 
 //ayuda
 "subclassfeature3.1.2.3.4.5.6" : { 
