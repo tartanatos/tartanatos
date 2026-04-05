@@ -759,13 +759,3 @@ AddSubClass("tamer", "senseipar", {
 ].forEach( function (s) {
     if(SpellsList[s] && SpellsList[s].classes && SpellsList[s].classes.indexOf("tamer") === -1) SpellsList[s].classes.push("tamer");
 }); //tamer spell list
-
-//ayuda
-"subclassfeature3.1.2.3.4.5.6" : { 
-	name : "Patata",
-	source : [["RGtYR", 999]],
-	minlevel : 3,
-	description : desc([
-		"Patata"
-	]),
-},
