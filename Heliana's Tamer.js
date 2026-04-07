@@ -18,7 +18,7 @@ SourceList["HGtMH"] = {
    abbreviation: "HGtMH",
    abbreviationSpellsheet : "HG",
    group: "Third Party",
-   date: "2026-04-06",
+   date: "2025-02-24",
 };
 
 ClassList["tamer"] = {
