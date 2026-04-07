@@ -1,3 +1,26 @@
+//Considerations: 
+	//This is a first, although functional, attempt of script and therefore has several shortcomings in the code writing and, especially, in the features descriptions, that overflow the frame on the second page.
+	//Only the base class is included WITHOUT companion options (a "ranger's companion" is used as a placeholder), nor are Heliana's optional familiars included, and neither will  be added until the base class meets a minimum acceptable quality standard, as determined by the creator (me)). 
+	//It is recommended to make the relevant changes to the companion page manually.
+	//Any suggestions for improving the script are welcome, especially regarding feature descriptions.
+	//It is recommended to use this dcript in conjunction with the "Heliana's Guide to Monster Hunting" and "Ryoko's Guide to the Yokai Realm" compendiums available in the MPMB index for a better experience.
+
+//Contents: 
+	//Tamer class, from Heliana's Guide to Monster Hunting.
+	//Leader, Infusioner, Necromancer (renamed "Necromantic" to avoid interfering with other alternative options), and Splicer subclasses from Heliana's Guide.
+	//Sensei subclass from Ryoko's Guide to the Yokai Realm.
+
+var iFileName = "Helianas Guide Tamer class.js";
+RequiredSheetVersion("13.2.3");
+
+SourceList["HGtMH"] = {
+   name: "Heliana's Guide to Monster Hunting",
+   abbreviation: "HGtMH",
+   abbreviationSpellsheet : "HG",
+   group: "Third Party",
+   date: "2025-02-24",
+};
+
 ClassList["tamer"] = {
 	regExpSearch : /^(?=.*tamer).*$/i,
 	name : "Tamer",
