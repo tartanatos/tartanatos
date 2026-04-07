@@ -21,6 +21,14 @@ SourceList["HGtMH"] = {
    date: "2025-02-24",
 };
 
+SourceList["RGttYR"] = {
+   name: "Ryoko's Guide to the Yokai Realms",
+   abbreviation: "RGttYR",
+   abbreviationSpellsheet : "RG",
+   group: "Third Party",
+   date: "2024-10-01",
+};
+
 ClassList["tamer"] = {
 	regExpSearch : /^(?=.*tamer).*$/i,
 	name : "Tamer",
