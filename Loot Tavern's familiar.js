@@ -1,3 +1,28 @@
+CompanionList["tamer’s companion"] = {
+	name : "Tamer’s Companion",
+	nameMenu : "Companion (Tamer’s Companion class feature)",
+	nameTooltip : "the Tamer’s Companion class feature",
+	source : ["HGtMH", 999],
+	includeCheck : function(sCrea, objCrea, iCreaCR, bIsAL) {
+		return objCrea.type.toLowerCase() === "beast", "aberration" && objCrea.size >= 3 && iCreaCR <= 1/4 ? true : false;
+	},
+	attributesAdd : {
+		header : "Companion",
+	},
+	notes : [{
+		name : "When I reach 4th, 8th, 12th, 16th, and 19th level",
+		source : [["HGtMH", 197]],
+		description : [
+			"my companions gains 1 aditional Hit Dice.",
+			"Whenever I gain a Tamer level beyond 1st, each bonded companion gains one improvement.",
+			"All of this feature are applied retroactively to future companions.",
+			"If i'm not incapacitated, it takes the Dodge action unless I command it otherwise.",
+			"I can command it take any action it posses on its turn. Check the Notes page for exceptions."
+		].join("\n   "),
+		joinString : ", "
+	}],
+};
+
 CreatureList["aboling"] = {
 	name : "Aboling",
 	source : ["HGtMH", 225],
