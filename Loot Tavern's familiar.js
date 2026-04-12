@@ -184,32 +184,78 @@ CreatureList["mechakobold"] = {
 	hp : 2,
 	hd : [1, 4],
 	speed :  "25 ft, climb 25 ft",
-	proficiencyBonus : ,
-	challengeRating : "",
-	scores : [],
-	senses : "", 
-	attacksAction : ,
+	proficiencyBonus : 2,
+	challengeRating : "1/8",
+	scores : [7, 14, 11, 12, 9 , 15],
+	senses : "Darkvision 120 ft", 
+	attacksAction : 1,
 	attacks : [{
-		name : "",
-		ability : ,
-		damage : [, , ""],
-		range : "",
+		name : "Slingshot.",
+		ability : 2,
+		damage : [1, 4, "bludgeoning"],
+		range : "20/60 ft",
 	}],
 	skills : {
-		"" :,
+		"Deception" : 4, 
+		"Investigation" : 3,
+		"Sleight of Hand" : 4,
+		"Stealth" : 4,
 	},
-	languages : ,
-	damage_resistances : "",
 	features : [{
-		name : "",
-		description: ""},
-		{
-		name : "",
-		description: ""
+		name : "Helpful-ish",
+		description: "The mechakobold desires to help other creatures on their ability checks and will always try to take the Help action in non-combat situations. However, if the check on which the mechakobold helps is a failure, the consequences are always catastrophic (GM’s discretion)."
+	}, {
+		name : "Sunlight Sensitivity.",
+		description: "While in sunlight, the mechakobold has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
 	}],
 	actions : [{
-		name : "",
-		description : ""
+		name : "Tie Laces",
+		description : "The mechakobold attempts to tie together the lower limbs of a creature within 5 feet of it using a pair of spare laces. It makes a Dexterity (Sleight of Hand) check contested by the target’s Dexterity (Acrobatics) or Strength (Athletics) check. On a success, the target’s walking and climbing speeds are halved until it unties its laces as an action, or cuts them with an attack with a slashing weapon."
+	}],
+};
+CreatureList["minimic"] = {
+	name : "Minimic",
+	source : ["HGtMH", 240],
+	size : 5,
+	type : "Monstrosity",
+	subtype : "shapechanger",
+	companion : "familiar",
+	alignment : "unaligned",
+	ac : 12,
+	hp : 4,
+	hd : [1, 4],
+	speed : "25 ft",
+	proficiencyBonus : 2,
+	challengeRating : "1/8",
+	scores : [12, 11, 14, 4, 10, 6],
+	senses : "darkvision 60 ft", 
+	attacksAction : 1,
+	attacks : [{
+		name : "Pseudopod",
+		ability : 1,
+		damage : [1, 4, "bludgeoning"],
+		range : "Melee (5 ft)",
+		description : "The target is subjected to the minimic’s Adhesive trait."
+	}, {
+		name : "Bite",
+		ability : 1,
+		damage : [1, 4, "piercing"],
+		range : "Additional 1d4 acid damage.",
+	}],
+	skills : {
+		"Stealth" : 2,
+	},
+	damage_immunities : "acid",
+	condition_immunities : "prone",
+	features : [{
+		name : "Adhesive.",
+		description: "The minimic adheres to anything that touches it. A creature no more than one size larger than the minimic that is adhered to the minimic is also grappled by it (escape DC 12)." //Not statet in the manual. Assumed based on the Save DC rules on page 239 (8 + minimic's proficiency bonus + minimic’s Constitution modifier)
+	}, {
+		name : "False Appearance (Object Form Only)",
+		description: "While the minimic remains motionless, it is indistinguishable from an ordinary object."
+	}, {
+		name : "Shapechanger",
+		description: "The minimic can use its action to polymorph into an object equal to it in size, or back into its true, amorphous form. Its statistics are the same in each form. Any equipment it is wearing or carrying isn’t transformed. It reverts to its true form if it dies."
 	}],
 };
 
@@ -243,8 +289,8 @@ CreatureList[""] = {
 	damage_resistances : "",
 	features : [{
 		name : "",
-		description: ""},
-		{
+		description: ""
+	}, {
 		name : "",
 		description: ""
 	}],
