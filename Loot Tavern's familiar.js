@@ -8,18 +8,23 @@ CompanionList["tamer’s companion"] = {
 	},
 	attributesAdd : {
 		header : "Companion",
+		proficiencyBonusLinked : true,
 	},
 	notes : [{
-		name : "When I reach 4th, 8th, 12th, 16th, and 19th level",
+		name : "Compaion's feats",
 		source : [["HGtMH", 197]],
-		description : [
-			"my companions gains 1 aditional Hit Dice.",
-			"Whenever I gain a Tamer level beyond 1st, each bonded companion gains one improvement.",
+		description : desc([
+			"When I reach 4th, 8th, 12th, 16th, and 19th level my companions gains 1 aditional Hit Dice.", 
+			"Whenever I gain a Tamer level beyond 1st, each bonded companion gains one improvement.", 
 			"All of this feature are applied retroactively to future companions.",
 			"If i'm not incapacitated, it takes the Dodge action unless I command it otherwise.",
-			"I can command it take any action it posses on its turn. Check the Notes page for exceptions."
-		].join("\n   "),
-		joinString : ", "
+			"I can command it take any action it posses on its turn. Check the Notes page for exceptions.",
+			])
+	}, {
+		name : "Wilful Blows",
+		minlevel : 6,
+		description : "My companions’ attacks count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.",
+		joinString : "\n   "
 	}],
 };
 
