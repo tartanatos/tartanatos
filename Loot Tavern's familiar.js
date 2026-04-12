@@ -258,11 +258,232 @@ CreatureList["minimic"] = {
 		description: "The minimic can use its action to polymorph into an object equal to it in size, or back into its true, amorphous form. Its statistics are the same in each form. Any equipment it is wearing or carrying isn’t transformed. It reverts to its true form if it dies."
 	}],
 };
-
+CreatureList["peeper"] = {
+	name : "Peeper",
+	source : ["HGtMH", 243],
+	size : 5,
+	type : "Aberration",
+	companion : "familiar",
+	alignment : "Neutral Good",
+	ac : 12,
+	hp : 4,
+	hd : [1, 4],
+	speed : "0 f., fly 30 ft (hover)",
+	proficiencyBonus : 2,
+	challengeRating : "1/8",
+	scores : [5, 14, 14, 13, 10, 7],
+	senses : "Darkvision 60 ft.", 
+	attacksAction 1: ,
+	attacks : [{
+		name : "Bite",
+		ability : 2,
+		damage : [1, 4, "piercing"],
+		range : "Melee (5 ft)",
+	}],
+	skills : {
+		"Perception" : 4,
+	},
+	languages : "Common",
+	condition_immunities : "prone",
+	features : [{
+		name : "Cone of Encouragement",
+		description: "The peeper’s central eye emits a beatific gaze, creating an area of encouragement in a 30-foot cone. At the end of each of its turns, the peeper decides which way the cone faces. See Reactions for more details."
+	}, {
+		name : "Scaredy",
+		description: "The peeper has disadvantage on ability checks and saving throws against the frightened condition, and automatically fails these saving throws if it can see the source of its fear and the source is two or more size categories larger than it."
+	}],
+	reactions : [{
+		name : "Encourage (2/Day)",
+		description : "As a reaction when a creature within the peeper’s cone of encouragement makes an attack roll or saving throw, the peeper can emit verbal or psychic encouragement, granting the target a bonus d4 to its roll."
+	}],
+};
+CreatureList["rakitten"] = {
+	name : "Rakitten",
+	source : ["HGtMH", 246],
+	size : 5,
+	type : "fiend",
+	companion : "familiar",
+	alignment : "Lawful Evil",
+	ac : 13,
+	hp : 3,
+	hd : [1, 4],
+	speed : "35 ft",
+	proficiencyBonus : 2,
+	challengeRating : "1/8",
+	scores : [11, 14, 13, 12, 13, 15],
+	senses : "Darkvision 60 ft", 
+	attacksAction : 1,
+	attacks : [{
+		name : "Claw",
+		ability : 2,
+		damage : [1, 4, "slashing"],
+		range : "Melee (5 ft)",
+	}],
+	skills : {
+		"Deception" : 4, 
+		"Insight" : 3,
+	},
+	features : [{
+		name : "Cat’s Grace",
+		description: "When the rakitten falls and isn’t incapacitated, it can subtract up to 30 feet from the fall when calculating falling damage. In addition, it has advantage on ability checks and saving throws made to avoid the prone condition."
+	}, {
+		name : "Swipey",
+		description: "While not in combat, the rakitten takes any opportunity it can to knock things off shelves and ledges."
+	}],
+	actions : [{
+		name : "Ethereal Paw",
+		description : desc (["A spectral, magical, floating paw appears at a point the rakitten chooses within 30 feet of it. The paw lasts for 1 minute or until the rakitten dismisses it as a bonus action. The paw vanishes if it is ever more than 30 feet away from the rakitten or if the rakitten uses this action again.",
+"The rakitten can use its action to control the paw. It can use the paw to manipulate an object, open an unlocked door or container, stow or retrieve an item from an open container, or pour the contents out of a vial. It can move the paw up to 30 feet each time it uses it. The paw can’t attack, activate magic items, or carry more than 10 pounds."])
+	}],
+};
+CreatureList["sunsnacker"] = {
+	name : "Sunsnacker",
+	source : ["HGtMH", 249],
+	size : 5,
+	type : "Fey",
+	companion : "familiar",
+	alignment : "Chaotic Neutral",
+	ac : 13,
+	hp : 3,
+	hd : [1, 4],
+	speed : "30 ft",
+	proficiencyBonus : 2,
+	challengeRating : "1/8",
+	scores : [14, 10, 12, 7, 11, 14],
+	attacksAction : ,
+	attacks : [{
+		name : "Beak",
+		ability : 2,
+		damage : [1, 6, "piercing"],
+		range : "Melee (5 ft)",
+	}],
+	skills : {
+		"Intimidation" : 4,
+	},
+	damage_resistances : "radiant",
+	features : [{
+		name : "Hungry",
+		description: "Whenever the sunsnacker first detects the presence of sweet food that isn’t being worn or carried, it must succeed on a DC 11 Wisdom saving throw or get distracted. While distracted, it spends its movement and actions trying to get close to the food and eat it. A distracted sunsnacker repeats the saving throw at the end of each of its turns, ending the effect on a success and becoming immune to the allure of that source of food for the next 24 hours."
+	}, {
+		name : "Keen Smell",
+		description: "The sunsnacker has advantage on Wisdom (Perception) checks that rely on smell."
+	}],
+	actions : [{
+		name : "Light",
+		description : "The sunsnacker creates a glowing orb that hovers in the air within 5 feet of it for the next minute, moving with it. The orb sheds bright light in a 10-foot radius, and dim light for an additional 10 feet."
+	}],
+};
+CreatureList["tarling"] = {
+	name : "Tarling",
+	source : ["HGtMH", 252],
+	size : 5,
+	type : "Elemental",
+	companion : "familiar",
+	alignment : "Unaligned",
+	ac : 13,
+	hp : 4,
+	hd : [1, 4],
+	speed : "30 ft, swim 30 ft",
+	proficiencyBonus : 2,
+	challengeRating : "1/8",
+	scores : [14, 10, 15, 4, 10, 8],
+	senses : "Darkvision 60 ft", 
+	attacksAction : 1,
+	attacks : [{
+		name : "Bite",
+		ability : 1,
+		damage : [1, 4, "piercing"],
+		range : "Melee (5 ft)",
+	}],
+	damage_resistances : "acid, piercing, poison",
+	features : [{
+		name : "Flammable",
+		description: "If the tarling takes fire damage, it ignites. It and any creature it is grappling take 2 (1d4) fire damage at the start of each of its turns and its weapon attacks deal an additional 2 (1d4) fire damage on a hit. If the tarling is subject to heavy rainfall or it takes 5 or more cold damage in a single instance, the flames are extinguished."
+	}, {
+		name : "Oil Form",
+		description: "When the tarling tries to move through water, it instead uses its swimming speed to skim along the water’s surface; it can’t submerge below the surface of water without a powerful detergent."
+	}]
+};
+CreatureList["bancho-gama"] = {
+	name : "Bancho-gama",
+	source : ["RGttYR", 227],
+	size : 5,
+	type : "Monstrosity",
+	companion : "familiar",
+	subtype : "yokai",
+	alignment : "Lawful Neutral",
+	ac : 12,
+	hp : 3,
+	hd : [1, 4],
+	speed : "30 ft",
+	proficiencyBonus : 2,
+	challengeRating : "1/8",
+	scores : [10, 15, 13, 8, 10, 14],
+	attacksAction : 1,
+	attacks : [{
+		name : "Dagger",
+		ability : 1,
+		damage : [1, 4, "piercing"],
+		range : "Melee (5 ft), 20/60 ft",
+	}],
+	skills : {
+		"Intimidation" : 4,
+	},
+	languages : "Common",
+	features : [{
+		name : "Amphibious",
+		description: "The bancho-gama can breathe air and water"
+	}, {
+		name : "Standing Leap",
+		description: "The bancho-gama’s long jump is 20 feet and its high jump is up to 10 feet, with or without a running start."
+	}, {
+		name : "Superiority Complex",
+		description: "The bancho-gama can’t benefit from the Help action"
+	}]
+};
+CreatureList["betobeto-kun"] = {
+	name : "Betobeto-kun",
+	source : ["RGttYR", 230],
+	size : ,
+	type : "",
+	companion : "familiar",
+	alignment : "",
+	ac : ,
+	hp : ,
+	hd : [],
+	speed : "",
+	proficiencyBonus : ,
+	challengeRating : "",
+	scores : [],
+	senses : "", 
+	attacksAction : ,
+	attacks : [{
+		name : "",
+		ability : ,
+		damage : [, , ""],
+		range : "",
+	}],
+	skills : {
+		"" :,
+	},
+	languages : ,
+	damage_resistances : "",
+	features : [{
+		name : "",
+		description: ""
+	}, {
+		name : "",
+		description: ""
+	}],
+	actions : [{
+		name : "",
+		description : ""
+	}],
+};
 /* 
 CreatureList[""] = {
 	name : "",
-	source : ["HGtMH", 999],
+	source : ["RGttYR", 999],
 	size : ,
 	type : "",
 	companion : "familiar",
