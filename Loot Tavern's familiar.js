@@ -3,9 +3,6 @@ CompanionList["tamer’s companion"] = {
 	nameMenu : "Companion (Tamer’s Companion class feature)",
 	nameTooltip : "the Tamer’s Companion class feature",
 	source : ["HGtMH", 999],
-	includeCheck : function(sCrea, objCrea, iCreaCR, bIsAL) {
-		return objCrea.type.toLowerCase() === "beast", "aberration" && objCrea.size >= 3 && iCreaCR <= 1/4 ? true : false;
-	},
 	attributesAdd : {
 		header : "Companion",
 		proficiencyBonusLinked : true,
@@ -444,6 +441,74 @@ CreatureList["bancho-gama"] = {
 CreatureList["betobeto-kun"] = {
 	name : "Betobeto-kun",
 	source : ["RGttYR", 230],
+	size : 5,
+	type : "Fey",
+	subtype : "yokai",
+	companion : "familiar",
+	alignment : "Chaotic Neutral",
+	ac : 12,
+	hp : 3,
+	hd : [1, 4],
+	speed : "30 ft",
+	proficiencyBonus : 2,
+	challengeRating : "1/8",
+	scores : [1, 14, 13, 7, 11, 14],
+	senses : "darkvision 60 ft", 
+	attacksAction : 1,
+	attacks : [{
+		name : "Frighten",
+		damage : [1, 8, "psychic"],
+		range : "5 ft",
+		description : "Wis save, success - no damage; 1 creature; if roll 1, creature is frightened of betobeto-kun's untils next turn's end.",
+		dc : true,
+		modifiers : [2, ""],
+		abilitytodamage : false
+	}],
+	skills : {
+		"Stealth" : 4,
+	},
+	languages : "understands Common but can’t speak",
+	condition_immunities : "frightened",
+	features : [{
+		name : "Audiophile",
+		description: "Whenever the betobeto-kun hears a creature that it hasn’t encountered before, it must make a DC 11 Wisdom saving throw. On a failed save, the betobeto-kun loudly mimics the creature's noises for the next 10 minutes, automatically failing Stealth checks against creatures that can hear it."
+	}]
+};
+CreatureList["kawawappa"] = {
+	name : "Kawawappa",
+	source : ["RGttYR", 233],
+	size : 5,
+	type : "Fey",
+	subtype : "yokai",
+	companion : "familiar",
+	alignment : "Neutral Good",
+	ac : 13,
+	hp : 3,
+	hd : [1, 4],
+	speed : "30 ft, swim 30 ft",
+	proficiencyBonus : 2,
+	challengeRating : "1/8",
+	scores : [1, 4],
+	senses : "Darkvision 60 ft", 
+	attacksAction : 1,
+	attacks : [{
+		name : "Claw",
+		ability : 1,
+		damage : [1, 4, "piercing"],
+		range : "Melee (5 ft)",
+	}],
+	languages : "Common",
+	features : [{
+		name : "Amphibious",
+		description: "The kawawappa can breathe air and water."
+	}, {
+		name : "Water Bowl",
+		description: "When the kawawappa is knocked prone against its will, it must succeed on a DC 11 Dexterity saving throw or spill some of the water it keeps in its head, which disorients the kawawappa and gives it disadvantage on the next attack roll it makes before the end of its next turn."
+	}]
+};
+CreatureList["ko-inari"] = {
+	name : "",
+	source : ["RGttYR", 999],
 	size : ,
 	type : "",
 	companion : "familiar",
