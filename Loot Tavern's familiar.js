@@ -507,42 +507,36 @@ CreatureList["kawawappa"] = {
 	}]
 };
 CreatureList["ko-inari"] = {
-	name : "",
-	source : ["RGttYR", 999],
-	size : ,
-	type : "",
+	name : "Ko-inari",
+	source : ["RGttYR", 236],
+	size : 5,
+	type : "Celestial",
+	subtype : "yokai",
 	companion : "familiar",
-	alignment : "",
-	ac : ,
-	hp : ,
-	hd : [],
-	speed : "",
-	proficiencyBonus : ,
-	challengeRating : "",
-	scores : [],
-	senses : "", 
-	attacksAction : ,
+	alignment : "Lawful Good",
+	ac : 12,
+	hp : 3,
+	hd : [1, 4],
+	speed : "30 ft",
+	proficiencyBonus : 2,
+	challengeRating : "1/8",
+	scores : [9, 14, 13, 10, 14, 12],
+	senses : "Darkvision 60 ft", 
+	attacksAction : 1,
 	attacks : [{
-		name : "",
-		ability : ,
-		damage : [, , ""],
-		range : "",
+		name : "Radiant Strike",
+		ability : 5,
+		damage : [1, 4, "radiant"],
+		range : "Melee (5 ft), 20 ft",
 	}],
-	skills : {
-		"" :,
-	},
-	languages : ,
-	damage_resistances : "",
+	languages : "Common,Celestial, Kitsune",
+	damage_immunities : "radiant",
 	features : [{
-		name : "",
-		description: ""
+		name : "Divine Reproach",
+		description: "When a ko-inari witnesses one of its allies commit an evil deed, it takes the earliest possible opportunity to scold them (typically waiting until a combat concludes). The ko-inari’s scolding takes 1 minute and requires the ko-inari to be within 10 feet of its ally for the duration, after which the ally must succeed on a DC 11 Wisdom saving throw or take 4 (1d8) psychic damage. Once a creature has failed this saving throw, it can’t be affected by this trait again until it finishes a long rest."
 	}, {
-		name : "",
-		description: ""
-	}],
-	actions : [{
-		name : "",
-		description : ""
+		name : "Fortified Mind",
+		description: " The ko-inari is immune to magic that allows other creatures to read its thoughts, determine whether it’s lying, know its alignment, or know its creature type."
 	}],
 };
 /* 
