@@ -539,10 +539,84 @@ CreatureList["ko-inari"] = {
 		description: " The ko-inari is immune to magic that allows other creatures to read its thoughts, determine whether it’s lying, know its alignment, or know its creature type."
 	}],
 };
+CreatureList["senryōka"] = {
+	name : "senryōka",
+	source : ["RGttYR", 239],
+	size : 5,
+	type : "Undead",
+	subtype : "yokai",
+	companion : "familiar",
+	alignment : "Neutral",
+	ac : 12,
+	hp : 4,
+	hd : [1, 4],
+	speed : "30 ft",
+	proficiencyBonus : 2,
+	challengeRating : "1/8",
+	scores : [14, 10, 14, 8, 13, 9],
+	senses : "Darkvision 60 ft", 
+	attacksAction : ,
+	attacks : [{
+		name : "Salvaged Weapon",
+		ability : 1,
+		damage : [1, 4,  "bludgeoning, piercing, or slashing"],
+		range : "Melee (5 ft), 20/60 ft",
+	}],
+	languages : " understands Common but can’t speak",
+	damage_immunities : "poison",
+	condition_immunities : "poisoned",
+	features : [{
+		name : "Kleptomaniac",
+		description: " The senryōka feels compelled to acquire tools and weapons to store in its bag. Whenever it sees a creature carrying a weapon or tool that it hasn’t seen before, it must make a DC 11 Wisdom saving throw. On a failed save, the senryōka must try to steal the tool or weapon, stopping after one attempt regardless of whether it succeeds or fails."
+	}],
+	actions : [{
+		name : "Incorporeal Form (1/Day)",
+		description : "The senryōka becomes partially incorporeal until the end of its turn. While in this state, it can move through other creatures and objects as if they were difficult terrain. If it ends its turn in the same space as another creature or object, it takes 5 (1d10) force damage and is shunted into the nearest unoccupied space."
+	}],
+};
+CreatureList["brainmuncher"] = {
+	name : "",
+	source : ["HBB", 2],
+	size : ,
+	type : "",
+	companion : "familiar",
+	alignment : "",
+	ac : ,
+	hp : ,
+	hd : [],
+	speed : "",
+	proficiencyBonus : ,
+	challengeRating : "",
+	scores : [],
+	senses : "", 
+	attacksAction : ,
+	attacks : [{
+		name : "",
+		ability : ,
+		damage : [, , ""],
+		range : "",
+	}],
+	skills : {
+		"" :,
+	},
+	languages : ,
+	damage_resistances : "",
+	features : [{
+		name : "",
+		description: ""
+	}, {
+		name : "",
+		description: ""
+	}],
+	actions : [{
+		name : "",
+		description : ""
+	}],
+};
 /* 
 CreatureList[""] = {
 	name : "",
-	source : ["RGttYR", 999],
+	source : ["HBB", 999],
 	size : ,
 	type : "",
 	companion : "familiar",
