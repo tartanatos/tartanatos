@@ -271,7 +271,7 @@ CreatureList["peeper"] = {
 	challengeRating : "1/8",
 	scores : [5, 14, 14, 13, 10, 7],
 	senses : "Darkvision 60 ft.", 
-	attacksAction 1: ,
+	attacksAction : 1,
 	attacks : [{
 		name : "Bite",
 		ability : 2,
@@ -348,7 +348,7 @@ CreatureList["sunsnacker"] = {
 	proficiencyBonus : 2,
 	challengeRating : "1/8",
 	scores : [14, 10, 12, 7, 11, 14],
-	attacksAction : ,
+	attacksAction : 1,
 	attacks : [{
 		name : "Beak",
 		ability : 2,
@@ -556,7 +556,7 @@ CreatureList["senryōka"] = {
 	challengeRating : "1/8",
 	scores : [14, 10, 14, 8, 13, 9],
 	senses : "Darkvision 60 ft", 
-	attacksAction : ,
+	attacksAction : 1,
 	attacks : [{
 		name : "Salvaged Weapon",
 		ability : 1,
@@ -768,81 +768,86 @@ CreatureList["dire bunny"] = {
 };
 CreatureList["slaghund"] = {
 	name : "Slaghund",
-	source : ["HBB", 999],
-	size : ,
-	type : "",
+	source : ["HBB", 17],
+	size : 5,
+	type : "Fiend",
 	companion : "familiar",
-	alignment : "",
-	ac : ,
-	hp : ,
-	hd : [],
-	speed : "",
-	proficiencyBonus : ,
-	challengeRating : "",
-	scores : [],
-	senses : "", 
-	attacksAction : ,
+	alignment : "Chaotic Neutral",
+	ac : 13,
+	hp : 4,
+	hd : [1, 4],
+	speed : "30 ft",
+	proficiencyBonus : 2,
+	challengeRating : "1/8",
+	scores : [13, 12, 14, 6, 11, 10],
+	senses : "Darkvision 60 ft",
+	attacksAction : 1,
 	attacks : [{
-		name : "",
-		ability : ,
-		damage : [, , ""],
-		range : "",
+		name : "Bite",
+		ability : 1,
+		damage : [1, 6, "piercing"],
+		range : "Melee (5 ft)",
+		description : "Additional 1d4 fire damage.",
+	}, {
+		name : "Claws",
+		ability : 1,
+		damage : [1, 4, "piercing"],
+		range : "Melee (5 ft)",
+		description : "Additional 1d4 fire damage.",
 	}],
 	skills : {
-		"" :,
+		"Perception" : 2,
 	},
-	languages : ,
-	damage_resistances : "",
+	damage_vulnerabilities : "cold",
+	damage_immunities : "fire",
 	features : [{
-		name : "",
-		description: ""
+		name : "Heated Weapons",
+		description: "When the slaghund hits with a weapon attack, it deals an extra 2 (1d4) fire damage (included in attacks)."
 	}, {
-		name : "",
-		description: ""
-	}],
-	actions : [{
-		name : "",
-		description : ""
+		name : "Heatable Body",
+		description: "As a bonus action, the slaghund can cause its body to heat up, or return to a normal warm temperature. While its body is heated in this way, a creature that touches the slaghund or hits it with a melee attack while within 5 feet of it takes 2 (1d4) fire damage."
+	}, {
+		name : "Reactionary Flame",
+		description : "When the slaghund is surprised, it ignites everything flammable within 1 foot of it that isn’t being carried or worn."
 	}],
 };
-/* 
-CreatureList[""] = {
+CreatureList["tatzlings"] = {
 	name : "",
-	source : ["HBB", 999],
-	size : ,
-	type : "",
+	source : ["HBB", 20],
+	size : 5,
+	type : "Dragon",
 	companion : "familiar",
-	alignment : "",
-	ac : ,
-	hp : ,
-	hd : [],
-	speed : "",
-	proficiencyBonus : ,
-	challengeRating : "",
-	scores : [],
-	senses : "", 
-	attacksAction : ,
+	alignment : "Lawful good",
+	ac : 14,
+	hp : 3,
+	hd : [1, 4],
+	speed : "30 ft",
+	proficiencyBonus : 2,
+	challengeRating : "1/8",
+	scores : [11, 14, 12, 11, 10, 12],
+	senses : "Darkvision 60 ft", 
+	attacksAction : 1,
 	attacks : [{
-		name : "",
-		ability : ,
-		damage : [, , ""],
-		range : "",
+		name : "Bite",
+		ability : 2,
+		damage : [1, 6, "piercing"],
+		range : "Melee (5 ft)",
+	}, {
+		name : "Claw",
+		ability : 2,
+		damage : [1, 4, "piercing"],
+		range : "Melee (5 ft)",
 	}],
 	skills : {
-		"" :,
+		"Perception" : 2,
 	},
-	languages : ,
-	damage_resistances : "",
+	damage_resistances : "cold",
 	features : [{
-		name : "",
-		description: ""
-	}, {
-		name : "",
-		description: ""
+		name : "Disaster Prone",
+		description: "When the tatzling makes an ability check or attack roll and rolls a 1 on the d20, the results are often disastrous. The GM has great latitude when deciding the consequences of this trait triggering."
 	}],
-	actions : [{
-		name : "",
-		description : ""
+	reactions : [{
+		name : "Protect (3/Day)",
+		description : "When a creature the tatzling can see attacks a target that is within 5 feet of the tatzling, it can impose disadvantage on the attack roll provided the attack is against a creature other than the tatzling."
 	}],
 };
-*/
