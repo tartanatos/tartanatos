@@ -237,7 +237,8 @@ CreatureList["minimic"] = {
 		name : "Bite",
 		ability : 1,
 		damage : [1, 4, "piercing"],
-		range : "Additional 1d4 acid damage.",
+		range : "Melee (5 ft)",
+		description : "Additional 1d4 acid damage.",
 	}],
 	skills : {
 		"Stealth" : 2,
@@ -628,6 +629,159 @@ CreatureList["caprisoul"] = {
 	scores : [4, 16, 13, 8, 9, 7],
 	senses : "Darkvision 60 ft", 
 	attacksAction : 1,
+	attacks : [{
+		name : "Soul Drain",
+		ability : 2,
+		damage : [1, 6, "necrotic"],
+		range : "Melee (5 ft)",
+		description : "(Check features)",
+	}],
+	skills : {
+		"Stealth" : 5,
+	},
+	damage_resistances : "necrotic",
+	damage_immunities : "poison",
+	condition_immunities : "charmed, poisoned",
+	features : [{
+		name : "Death Burst",
+		description: "When the caprisoul dies, it explodes in a burst of soul energy. Each creature within 5 feet of it must make a DC 11 Dexterity saving throw, taking 5 (2d4) psychic damage on a failure, or half as much damage on a success."
+	}, {
+		name : "Soul Drain",
+		description: "As part of its Soul Drain attack, the Caprisoul deals additionally 1 piercing damage. The caprisoul gains temporary hit points equal to half the necrotic damage dealt. The target must succeed on a DC 11 Constitution saving throw or its hit point maximum is reduced by an amount equal to the necrotic damage taken. This reduction lasts until the target finishes a long rest. The target dies if this effect reduces its hit point maximum to 0."
+	}],
+};
+CreatureList["couatling"] = {
+	name : "Couatling",
+	source : ["HBB", 8],
+	size : 5,
+	type : "Celestial",
+	companion : "familiar",
+	alignment : "Lawful Good",
+	ac : 13,
+	hp : 2,
+	hd : [1, 4],
+	speed : "20 ft, fly 30 ft",
+	proficiencyBonus : 2,
+	challengeRating : "1/8",
+	scores : [6, 15, 11, 10, 12, 15],
+	senses : "Darkvision 60 ft", 
+	attacksAction : 1,
+	attacks : [{
+		name : "Bite",
+		ability : 2,
+		damage : [1, 6, "piercing"],
+		range : "Melee (5 ft)",
+	}],
+	skills : {
+		"Perception" : 3,
+	},
+	languages : "telepathy 30 ft",
+	damage_resistances : "psychic, radiant",
+	features : [{
+		name : "Shielded Mind",
+		description: "The couatling is immune to scrying and to any effect that would sense its emotions, read its thoughts, or detect its location."
+	}],
+	actions : [{
+		name : "Goodsense (1/Day)",
+		description : "The couatling casts detect evil and good, requiring no material components."
+	}],
+};
+CreatureList["death shroud"] = {
+	name : "Death Shroud",
+	source : ["HBB", 11],
+	size : 5,
+	type : "Undead",
+	companion : "familiar",
+	alignment : "Lawful Neutral",
+	ac : 12,
+	hp : 2,
+	hd : [1, 4],
+	speed : "30 ft",
+	proficiencyBonus : 2,
+	challengeRating : "1/8",
+	scores : [9, 13, 11, 14, 13, 8],
+	senses : "Blindsight 60 ft (blind beyond this radius)", 
+	attacksAction : 1,
+	attacks : [{
+		name : "Slap",
+		ability : 2,
+		damage : [1, 4, "bludgeoning"],
+		range : "Melee (5 ft)",
+	}, {
+		name : "Lich Slap",
+		ability : 4,
+		damage : [1, 6, "necrotic"],
+		range : "Melee (5 ft)",
+		abilitytodamage : false,
+		description : "Target can’t regain hit points until the start of the death shroud’s next turn.",
+	}],
+	skills : {
+		"Medicine" : 3,
+		"Thieves’ tools" : 3,
+	},
+	languages : "understands Common but can’t speak",
+	damage_immunities : "poison",
+	damage_immunities : "blinded, charmed, poisoned",
+	features : [{
+		name : "Morbid Curiosity",
+		description: "The death shroud is easily distracted by fresh corpses. Whenever it first detects a corpse that has been dead for less than 1 hour (and that it didn’t witness die), it must succeed on a DC 11 Wisdom saving throw or get distracted. While distracted, it spends its movement and actions trying to get close to, and inspect, the corpse for a cause of death. A distracted death shroud in a corpse’s space uses its action to make Intelligence (Medicine) checks (DC decided by the GM). On a success, it stops being distracted and becomes immune to the allure of that corpse forever."
+	}, {
+		name : "Turn Immunity",
+		description: "The death shroud is immune to effects that turn undead."
+	}]
+};
+CreatureList["dire bunny"] = {
+	name : "Dire Bunny",
+	source : ["HBB", 15],
+	size : 5,
+	type : "Aberration",
+	companion : "familiar",
+	alignment : "neutral",
+	ac : 13,
+	hp : 4,
+	hd : [1, 4],
+	speed : "30 ft",
+	proficiencyBonus : 2,
+	challengeRating : "1/8",
+	scores : [10, 13, 14, 8, 14, 11],
+	senses : "darkvision 90 ft", 
+	attacksAction : 1,
+	attacks : [{
+		name : "Bite",
+		ability : 2,
+		damage : [1, 4, "piercing"],
+		range : "Melee (5 ft)",
+	}],
+	skills : {
+		"Insight" :4,
+		"Perception" : 4,
+	},
+	languages : "Common, Deep Speech, telepathy 30 ft",
+	features : [{
+		name : "Bonemonger",
+		description: "Whenever the dire bunny first sees a bone, it must succeed on a DC 12 Wisdom saving throw or become distracted until it possesses the bone or the bone is no longer in its line of sight. While distracted, it spends its movement and actions trying to get closer to the bone and sequester it. A distracted dire bunny whose owner issues a command to it repeats the saving throw at the end of its next turn, ending the effect on a success and becoming immune to the allure of any bone for the next hour."
+	}],
+	actions : [{
+		name : "Detect Thoughts (1/Day)",
+		description : "The dire bunny learns the surface thoughts of one creature it can see within 30 feet of it for 1 minute. It can attempt to probe deeper into the creature’s mind, using an action to force the target to make a DC 12 Wisdom saving throw, per the detect thoughts spell."
+	}],
+};
+CreatureList["slaghund"] = {
+	name : "Slaghund",
+	source : ["HBB", 999],
+	size : ,
+	type : "",
+	companion : "familiar",
+	alignment : "",
+	ac : ,
+	hp : ,
+	hd : [],
+	speed : "",
+	proficiencyBonus : ,
+	challengeRating : "",
+	scores : [],
+	senses : "", 
+	attacksAction : ,
 	attacks : [{
 		name : "",
 		ability : ,
