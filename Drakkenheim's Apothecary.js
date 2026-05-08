@@ -67,12 +67,11 @@ ClassList["apothecary"] = {
 	],		
   	spellcastingKnown : {
     	cantrips : [3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
-		spells : "book",
+		spells : "list",
     	prepared : true
   	},
 	spellcastingList : {
-		list : "apothecary",
-		level : [0, 9],
+		class : "apothecary",
 	},
 	features : {
 	    "spellcasting" : {
@@ -115,17 +114,17 @@ ClassList["apothecary"] = {
 	      ]),
 	    },  
 	*/
-	
-["Acid Burn", "Acid Splash", "Bacterial Barrage", "Chill Touch", "Guidance", "Light", "Mending", "Message", "Poison Needle", "Poison Spray", "Resistance", "Shocking Grasp", "Spare the Dying", "Thaumaturgy", //0th level
- "Acrid Orb", "Alarm", "Comprehend Languages", "Create or Destroy Water", "Cure Wounds", "Detect Evil and Good", "Detect Magic", "Detect Poison and Disease", "Envenom", "False Life", "Feather Fall", "Floating Disk", "Fog Cloud", "Grease", "Healing Word", "Tasha's Hideous Laughter", "Identify", "Illusory Script", "Infect", "Jump", "Purify Food and Drink", "Sleep", "Stream of Consumption", "Toxic Shield", "Unseen Servant", //1st Level
- "Acid Arrow", "Aid", "Biohazard", "Blindness/Deafness", "Caustic Grip", "Enhance Ability", "Enlarge/Reduce", "Gentle Repose", "Grasping Ghost", "Hold Person", "Invigorate", "Lesser Restoration", "Ocular Necrosis", "Protection from Poison", "Ray of Enfeeblement", "See Invisibility", "Silence", "Spider Climb", "Web", //2nd level
- "Bestow Curse", "Corrosive Blast", "Dispel Magic", "Fear", "Fetid Blade", "Gaseous Form", "Glyph of Warding", "Haste", "Hypnotic Pattern", "Magic Circle", "Mass Healing Word", "Pestilence", "Purge Contamination", "Protection from Energy", "Remove Curse", "Revivify", "Sending", "Slow", "Speak with Dead", "Stinking Cloud", "Tranquilizing Toxin", "Vampiric Touch", "Venomous Aura", "Water Breathing", //3rd level 
- "Evard's Black Tentacles", "Blight", "Blood Worm", "Corpse Explosion", "Corrupting Spores", "Death Ward", "Freedom of Movement", "Last Rites", "Poison Wave", "Polymorph", "Stoneskin", "Vitriol Ichor", //4th level
- "Acid Rain", "Antilife Shell", "Cloudkill", "Contact Other Plane", "Greater Restoration", "Hold Monster", "Mass Cure Wounds", "Nerve Gas", "Raise Dead", "Scrying", "Septic Shock", "Telepathic Bond", "Teleportation Circle", "Toxic Barrage", //5th level
- "Chain Lightning", "Circle of Death", "Create Undead", "Disintegrate", "Eyebite", "Flesh to Stone", "Globe of Invulnerability", "Harm", "Heal", "Mephitic Vapors", "True Seeing", "Vile Necrosis", //6th level
- "Etherealness", "Finger of Death", "Forcecage", "Miasma", "Plane Shift", "Prismatic Spray", "Grievous Wounds", "Regenerate", "Resurrection", //7th level
- "Antimagic Field", "Antipathy/Sympathy", "Breath of Nightshade", "Clone", "Dominate Monster", "Feeblemind", "Mind Blank", "Plague Wind", "Power Word Stun", //8th level
- "Astral Projection", "Foresight", "Mass Heal", "Pandemic", "Power Word Kill", "Time Stop", "Touch of Death", "True Polymorph", "True Resurrection", //9th level
+[
+	"acid burn", "acid splash", "bacterial barrage", "chill touch", "guidance", "light", "mending", "message", "poison needle", "poison spray", "resistance", "shocking grasp", "spare the dying", "thaumaturgy", //0th level
+	"acrid orb", "alarm", "comprehend languages", "create or destroy water", "cure wounds", "detect evil and good", "detect magic", "detect poison and disease", "envenom", "false life", "feather fall", "floating disk", "fog cloud", "grease", "healing word", "tasha's hideous laughter", "identify", "illusory script", "infect", "jump", "purify food and drink", "sleep", "stream of consumption", "toxic shield", "unseen servant", //1st level
+	"acid arrow", "aid", "biohazard", "blindness/deafness", "caustic grip", "enhance ability", "enlarge/reduce", "gentle repose", "grasping ghost", "hold person", "invigorate", "lesser restoration", "ocular necrosis", "protection from poison", "ray of enfeeblement", "see invisibility", "silence", "spider climb", "web", //2nd level
+	"bestow curse", "corrosive blast", "dispel magic", "fear", "fetid blade", "gaseous form", "glyph of warding", "haste", "hypnotic pattern", "magic circle", "mass healing word", "pestilence", "purge contamination", "protection from energy", "remove curse", "revivify", "sending", "slow", "speak with dead", "stinking cloud", "tranquilizing toxin", "vampiric touch", "venomous aura", "water breathing", //3rd level 
+	"evard's black tentacles", "blight", "blood worm", "corpse explosion", "corrupting spores", "death ward", "freedom of movement", "last rites", "poison wave", "polymorph", "stoneskin", "vitriol ichor", //4th level
+	"acid rain", "antilife shell", "cloudkill", "contact other plane", "greater restoration", "hold monster", "mass cure wounds", "nerve gas", "raise dead", "scrying", "septic shock", "telepathic bond", "teleportation circle", "toxic barrage", //5th level
+	"chain lightning", "circle of death", "create undead", "disintegrate", "eyebite", "flesh to stone", "globe of invulnerability", "harm", "heal", "mephitic vapors", "true seeing", "vile necrosis", //6th level
+	"etherealness", "finger of death", "forcecage", "miasma", "plane shift", "prismatic spray", "grievous wounds", "regenerate", "resurrection", //7th level
+	"antimagic field", "antipathy/sympathy", "breath of nightshade", "clone", "dominate monster", "feeblemind", "mind blank", "plague wind", "power word stun", //8th level
+	"astral projection", "foresight", "mass heal", "pandemic", "power word kill", "time stop", "touch of death", "true polymorph", "true resurrection", //9th level
  ].forEach( function (s) {
 	 if(SpellsList[s] && SpellsList[s].classes && SpellsList[s].classes.indexOf("apothecary") === -1) SpellsList[s].classes.push("apothecary");
  }); //apothecary spell list
