@@ -80,10 +80,11 @@ ClassList["apothecary"] = {
 	    	minlevel : 1,
 	    	description : desc([
 	        	"I can cast prepared apothecary cantrips/spells, using Intelligence as my spellcasting ability",
-	        	"I can use an arcane focus as a spellcasting focus for my wizard spells",
-	        	"I can cast all wizard spells in my formula book as rituals if they have the ritual tag",
+	        	"I can use an arcane focus or my formula book as a spellcasting focus for my apothecary spells",
+	        	"I can cast all apothecary spells in my formula book as rituals if they have the ritual tag",
 	        	"After a long rest, I can replace one apothecary cantrip I know with another cantrip from the apothecary spell list."
 	    	]),
+			additional : ["3 cantrips known", "3 cantrips known", "3 cantrips known", "4 cantrips known", "4 cantrips known", "4 cantrips known", "4 cantrips known", "4 cantrips known", "4 cantrips known", "5 cantrips known", "5 cantrips known", "5 cantrips known", "5 cantrips known", "5 cantrips known", "5 cantrips known", "5 cantrips known", "5 cantrips known", "5 cantrips known", "5 cantrips known", "5 cantrips known"],
 	    },
 		"subclassfeature3" : {
 			name : "Occult Practices",
@@ -96,10 +97,95 @@ ClassList["apothecary"] = {
 	    "esoteric theories" : {
 			name : "Esoteric Theories",
 			source : ["SCGtD", ],
-			minlevel : 1,
+			minlevel : 2,
 			description : desc([
-				"patata"
+				"I gain two esoteric theories of my choice."
 		  	]),
+			additional : ["0 theories known", "2 theories known", "2 theories known", "3 theories known", "3 theories known", "4 theories known", "4 theories known", "5 theories known", "5 theories known", "6 theories known", "6 theories known", "7 theories known", "7 theories known", "8 theories known", "8 theories known", "9 theories known", "9 theories known", "10 theories known", "10 theories known", "11 theories known"],
+			/*
+			BORRAR
+			BORRAR
+			BORRAR
+			*/
+			extrachoices : ["acquired tolerance", "adrenaline surge (prereq: level 6 apothecary)", "anatomical precision", "anesthesiology (prereq: level 14 apothecary)", "bedside manner", "caustic formulae (prereq: level 6 apothecary)", "clinical conditioning  (prereq: level 6 apothecary)"],
+			extraTimes : levels.map(function(n) {
+				return n < 2 ? 2 : n < 4 ? 3 : n < 6 ? 4 : n < 8 ? 5 : n < 10 ? 6 : n < 12 ? 7 : n < 14 ? 8 : n < 16 ? 9 : n < 18 ? 10 : 11;
+			}),
+			"acquired tolerance" : {
+				name : "Acquired Tolerance",
+				description : desc([
+					"Advantage on saving throws against poison and resistance to poison damage. ",
+					"I automatically succeed on saving throws against my apothecary spells, and never take damage from my apothecary spells."
+								   ]),
+				source : ["SCGtD", 136],
+				dmgres : ["poison"],
+			},
+			"adrenaline surge (prereq: level 6 apothecary)" : {
+				name : "Adrenaline Surge",
+				description : desc([
+					"A creature at 0 hit points who regains hit points from a spell I cast using an apothecary spell slot gains resistance to all damage and has advantage on saving throws until the end of its next turn. It gains advantage on the first attack roll it makes on its next turn."
+				]),
+				source : ["SCGtD", ],
+				submenu : "[apothecary level  6+]",
+				prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
+			},
+			"anatomical precision" : {
+				name : "Anatomical Precision",
+				description : desc([
+					"When I make a weapon attack, I can use your Intelligence modifier, instead of Strength or Dexterity, for the attack and damage rolls."
+				]),
+				source : ["SCGtD", 136],
+			},
+			"anesthesiology (prereq: level 14 apothecary)" : {
+				name : "Anesthesiology",
+				description : desc([
+					"I can cast hold person without expending a spell slot or material components. I must finish a long rest before I can use this theory on the same creature."
+				]),
+				source : ["SCGtD", 137],
+				submenu : "[apothecary level  14+]",
+				prereqeval : function(v) { return classes.known.apothecary.level >= 14; },
+			},
+			"bedside manner" : {
+				name : "Bedside Manner",
+				description : desc([
+					"I gain proficiency in Insight and Persuasion."
+				]),
+				source : ["SCGtD", 137],
+				skills : [
+					"Insight", "Persuasion"
+				]
+			},
+			"caustic formulae (prereq: level 6 apothecary)" : {
+				name : "Caustic Formulae",
+				description : desc([
+					"Once per turn when I deal damage to a creature or object with an apothecary spell, I can expend an apothecary spell slot to deal 2d4 extra acid damage to that target, plus another 2d4 per level of the spell slot."
+				]),
+				source : ["SCGtD", 137],
+				submenu : "[apothecary level  6+]",
+				prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
+			},
+			"clinical conditioning  (prereq: level 6 apothecary)" : {
+				name : "Clinical Conditioning",
+				description : desc([
+					"I gain proficiency in Constitution saving throws."
+				]),
+				source : ["SCGtD", 137],
+				submenu : "[apothecary level  6+]",
+				prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
+				saves : ["Con"]
+			},
+			/*
+			"" : {
+				name : "",
+				description : desc([
+					""
+				]),
+				source : ["SCGtD", ],
+				submenu : "[apothecary level  X+]",
+				prereqeval : function(v) { return classes.known.apothecary.level >= X; },
+			},
+			*/
+
 	    },
 	  }, //features
 	}; //apothecary class
