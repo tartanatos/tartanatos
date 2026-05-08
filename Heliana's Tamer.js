@@ -64,7 +64,7 @@ ClassList["tamer"] = {
 		primary : [true, false, ["net"]],
 		secondary : [true, false, ["net"]]
 	},
-	equipment : "Ranger starting equipment:" +
+	equipment : "Tamer starting equipment:" +
 		"\n \u2022 Scale mail -or- leather armor;" +
     	"\n \u2022 A simple melee weapon, a net, and a shield;" +
 		"\n \u2022 A light crossbow and 20 bolts;" +
