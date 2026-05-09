@@ -106,8 +106,25 @@ ClassList["apothecary"] = {
 			BORRAR
 			BORRAR
 			BORRAR
+			BORRAR
+			BORRAR
+			BORRAR
+			BORRAR
+			BORRAR
+			BORRAR
 			*/
-			extrachoices : ["acquired tolerance", "adrenaline surge (prereq: level 6 apothecary)", "anatomical precision", "anesthesiology (prereq: level 14 apothecary)", "bedside manner", "caustic formulae (prereq: level 6 apothecary)", "clinical conditioning  (prereq: level 6 apothecary)"],
+			extrachoices : ["acquired tolerance", "adrenaline surge (prereq: level 6 apothecary)", "anatomical precision", "anesthesiology (prereq: level 14 apothecary)", "bedside manner", "caustic formulae (prereq: level 6 apothecary)", "clinical conditioning  (prereq: level 6 apothecary)", "combat medic", "corrosive compound (prereq: level 6 apothecary)", "cosmetic surgery", "critical condition (prereq: level 6 apothecary)", "diagnosis", "doctor’s note (prereq: level 6 apothecary)", "double dose (prereq: level 10 apothecary)", "extracurricular research"],
+			/*
+			BORRAR
+			BORRAR
+			BORRAR
+			BORRAR
+			BORRAR
+			BORRAR
+			BORRAR
+			BORRAR
+			BORRAR
+			*/
 			extraTimes : levels.map(function(n) {
 				return n < 2 ? 2 : n < 4 ? 3 : n < 6 ? 4 : n < 8 ? 5 : n < 10 ? 6 : n < 12 ? 7 : n < 14 ? 8 : n < 16 ? 9 : n < 18 ? 10 : 11;
 			}),
@@ -139,11 +156,15 @@ ClassList["apothecary"] = {
 			"anesthesiology (prereq: level 14 apothecary)" : {
 				name : "Anesthesiology",
 				description : desc([
-					"I can cast hold person without expending a spell slot or material components. I must finish a long rest before I can use this theory on the same creature."
+					"I can cast Hold Person without expending a spell slot or material components. I must finish a long rest before I can use this theory on the same creature."
 				]),
 				source : ["SCGtD", 137],
 				submenu : "[apothecary level  14+]",
 				prereqeval : function(v) { return classes.known.apothecary.level >= 14; },
+				spellcastingBonus : [{
+					spells : ["hold person"],
+					name : "Anesthesiology",
+					firstCol : "oncelr"
 			},
 			"bedside manner" : {
 				name : "Bedside Manner",
@@ -173,6 +194,77 @@ ClassList["apothecary"] = {
 				submenu : "[apothecary level  6+]",
 				prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
 				saves : ["Con"]
+			},
+			"combat medic" : {
+				name : "Combat Medic",
+				description : desc([
+					"I gain proficiency with martial weapons and shields."
+				]),
+				source : ["SCGtD", 137],
+				armorProfs : [true, true, false, true],
+				weaponProfs : [true, true]
+			},
+			"corrosive compound (prereq: level 6 apothecary)" : {
+				name : "",
+				description : desc([
+					"When I deal poison damage with my apothecary spells, I can deal half the spell’s damage as poison damage and acid damage instead."
+				]),
+				source : ["SCGtD", 137],
+				submenu : "[apothecary level  6+]",
+				prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
+			},
+			"cosmetic surgery" : {
+				name : "Cosmetic Surgery",
+				description : desc([
+					"I can spend 8 hours performing an occult surgical procedure upon a willing creature, permanently transforming its appearance. I decide what the creature looks like, including facial features, the sound of its voice, hair length, coloration, and distinguishing characteristics, but none of its game statistics change. I can’t alter the size of a creature, and its basic shape stays the same. The resulting transformation is non-magical, however, a greater restoration spell or similar magic cast upon the creature can restore it to its original appearance."
+				]),
+				source : ["SCGtD", 137],
+			},
+			"critical condition (prereq: level 6 apothecary)" : {
+				name : "Critical Condition",
+				description : desc([
+					"When a creature rolls a natural 1 on a saving throw made against one of my apothecary spells that deals damage, I roll all of the spell’s damage dice twice and add them together. Then I add any relevant modifiers as normal to determine the damage that creature takes from the spell."
+				]),
+				source : ["SCGtD", 137],
+				submenu : "[apothecary level  6+]",
+				prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
+			},
+			"diagnosis" : {
+				name : "Diagnosis",
+				description : desc([
+					"I can take the Help action as a bonus action on my turn."
+				]),
+				source : ["SCGtD", 137],
+				action : ["bonus action", "Help"],
+			},
+			"doctor’s note (prereq: level 6 apothecary)" : {
+				name : "Doctor’s Note",
+				description : desc([
+					"I can cast the Sending spell at-will. I must finish a long rest before I can use this theory to contact the same creature again."
+				]),
+				source : ["SCGtD", 137],
+				submenu : "[apothecary level  6+]",
+				prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
+			},
+			"double dose (prereq: level 10 apothecary)" : {
+				name : "Double Dose",
+				description : desc([
+					"When I cast an apothecary spell using an apothecary spell slot that targets a single creature and restores hit points to that creature, I can target an additional creature within range."
+				]),
+				source : ["SCGtD", 137],
+				submenu : "[apothecary level  10+]",
+				prereqeval : function(v) { return classes.known.apothecary.level >= 10; },
+			},
+			"extracurricular research" : {
+				name : "Extracurricular Research",
+				description : desc([
+					"I learn two additional cantrips of my choice from any class’s spell list."
+				]),
+				source : ["SCGtD", 137],
+				spellcastingBonus : [{
+					name : "Extracurricular Research",
+					times : 2,
+				}],
 			},
 			/*
 			"" : {
