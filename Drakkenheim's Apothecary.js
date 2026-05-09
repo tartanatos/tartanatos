@@ -113,7 +113,7 @@ ClassList["apothecary"] = {
 			BORRAR
 			BORRAR
 			*/
-			extrachoices : ["acquired tolerance", "adrenaline surge (prereq: level 6 apothecary)", "anatomical precision", "anesthesiology (prereq: level 14 apothecary)", "bedside manner", "caustic formulae (prereq: level 6 apothecary)", "clinical conditioning  (prereq: level 6 apothecary)", "combat medic", "corrosive compound (prereq: level 6 apothecary)", "cosmetic surgery", "critical condition (prereq: level 6 apothecary)", "diagnosis", "doctor’s note (prereq: level 6 apothecary)", "double dose (prereq: level 10 apothecary)", "extracurricular research"],
+			extrachoices : ["acquired tolerance", "adrenaline surge (prereq: level 6 apothecary)", "anatomical precision", "anesthesiology (prereq: level 14 apothecary)", "bedside manner", "caustic formulae (prereq: level 6 apothecary)", "clinical conditioning (prereq: level 6 apothecary)", "combat medic", "corrosive compound (prereq: level 6 apothecary)", "cosmetic surgery", "critical condition (prereq: level 6 apothecary)", "diagnosis", "doctor’s note (prereq: level 6 apothecary)", "double dose (prereq: level 10 apothecary)", "extracurricular research", "inoculation", "interdisciplinary practice (prereq: level 14 apothecary)", "laboratory assistant", "liability insurance (prereq: level 14 apothecary)", ],
 			/*
 			BORRAR
 			BORRAR
@@ -143,7 +143,7 @@ ClassList["apothecary"] = {
 					"A creature at 0 hit points who regains hit points from a spell I cast using an apothecary spell slot gains resistance to all damage and has advantage on saving throws until the end of its next turn. It gains advantage on the first attack roll it makes on its next turn."
 				]),
 				source : ["SCGtD", ],
-				submenu : "[apothecary level  6+]",
+				submenu : "[apothecary level 06+]",
 				prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
 			},
 			"anatomical precision" : {
@@ -159,13 +159,14 @@ ClassList["apothecary"] = {
 					"I can cast Hold Person without expending a spell slot or material components. I must finish a long rest before I can use this theory on the same creature."
 				]),
 				source : ["SCGtD", 137],
-				submenu : "[apothecary level  14+]",
+				submenu : "[apothecary level 14+]",
 				prereqeval : function(v) { return classes.known.apothecary.level >= 14; },
 				spellcastingBonus : [{
-					spells : ["hold person"],
+					selection : ["hold person"],
 					name : "Anesthesiology",
 					firstCol : "oncelr"
-			}],
+			    }],
+            },
 			"bedside manner" : {
 				name : "Bedside Manner",
 				description : desc([
@@ -182,16 +183,16 @@ ClassList["apothecary"] = {
 					"Once per turn when I deal damage to a creature or object with an apothecary spell, I can expend an apothecary spell slot to deal 2d4 extra acid damage to that target, plus another 2d4 per level of the spell slot."
 				]),
 				source : ["SCGtD", 137],
-				submenu : "[apothecary level  6+]",
+				submenu : "[apothecary level 06+]",
 				prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
 			},
-			"clinical conditioning  (prereq: level 6 apothecary)" : {
+			"clinical conditioning (prereq: level 6 apothecary)" : {
 				name : "Clinical Conditioning",
 				description : desc([
 					"I gain proficiency in Constitution saving throws."
 				]),
 				source : ["SCGtD", 137],
-				submenu : "[apothecary level  6+]",
+				submenu : "[apothecary level 06+]",
 				prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
 				saves : ["Con"]
 			},
@@ -210,7 +211,7 @@ ClassList["apothecary"] = {
 					"When I deal poison damage with my apothecary spells, I can deal half the spell’s damage as poison damage and acid damage instead."
 				]),
 				source : ["SCGtD", 137],
-				submenu : "[apothecary level  6+]",
+				submenu : "[apothecary level 06+]",
 				prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
 			},
 			"cosmetic surgery" : {
@@ -226,7 +227,7 @@ ClassList["apothecary"] = {
 					"When a creature rolls a natural 1 on a saving throw made against one of my apothecary spells that deals damage, I roll all of the spell’s damage dice twice and add them together. Then I add any relevant modifiers as normal to determine the damage that creature takes from the spell."
 				]),
 				source : ["SCGtD", 137],
-				submenu : "[apothecary level  6+]",
+				submenu : "[apothecary level 06+]",
 				prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
 			},
 			"diagnosis" : {
@@ -243,10 +244,10 @@ ClassList["apothecary"] = {
 					"I can cast the Sending spell at-will. I must finish a long rest before I can use this theory to contact the same creature again."
 				]),
 				source : ["SCGtD", 137],
-				submenu : "[apothecary level  6+]",
+				submenu : "[apothecary level 06+]",
 				prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
 				spellcastingBonus : [{
-					spells : ["sending"],
+					selection : ["sending"],
 					name : "Doctor’s Note",
 					firstCol : "oncelr"
 				}],
@@ -257,7 +258,7 @@ ClassList["apothecary"] = {
 					"When I cast an apothecary spell using an apothecary spell slot that targets a single creature and restores hit points to that creature, I can target an additional creature within range."
 				]),
 				source : ["SCGtD", 137],
-				submenu : "[apothecary level  10+]",
+				submenu : "[apothecary level 10+]",
 				prereqeval : function(v) { return classes.known.apothecary.level >= 10; },
 			},
 			"extracurricular research" : {
@@ -269,7 +270,57 @@ ClassList["apothecary"] = {
 				spellcastingBonus : [{
 					name : "Extracurricular Research",
 					times : 2,
+					level: [0, 0],
 				}],
+			},
+			"inoculation" : {
+				name : "Inoculation",
+				description : desc([
+					"I have resistance to necrotic damage, and my hit point maximum can’t be reduced. In addition, I'm immune to diseases."
+				]),
+				source : ["SCGtD", 137],
+				dmgres : ["necrotic"],
+			},
+			"interdisciplinary practice (prereq: level 14 apothecary)" : {
+				name : "Interdisciplinary Practice",
+				description : desc([
+					"When I use my action to cast a spell, I can make one weapon attack as a bonus action."
+				]),
+				source : ["SCGtD", 137],
+				submenu : "[apothecary level 14+]",
+				prereqeval : function(v) { return classes.known.apothecary.level >= 14; },
+				action : ["bonus action", "Attack (after spell)"],
+			},
+			"laboratory assistant" : {
+				name : "Laboratory Assistant",
+				description : desc([
+					"I learn the spell Find Familiar, and I always have it prepared. It doesn’t count against the number of apothecary spells I can prepare."
+				]),
+				source : ["SCGtD", 137],
+				spellcastingBonus : [{
+					selection : ["find familiar"],
+					name : "Laboratory Assistant",
+					firstCol : "markedbox"
+				}],
+			},
+			"liability insurance (prereq: level 14 apothecary)" : {
+				name : "Liability Insurance",
+				description : desc([
+					"I can cast Contingency once on myself without material components. I can’t do so again until you finish a long rest."
+				]),
+				source : ["SCGtD", ],
+				submenu : "[apothecary level 14+]",
+				prereqeval : function(v) { return classes.known.apothecary.level >= 14; },
+				spellcastingBonus : [{
+					selection : ["contingency"],
+					name : "Liability Insurance",
+					firstCol : "oncelr",
+					}],
+				spellChanges : {
+					"contingency" : {
+						components : "V,S",
+					}
+				}
 			},
 			/*
 			"" : {
@@ -278,7 +329,7 @@ ClassList["apothecary"] = {
 					""
 				]),
 				source : ["SCGtD", ],
-				submenu : "[apothecary level  X+]",
+				submenu : "[apothecary level X+]",
 				prereqeval : function(v) { return classes.known.apothecary.level >= X; },
 			},
 			*/
