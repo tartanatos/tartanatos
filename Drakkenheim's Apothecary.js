@@ -165,7 +165,7 @@ ClassList["apothecary"] = {
 					spells : ["hold person"],
 					name : "Anesthesiology",
 					firstCol : "oncelr"
-			},
+			}],
 			"bedside manner" : {
 				name : "Bedside Manner",
 				description : desc([
@@ -245,6 +245,11 @@ ClassList["apothecary"] = {
 				source : ["SCGtD", 137],
 				submenu : "[apothecary level  6+]",
 				prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
+				spellcastingBonus : [{
+					spells : ["sending"],
+					name : "Doctor’s Note",
+					firstCol : "oncelr"
+				}],
 			},
 			"double dose (prereq: level 10 apothecary)" : {
 				name : "Double Dose",
