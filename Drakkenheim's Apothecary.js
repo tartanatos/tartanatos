@@ -628,6 +628,21 @@ AddSubClass("apothecary", "alienist", {
 	fullname : "Alienist",
 	spellcastingExtra : ["charm person", "hideous laughter", "detect thoughts", "suggestion", "pattern", "major image", "arcane eye", "dimension door", "animate objects", "modify memory"],
 	features : {
+		"subclassfeature1" : {
+			name : "Advanced Psychology",
+			source : ["SCGtD", 140],
+			minlevel : 1,
+			description : desc([
+				"I learn the eldritch blast cantrip.",
+				"I gain proficiency in the Arcana skill, or another skill of I'm already proficient."
+			]),
+			spellcastingBonus : [{
+		        name : "Advanced Psychology",
+		        times : 1,
+				selection : ["eldritch blast"],
+			}],
+			skills : ["Arcana"]
+		},
 		"subclassfeature2" : {
 			name : "Alienist Spells",
 			source : ["SCGtD", 140],
@@ -636,6 +651,34 @@ AddSubClass("apothecary", "alienist", {
 				"I gain additional spells that I always have prepared. These spells count as apothecary spells, but they don't count against the number of apothecary spells I prepare."
 			]),
 		},
+		"subclassfeature3" : {
+			name : "Mental Influence",
+			source : ["SCGtD", 140],
+			minlevel : 3,
+			description : desc([
+				"I have pull psychic points, which I can expend to use the various psionic powers."
+			]),
+			usages : [4, 4, 4, 4, 4, 6, 6, 6, 6, 8, 8, 8, 8, 10, 10, 10, 10, 10, 10, 10],
+			recovery : "short rest",
+			limfeaname : "Psychic Points",
+			toNotesPage : [{
+				name : "Mental Influence",
+				note: [
+					" \u2022 Cerebral Breakthrough. When I cast an apothecary spell that deals damage, I can expend a Psychic Point to re-roll any number of the dice. I must use the new rolls.",
+					" \u2022 Mind Over Matter. Whenever I take damage, I can use my reaction and expend a Psychic Point, reducing the damage taken by an amount equal to your apothecary level.", 
+					" \u2022 Mind Whisperer. When I cast an apothecary spell which does not deal damage, I may spend a psychic point to cast it without any somatic or verbal components."
+				]
+			}],
+			action : ["reaction" , "Mental Influence (Mind Over Matter)"]
+		}, //Mental Influence feature
+		"subclassfeature4" : {
+			name : "Metaphysical Tether",
+			source : ["SCGtD", ],
+			minlevel : ,
+			description : desc([
+				""
+			]),
+		}, 
 	}, //alienist features
 }); //alienist subclass
 
