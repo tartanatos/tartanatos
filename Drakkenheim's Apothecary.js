@@ -783,7 +783,59 @@ AddSubClass("apothecary", "chemist", {
 			source : ["SCGtD", 142],
 			minlevel : 3,
 			description : desc([
-				""
+				"If I cast a spell that deals acid, cold, fire, lightning, or poison damage to cratures I see, I can choose up to my Intelligence modifier to automatically succeed on their saving throws against the spell and take no damage."
+			]),
+		},
+		"subclassfeature4" : {
+			name : "Chain Reaction",
+			source : ["SCGtD", 142],
+			minlevel : 6,
+			description : desc([
+				"My apothecary cantrips that targets only one creature and deals acid, cold, fire, lightning, or poison damage, can target two instead."
+			]),
+		},
+		"subclassfeature5" : {
+			name : "Chemical Conditioning",
+			source : ["SCGtD", 142],
+			minlevel : 6,
+			description : desc([
+				"As an action, I give one creature I touch resistance to acid, cold, fire, lightning, or poison damage for 1 hour or until I use this feature again."
+			]),
+			action : ["action", "Chemical Conditioning"]
+		},
+		"subclassfeature6" : {
+			name : "Bottled Spells",
+			source : ["SCGtD", 142],
+			minlevel : 10,
+			description : desc([
+				"I can store a spell from my Chemist Spells feature in a small vial or bottle I touch when I cast the spell. Check 3rd page for details",
+			]),
+			toNotesPage : [{
+				name : "Bottled Spells",
+				note: [
+				" \u2022 The spell has no effect other than to be stored in the bottle.",
+				" \u2022 The spell remains stored inside until a creature opens the bottle.",
+				" \u2022 Once I use this feature, any unused bottled spell I previously created becomes inert, and I can’t bottle another spell until you finish a short rest.",
+				" \u2022 Any creature holding the bottle may spend an action to open it and cast the spell inside.",
+				" \u2022 The spell uses my spell attack bonus and save DC, but treats the creature who released it as the caster in all other respects."
+				],
+				page3notes : true,
+			}],
+		}, //Bottled Spells feature
+		"subclassfeature7" : {
+			name : "Elemental Adjustment",
+			source : ["SCGtD", 142],
+			minlevel : 14,
+			description : desc([
+				"When I cast a spell using an apothecary spell slot which deals acid, cold, fire, lightning, or poison damage, I can change it to one of the previous ones."
+			]),
+		},
+		"subclassfeature8" : {
+			name : "Chemical Cataclysm",
+			source : ["SCGtD", 142],
+			minlevel : 18,
+			description : desc([
+				"When I cast a spell that deals acid, cold, fire, lighting, or poison damage using an apothecary spell slot, it is treated as if it was cast using a 7th-level spell slot."
 			]),
 		},
 	}, //chemist features
