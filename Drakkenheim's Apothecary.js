@@ -656,7 +656,7 @@ AddSubClass("apothecary", "alienist", {
 			source : ["SCGtD", 140],
 			minlevel : 3,
 			description : desc([
-				"I have pull psychic points, which I can expend to use the various psionic powers."
+				"I have pull psychic points, which I can expend to use the various psionic powers. Check notes page."
 			]),
 			usages : [4, 4, 4, 4, 4, 6, 6, 6, 6, 8, 8, 8, 8, 10, 10, 10, 10, 10, 10, 10],
 			recovery : "short rest",
@@ -667,18 +667,79 @@ AddSubClass("apothecary", "alienist", {
 					" \u2022 Cerebral Breakthrough. When I cast an apothecary spell that deals damage, I can expend a Psychic Point to re-roll any number of the dice. I must use the new rolls.",
 					" \u2022 Mind Over Matter. Whenever I take damage, I can use my reaction and expend a Psychic Point, reducing the damage taken by an amount equal to your apothecary level.", 
 					" \u2022 Mind Whisperer. When I cast an apothecary spell which does not deal damage, I may spend a psychic point to cast it without any somatic or verbal components."
-				]
+				],
 			}],
 			action : ["reaction" , "Mental Influence (Mind Over Matter)"]
 		}, //Mental Influence feature
 		"subclassfeature4" : {
 			name : "Metaphysical Tether",
-			source : ["SCGtD", ],
-			minlevel : ,
+			source : ["SCGtD", 140],
+			minlevel : 3,
 			description : desc([
-				""
+				"As an action, I can touch a willing creature to create a psychic link up to 100 feet",
+				"The link lasts my Apothecary level x hours or until I end the link.",
+				"The maximum number of links I can have at any time is equal to my proficiency bonus."
 			]),
-		}, 
+			action : ["action", "Psychic Link (start)"]
+		},
+		"subclassfeature5" : {
+			name : "Force Manipulation",
+			source : ["SCGtD", 141],
+			minlevel : 6,
+			description : desc([
+				"As a bonus action, I can expend a psychic point to give myself a flying speed equal to my walking speed for 1 minute, during which I can hover."
+			]),
+		},
+		"subclassfeature6" : {
+			name : "Mental Magic",
+			source : ["SCGtD", 141],
+			minlevel : 10,
+			description : desc([
+				"I gain three new ways to use my Psychic Points. Check notes page."
+			]),
+			toNotesPage : [{
+				name : "Mental Magic",
+				amendTo : "Mental Influence",
+				note: [
+					" \u2022 Prescribed Effects. Once per turn when a target I can see within 30 feet of me succeeds on an Intelligence, Wisdom, or Charisma saving throw against a spell I cast, I can expend a Psychic Point to fill its mind with scrambled psionic energy, forcing it to reroll the d20 and use the lower roll for its saving throw, possibly turning a success into a failure.",
+					" \u2022 Mentally Prepared. Once per turn, when a target I can see within 30 feet of me, including myself, fails an Intelligence, Wisdom, or Charisma saving throw, I can use a Psychic Point and add my Intelligence modifier to the creature’s saving throw, potentially turning the failure into a success.", 
+					" \u2022 Fight or Flight Response. As a bonus action, I can expend a Psychic Point and teleport up to 30 feet to an unoccupied space I can see. I immediately gain temporary hit points equal to twice my intelligence modifier."
+				],
+			}],
+		},
+		"subclassfeature7" : {
+			name : "Self-Diagnosis",
+			source : ["SCGtD", 141],
+			minlevel : 14,
+			description : desc([
+				"If I have no Psychic Points remaining, I can use an bonus action and expend a spell slot to regain 1d4 Psychic Points.",
+				"You also gain two additional psychic features."
+			]),
+			action : ["bonus action", "Self-Diagnosis (1d4)"],
+			toNotesPage : [{
+				name : "Self-Diagnosis",
+				amendTo : "Mental Influence",
+				note: [
+					" \u2022 Careful Examination. Whenever I cast a spell which restores hit points to a creature, I may expend a Psychic Point. If I do, all creatures targeted by the spell regain an additional amount of hit points equal to twice my Intelligence modifier.",
+					" \u2022 Enhanced Cerebellum. When I cast any spell of 1st level or higher from your Alienist Spells feature, I can cast it by expending a spell slot as normal or by spending a number of psychic points equal to the spell’s level."
+				],
+			}],
+		},
+		"subclassfeature8" : {
+			name : "Impenetrable Mind",
+			source : ["SCGtD", 141],
+			minlevel : 18,
+			description : desc([
+				"I'm resistant to psychic damage and immune to being charmed or frightened.", 
+				"Magic cannot put me to sleep and I have advantage on saving throws against spells that attempt to read my thoughts or control my mind or actions.",
+				"When I use the Self-Diagnosis feature to regain Psychic Points using a spell slot, I regain Psychic Points equal to the spell’s level."
+			]),
+			dmgres : ["Psychic"],
+			savetxt : {
+				immune : ["charmed", "frightened", "magic cannot put me to sleep"],
+				adv_vs : ["spells that attempt to read my thoughts or control my mind or actions"]
+			},
+		},
 	}, //alienist features
 }); //alienist subclass
 
