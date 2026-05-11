@@ -846,8 +846,25 @@ AddSubClass("apothecary", "exorcist", {
 	subname : "Exorcist",
 	source : ["SCGtD", 142],
 	fullname : "Exorcist",
-	spellcastingExtra : [],
+	spellcastingExtra : ["bless", "protection from evil and good", "spiritual weapon", "zone of truth", "counterspell", "spirit guardians", "banishment", "last rites", "dispel evil and good", "flame strike"],
 	features : {
+		"subclassfeature1" : {
+			name : "Spiritual Study",
+			source : ["SCGtD", 142],
+			minlevel : 1,
+			description : desc([
+				"I gain proficiency in heavy armor and the Religion Skill. If I already have this proficiency, I gain another.",
+				"I can use a holy symbol as an arcane focus and I gain a cantrip of your choice from the cleric spell list."
+			]),
+			skills : ["Religion"],
+			armorProfs : [true, true, true, false],
+			spellcastingBonus : [{
+		        name : "Spiritual Study",
+		        times : 1,
+				class : "cleric",
+				level : [0, 0],
+			}],
+		},
 		"subclassfeature2" : {
 			name : "Exorcist Spells",
 			source : ["SCGtD", 142],
