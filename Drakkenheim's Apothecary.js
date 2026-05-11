@@ -626,7 +626,7 @@ AddSubClass("apothecary", "alienist", {
 	subname : "Alienist",
 	source : ["SCGtD", 140],
 	fullname : "Alienist",
-	spellcastingExtra : ["charm person", "hideous laughter", "detect thoughts", "suggestion", "pattern", "major image", "arcane eye", "dimension door", "animate objects", "modify memory"],
+	spellcastingExtra : ["charm person", "tasha's hideous laughter", "detect thoughts", "suggestion", "hypnotic pattern", "major image", "arcane eye", "dimension door", "animate objects", "modify memory"],
 	features : {
 		"subclassfeature1" : {
 			name : "Advanced Psychology",
@@ -748,14 +748,42 @@ AddSubClass("apothecary", "chemist", {
 	subname : "Chemist",
 	source : ["SCGtD", 141],
 	fullname : "Chemist",
-	spellcastingExtra : [],
+	spellcastingExtra : ["burning hands", "grease", "acid arrow", "flaming sphere", "fireball", "stinking cloud", "ice storm", "wall of fire", "cloudkill", "cone of cold"],
 	features : {
+		"subclassfeature1" : {
+			name : "Chemical Compound",
+			source : ["SCGtD", 141],
+			minlevel : 1,
+			description : desc([
+				"I gain proficiency in alchemist’s supplies if I do not already have it.",
+				"I learn the firebolt cantrip and one additional evocation cantrip of my choice from the wizard spell list.",
+			]),
+			spellcastingBonus : [{
+		        name : "Chemical Compound",
+		        times : 1,
+				selection : ["fire bolt"],
+			}, {
+		        name : "Chemical Compound",
+		        times : 1,
+				class : "wizard",
+				level : [0, 0],
+			}],
+			toolProfs : ["Alchemist’s supplies"]
+		},
 		"subclassfeature2" : {
 			name : "Chemist Spells",
 			source : ["SCGtD", 141],
 			minlevel : 1,
 			description : desc([
 				"I gain additional spells that I always have prepared. These spells count as apothecary spells, but they don't count against the number of apothecary spells I prepare."
+			]),
+		},
+		"subclassfeature3" : {
+			name : "Precise Application",
+			source : ["SCGtD", 142],
+			minlevel : 3,
+			description : desc([
+				""
 			]),
 		},
 	}, //chemist features
