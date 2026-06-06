@@ -873,6 +873,45 @@ AddSubClass("apothecary", "exorcist", {
 				"I gain additional spells that I always have prepared. These spells count as apothecary spells, but they don't count against the number of apothecary spells I prepare."
 			]),
 		},
+		"subclassfeature3" : {
+			name : "Exorcism",
+			source : ["SCGtD", 142],
+			minlevel : 3,
+			description : desc([
+				"Using my sacred symbol, I can create an effect.",
+				"The DC of my Exorcisms is the same as my Apothecary spell save DC"
+			]),
+			usages : 0,
+			recovery : "short rest",
+			usagescalc : "event.value = What('Prof Bon') / 2;",
+			toNotesPage : [{
+				name : "Exorcism effect",
+				note : [
+					" \u2022 Expel Evil. As an action, I present my holy symbol and speak a prayer censuring creatures that mean me harm. Each undead, celestial, fey, or fiend that can see or hear me within 30 feet of me must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes any damage. A turned creature must spend its turns trying to move as far away from me as it can, and it can’t willingly move to a space within 30 feet of me. It also can’t take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there’s nowhere to move, the creature can use the Dodge action.",
+				" \u2022 Purge Corruption. I touch a creature or item and can end either one condition afflicting it. The condition can be blinded, charmed, deafened, frightened, paralyzed, or poisoned. Additionally, if a creature is possessed or mind controlled by a spirit or foreign entity, I can use this feature to remove any traits or other features related to the possession. If possessed, the creature possessing it is shunted out of its host to an unoccupied space within 5 feet and takes psychic damage equal to 2d8 + my apothecary level.",	
+				]
+			}],
+		},
+		"subclassfeature4" : {
+			name : "Sacred Vessel",
+			source : ["SCGtD", 143],
+			minlevel : 6,
+			description : desc([
+				"I'm immune to the frightened condition, and cannot be possessed or cursed. I also have advantage on saving throws against being charmed."
+			]),
+			savetxt : {
+				text : ["Adv. against charmed"],
+				immune : ["immune", "frightened", "possessed", "cursed"]
+			},
+		},
+		"subclassfeature5" : {
+			name : "Negation",
+			source : ["SCGtD", 143],
+			minlevel : 10,
+			description : desc([
+				""
+			]),
+		}, 
 	}, //exorcist features
 }); //exorcist subclass
 
