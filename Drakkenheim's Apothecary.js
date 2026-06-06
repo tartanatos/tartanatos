@@ -909,9 +909,26 @@ AddSubClass("apothecary", "exorcist", {
 			source : ["SCGtD", 143],
 			minlevel : 10,
 			description : desc([
-				""
+				"As a reaction when a hostile creature I  see targets an ally, I can expend an spell slot to force it to make a Charisma saving throw. On a failure, the action fails and resources wasted."
 			]),
-		}, 
+		},
+		"subclassfeature6" : {
+			name : "Empowered Healing",
+			source : ["SCGtD", 143],
+			minlevel : 14,
+			description : desc([
+				"Whenever I cast a spell that heals a creature, that spell deals maximum healing and the creature immediately gains temporary hit points equal to my apothecary level."
+			]),
+		},
+		"subclassfeature7" : {
+			name : "Devout Witness",
+			source : ["SCGtD", 143],
+			minlevel : 18,
+			description : desc([
+				"Creatures who fail against Expel Evil take an additional 4d8 damage.",
+				"Creatures who are aided by Purge Corruption gain 4d8 temporary hit points."
+			]),
+		},
 	}, //exorcist features
 }); //exorcist subclass
 
