@@ -883,7 +883,7 @@ AddSubClass("apothecary", "exorcist", {
 			]),
 			usages : 0,
 			recovery : "short rest",
-			usagescalc : "event.value = What('Prof Bon') / 2;",
+			usagescalc : "event.value = What('Proficiency Bonus') / 2;",
 			toNotesPage : [{
 				name : "Exorcism effect",
 				note : [
@@ -937,14 +937,34 @@ AddSubClass("apothecary", "mutagenist", {
 	subname : "Mutagenist",
 	source : ["SCGtD", 143],
 	fullname : "Mutagenist",
-	spellcastingExtra : [],
+	spellcastingExtra : ["jump", "toxic shield", "alter self", "enhance ability", "haste", "water breathing", "polymorph", "stoneskin", "reincarnate", "septic shock"],
 	features : {
+		"subclassfeature1" : {
+			name : "Natural Philosophy",
+			source : ["SCGtD", 143],
+			minlevel : 1,
+			description : desc([
+				"I gain proficiency with alchemist’s supplies; and herbalism kit / poisoner’s kit.",
+				"I gain proficiency in two additional languages and Nature Skill.",
+				"If already have this proficiency, I gain proficiency with another."
+			]),
+			skills : ["Nature"],
+			toolProf : : [["alchemist’s supplies", 1], ["herbalism kit or poisoner’s kit", 1]],	
+		},
 		"subclassfeature2" : {
 			name : "Mutagenist Spells",
 			source : ["SCGtD", 143],
 			minlevel : 1,
 			description : desc([
 				"I gain additional spells that I always have prepared. These spells count as apothecary spells, but they don't count against the number of apothecary spells I prepare."
+			]),
+		},
+		"subclassfeature3" : {
+			name : "Transmogrifying Elixir",
+			source : ["SCGtD", 144],
+			minlevel : 3,
+			description : desc([
+				""
 			]),
 		},
 	}, //mutagenist features
