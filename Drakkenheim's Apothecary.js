@@ -960,12 +960,29 @@ AddSubClass("apothecary", "mutagenist", {
 			]),
 		},
 		"subclassfeature3" : {
-			name : "Transmogrifying Elixir",
+			name : "Transmogrifying Elixir (TERMINAR)",
 			source : ["SCGtD", 144],
 			minlevel : 3,
 			description : desc([
-				""
+				"As a bonus action, I may expend a spell slot to transform for one minute, be reduced to 0 hit points or be incapacitated.",
+				"I maintain my personality, alignment, and game statistics, but I experience many other changes.."
 			]),
+			toNotesPage : [{
+				name : "Transmogrification",
+				note : [
+					" \u2022 My Strength and Intelligence ability scores are swapped.",
+					" \u2022 My size becomes Large, my jump distance is doubled, and I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.",
+					" \u2022 Each of my hands transform into a big meaty fist, which I can use to make melee weapon attacks. It counts as a simple weapon for me. My big meaty fists deal 1d10 + my Strength modifier + my Apothecary level bludgeoning damage on a hit.", /*AÑADIR ATAQUE*/
+					" \u2022 I cannot cast or concentrate on spells."
+					" \u2022 I have darkvision out to a range of 120 feet.", /*AÑADIR VISIÓN*/
+					" \u2022 I gain temporary hit points equal to five times my Apothecary level.",
+					" \u2022 My speed increases by 5 feet per level of spell slot used.",
+					" \u2022 My AC is 13 + the level of spell slot used.", /*AÑADIR ARMADURA*/
+					" \u2022 At the start of each of my turns and as long as I have at least 1 hit point remaining, I regain a number of hit points equal to the level of the spell slot used."
+				]
+			}],
+
+			/*AÑADIR ACCION Y REVISAR*/
 		},
 	}, //mutagenist features
 }); //mutagenist subclass
