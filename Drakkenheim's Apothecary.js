@@ -881,9 +881,9 @@ AddSubClass("apothecary", "exorcist", {
 				"Using my sacred symbol, I can create an effect.",
 				"The DC of my Exorcisms is the same as my Apothecary spell save DC"
 			]),
-			usages : 0,
+			usages: "Half PB per ",
+			usagescalc: "event.value = Math.floor(What('Proficiency Bonus') / 2);",
 			recovery : "short rest",
-			usagescalc : "event.value = What('Proficiency Bonus') / 2;",
 			toNotesPage : [{
 				name : "Exorcism effect",
 				note : [
@@ -949,7 +949,7 @@ AddSubClass("apothecary", "mutagenist", {
 				"If already have this proficiency, I gain proficiency with another."
 			]),
 			skills : ["Nature"],
-			toolProf : : [["alchemist’s supplies", 1], ["herbalism kit or poisoner’s kit", 1]],	
+			toolProf : [["alchemist’s supplies", 1], ["herbalism kit or poisoner’s kit", 1]],	
 		},
 		"subclassfeature2" : {
 			name : "Mutagenist Spells",
@@ -973,7 +973,7 @@ AddSubClass("apothecary", "mutagenist", {
 					" \u2022 My Strength and Intelligence ability scores are swapped.",
 					" \u2022 My size becomes Large, my jump distance is doubled, and I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.",
 					" \u2022 Each of my hands transform into a big meaty fist, which I can use to make melee weapon attacks. It counts as a simple weapon for me. My big meaty fists deal 1d10 + my Strength modifier + my Apothecary level bludgeoning damage on a hit.", /*AÑADIR ATAQUE*/
-					" \u2022 I cannot cast or concentrate on spells."
+					" \u2022 I cannot cast or concentrate on spells.",
 					" \u2022 I have darkvision out to a range of 120 feet.", /*AÑADIR VISIÓN*/
 					" \u2022 I gain temporary hit points equal to five times my Apothecary level.",
 					" \u2022 My speed increases by 5 feet per level of spell slot used.",
@@ -981,11 +981,30 @@ AddSubClass("apothecary", "mutagenist", {
 					" \u2022 At the start of each of my turns and as long as I have at least 1 hit point remaining, I regain a number of hit points equal to the level of the spell slot used."
 				]
 			}],
-
+			weaponsAdd : {
+				select : ["Big Meaty Fist"]
+			},
+			calcChanges : {
+						atkCalc : [
+							function (fields, v, output) {
+								if (v.baseWeaponName == 'big meaty fist') output.extraDmg += What('lvls');
+							},
 			/*AÑADIR ACCION Y REVISAR*/
 		},
 	}, //mutagenist features
 }); //mutagenist subclass
+
+WeaponsList["big meaty fist"] = { /*CORREGIR*/
+	name : "Big Meaty Fist",
+	source : ["SCGtD", 143],
+	type : "Simple",
+	ability : 4,
+	bilitytodamage: true,
+	damage : [1, 10, "bludgeoning"],
+	range : "Melee",
+	description : "",
+	list : "melee",
+};
 
 AddSubClass("apothecary", "pathogenist", {
 	regExpSearch : /^(?=.*pathogenist).*$/i,
