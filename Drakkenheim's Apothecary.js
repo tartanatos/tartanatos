@@ -96,427 +96,428 @@ ClassList["apothecary"] = {
 	    },
 	    "esoteric theories" : {
 			name : "Esoteric Theories",
-			source : ["SCGtD", ],
+			source : ["SCGtD", 136],
 			minlevel : 2,
 			description : desc([
-				"I gain two esoteric theories of my choice."
+				"I gain a number of esoteric theories of my choice."
 		  	]),
 			additional : ["0 theories known", "2 theories known", "2 theories known", "3 theories known", "3 theories known", "4 theories known", "4 theories known", "5 theories known", "5 theories known", "6 theories known", "6 theories known", "7 theories known", "7 theories known", "8 theories known", "8 theories known", "9 theories known", "9 theories known", "10 theories known", "10 theories known", "11 theories known"],
+			extraname : "Esoteric Theories",
 			extrachoices : ["acquired tolerance", "adrenaline surge (prereq: level 6 apothecary)", "anatomical precision", "anesthesiology (prereq: level 14 apothecary)", "bedside manner", "caustic formulae (prereq: level 6 apothecary)", "clinical conditioning (prereq: level 6 apothecary)", "combat medic", "corrosive compound (prereq: level 6 apothecary)", "cosmetic surgery", "critical condition (prereq: level 6 apothecary)", "diagnosis", "doctor’s note (prereq: level 6 apothecary)", "double dose (prereq: level 10 apothecary)", "extracurricular research", "inoculation", "interdisciplinary practice (prereq: level 14 apothecary)", "laboratory assistant", "liability insurance (prereq: level 14 apothecary)", "medical expertise", "medical lexicon", "nerve agent (prereq: level 6 apothecary)", "noxious blood (prereq: level 6 apothecary)", "pharmacology", "physiological analysis", "practical resuscitation (prereq: level 10 apothecary)", "putrefaction", "rapid response", "routine procedure (prereq: level 10 apothecary)", "stolen secrets (prereq: level 10 apothecary)", "subject preparation (prereq: level 10 apothecary)", "surgeon’s instinct", "surgical strikes (prereq: level 6 apothecary)", "toxicology (prereq: level 6 apothecary)", "triage", "unfailing focus (prereq: level 6 apothecary)", "venomous instruments (prereq: level 10 apothecary)", "virulence", "vital signs", "vivisection (prereq: level 6 apothecary)"],
-			extraTimes : levels.map(function(n) {
-				return n < 2 ? 2 : n < 4 ? 3 : n < 6 ? 4 : n < 8 ? 5 : n < 10 ? 6 : n < 12 ? 7 : n < 14 ? 8 : n < 16 ? 9 : n < 18 ? 10 : 11;
-			}),
-			"acquired tolerance" : {
-				name : "Acquired Tolerance",
-				description : desc([
-					"Advantage on saving throws against poison and resistance to poison damage. ",
-					"I automatically succeed on saving throws against my apothecary spells, and never take damage from my apothecary spells."
-								   ]),
-				source : ["SCGtD", 136],
-				dmgres : ["poison"],
-			},
-			"adrenaline surge (prereq: level 6 apothecary)" : {
-				name : "Adrenaline Surge",
-				description : desc([
-					"A creature at 0 hit points who regains hit points from a spell I cast using an apothecary spell slot gains resistance to all damage and has advantage on saving throws until the end of its next turn. It gains advantage on the first attack roll it makes on its next turn."
-				]),
-				source : ["SCGtD", ],
-				submenu : "[apothecary level 06+]",
-				prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
-			},
-			"anatomical precision" : {
-				name : "Anatomical Precision",
-				description : desc([
-					"When I make a weapon attack, I can use your Intelligence modifier, instead of Strength or Dexterity, for the attack and damage rolls."
-				]),
-				source : ["SCGtD", 136],
-			},
-			"anesthesiology (prereq: level 14 apothecary)" : {
-				name : "Anesthesiology",
-				description : desc([
-					"I can cast Hold Person without expending a spell slot or material components. I must finish a long rest before I can use this theory on the same creature."
-				]),
-				source : ["SCGtD", 137],
-				submenu : "[apothecary level 14+]",
-				prereqeval : function(v) { return classes.known.apothecary.level >= 14; },
-				spellcastingBonus : [{
-					selection : ["hold person"],
+				extraTimes : levels.map(function(n) {
+					return n < 2 ? 2 : n < 4 ? 3 : n < 6 ? 4 : n < 8 ? 5 : n < 10 ? 6 : n < 12 ? 7 : n < 14 ? 8 : n < 16 ? 9 : n < 18 ? 10 : 11;
+				}),
+				"acquired tolerance" : {
+					name : "Acquired Tolerance",
+					description : desc([
+						"Advantage on saving throws against poison and resistance to poison damage. ",
+						"I automatically succeed on saving throws against my apothecary spells, and never take damage from my apothecary spells."
+									   ]),
+					source : ["SCGtD", 136],
+					dmgres : ["poison"],
+				},
+				"adrenaline surge (prereq: level 6 apothecary)" : {
+					name : "Adrenaline Surge",
+					description : desc([
+						"A creature at 0 hit points who regains hit points from a spell I cast using an apothecary spell slot gains resistance to all damage and has advantage on saving throws until the end of its next turn. It gains advantage on the first attack roll it makes on its next turn."
+					]),
+					source : ["SCGtD", ],
+					submenu : "[apothecary level 06+]",
+					prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
+				},
+				"anatomical precision" : {
+					name : "Anatomical Precision",
+					description : desc([
+						"When I make a weapon attack, I can use your Intelligence modifier, instead of Strength or Dexterity, for the attack and damage rolls."
+					]),
+					source : ["SCGtD", 136],
+				},
+				"anesthesiology (prereq: level 14 apothecary)" : {
 					name : "Anesthesiology",
-					firstCol : "oncelr"
-			    }],
-            },
-			"bedside manner" : {
-				name : "Bedside Manner",
-				description : desc([
-					"I gain proficiency in Insight and Persuasion."
-				]),
-				source : ["SCGtD", 137],
-				skills : ["Insight", "Persuasion"]
-			},
-			"caustic formulae (prereq: level 6 apothecary)" : {
-				name : "Caustic Formulae",
-				description : desc([
-					"Once per turn when I deal damage to a creature or object with an apothecary spell, I can expend an apothecary spell slot to deal 2d4 extra acid damage to that target, plus another 2d4 per level of the spell slot."
-				]),
-				source : ["SCGtD", 137],
-				submenu : "[apothecary level 06+]",
-				prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
-			},
-			"clinical conditioning (prereq: level 6 apothecary)" : {
-				name : "Clinical Conditioning",
-				description : desc([
-					"I gain proficiency in Constitution saving throws."
-				]),
-				source : ["SCGtD", 137],
-				submenu : "[apothecary level 06+]",
-				prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
-				saves : ["Con"]
-			},
-			"combat medic" : {
-				name : "Combat Medic",
-				description : desc([
-					"I gain proficiency with martial weapons and shields."
-				]),
-				source : ["SCGtD", 137],
-				armorProfs : [true, true, false, true],
-				weaponProfs : [true, true]
-			},
-			"corrosive compound (prereq: level 6 apothecary)" : {
-				name : "",
-				description : desc([
-					"When I deal poison damage with my apothecary spells, I can deal half the spell’s damage as poison damage and acid damage instead."
-				]),
-				source : ["SCGtD", 137],
-				submenu : "[apothecary level 06+]",
-				prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
-			},
-			"cosmetic surgery" : {
-				name : "Cosmetic Surgery",
-				description : desc([
-					"I can spend 8 hours performing an occult surgical procedure upon a willing creature, permanently transforming its appearance. I decide what the creature looks like, including facial features, the sound of its voice, hair length, coloration, and distinguishing characteristics, but none of its game statistics change. I can’t alter the size of a creature, and its basic shape stays the same. The resulting transformation is non-magical, however, a greater restoration spell or similar magic cast upon the creature can restore it to its original appearance."
-				]),
-				source : ["SCGtD", 137],
-			},
-			"critical condition (prereq: level 6 apothecary)" : {
-				name : "Critical Condition",
-				description : desc([
-					"When a creature rolls a natural 1 on a saving throw made against one of my apothecary spells that deals damage, I roll all of the spell’s damage dice twice and add them together. Then I add any relevant modifiers as normal to determine the damage that creature takes from the spell."
-				]),
-				source : ["SCGtD", 137],
-				submenu : "[apothecary level 06+]",
-				prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
-			},
-			"diagnosis" : {
-				name : "Diagnosis",
-				description : desc([
-					"I can take the Help action as a bonus action on my turn."
-				]),
-				source : ["SCGtD", 137],
-				action : ["bonus action", "Help"],
-			},
-			"doctor’s note (prereq: level 6 apothecary)" : {
-				name : "Doctor’s Note",
-				description : desc([
-					"I can cast the Sending spell at-will. I must finish a long rest before I can use this theory to contact the same creature again."
-				]),
-				source : ["SCGtD", 137],
-				submenu : "[apothecary level 06+]",
-				prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
-				spellcastingBonus : [{
-					selection : ["sending"],
+					description : desc([
+						"I can cast Hold Person without expending a spell slot or material components. I must finish a long rest before I can use this theory on the same creature."
+					]),
+					source : ["SCGtD", 137],
+					submenu : "[apothecary level 14+]",
+					prereqeval : function(v) { return classes.known.apothecary.level >= 14; },
+					spellcastingBonus : [{
+						selection : ["hold person"],
+						name : "Anesthesiology",
+						firstCol : "oncelr"
+				    }],
+	            },
+				"bedside manner" : {
+					name : "Bedside Manner",
+					description : desc([
+						"I gain proficiency in Insight and Persuasion."
+					]),
+					source : ["SCGtD", 137],
+					skills : ["Insight", "Persuasion"]
+				},
+				"caustic formulae (prereq: level 6 apothecary)" : {
+					name : "Caustic Formulae",
+					description : desc([
+						"Once per turn when I deal damage to a creature or object with an apothecary spell, I can expend an apothecary spell slot to deal 2d4 extra acid damage to that target, plus another 2d4 per level of the spell slot."
+					]),
+					source : ["SCGtD", 137],
+					submenu : "[apothecary level 06+]",
+					prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
+				},
+				"clinical conditioning (prereq: level 6 apothecary)" : {
+					name : "Clinical Conditioning",
+					description : desc([
+						"I gain proficiency in Constitution saving throws."
+					]),
+					source : ["SCGtD", 137],
+					submenu : "[apothecary level 06+]",
+					prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
+					saves : ["Con"]
+				},
+				"combat medic" : {
+					name : "Combat Medic",
+					description : desc([
+						"I gain proficiency with martial weapons and shields."
+					]),
+					source : ["SCGtD", 137],
+					armorProfs : [true, true, false, true],
+					weaponProfs : [true, true]
+				},
+				"corrosive compound (prereq: level 6 apothecary)" : {
+					name : "",
+					description : desc([
+						"When I deal poison damage with my apothecary spells, I can deal half the spell’s damage as poison damage and acid damage instead."
+					]),
+					source : ["SCGtD", 137],
+					submenu : "[apothecary level 06+]",
+					prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
+				},
+				"cosmetic surgery" : {
+					name : "Cosmetic Surgery",
+					description : desc([
+						"I can spend 8 hours performing an occult surgical procedure upon a willing creature, permanently transforming its appearance. I decide what the creature looks like, including facial features, the sound of its voice, hair length, coloration, and distinguishing characteristics, but none of its game statistics change. I can’t alter the size of a creature, and its basic shape stays the same. The resulting transformation is non-magical, however, a greater restoration spell or similar magic cast upon the creature can restore it to its original appearance."
+					]),
+					source : ["SCGtD", 137],
+				},
+				"critical condition (prereq: level 6 apothecary)" : {
+					name : "Critical Condition",
+					description : desc([
+						"When a creature rolls a natural 1 on a saving throw made against one of my apothecary spells that deals damage, I roll all of the spell’s damage dice twice and add them together. Then I add any relevant modifiers as normal to determine the damage that creature takes from the spell."
+					]),
+					source : ["SCGtD", 137],
+					submenu : "[apothecary level 06+]",
+					prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
+				},
+				"diagnosis" : {
+					name : "Diagnosis",
+					description : desc([
+						"I can take the Help action as a bonus action on my turn."
+					]),
+					source : ["SCGtD", 137],
+					action : ["bonus action", "Help"],
+				},
+				"doctor’s note (prereq: level 6 apothecary)" : {
 					name : "Doctor’s Note",
-					firstCol : "oncelr"
-				}],
-			},
-			"double dose (prereq: level 10 apothecary)" : {
-				name : "Double Dose",
-				description : desc([
-					"When I cast an apothecary spell using an apothecary spell slot that targets a single creature and restores hit points to that creature, I can target an additional creature within range."
-				]),
-				source : ["SCGtD", 137],
-				submenu : "[apothecary level 10+]",
-				prereqeval : function(v) { return classes.known.apothecary.level >= 10; },
-			},
-			"extracurricular research" : {
-				name : "Extracurricular Research",
-				description : desc([
-					"I learn two additional cantrips of my choice from any class’s spell list."
-				]),
-				source : ["SCGtD", 137],
-				spellcastingBonus : [{
+					description : desc([
+						"I can cast the Sending spell at-will. I must finish a long rest before I can use this theory to contact the same creature again."
+					]),
+					source : ["SCGtD", 137],
+					submenu : "[apothecary level 06+]",
+					prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
+					spellcastingBonus : [{
+						selection : ["sending"],
+						name : "Doctor’s Note",
+						firstCol : "oncelr"
+					}],
+				},
+				"double dose (prereq: level 10 apothecary)" : {
+					name : "Double Dose",
+					description : desc([
+						"When I cast an apothecary spell using an apothecary spell slot that targets a single creature and restores hit points to that creature, I can target an additional creature within range."
+					]),
+					source : ["SCGtD", 137],
+					submenu : "[apothecary level 10+]",
+					prereqeval : function(v) { return classes.known.apothecary.level >= 10; },
+				},
+				"extracurricular research" : {
 					name : "Extracurricular Research",
-					times : 2,
-					level: [0, 0],
-				}],
-			},
-			"inoculation" : {
-				name : "Inoculation",
-				description : desc([
-					"I have resistance to necrotic damage, and my hit point maximum can’t be reduced. In addition, I'm immune to diseases."
-				]),
-				source : ["SCGtD", 137],
-				dmgres : ["necrotic"],
-			},
-			"interdisciplinary practice (prereq: level 14 apothecary)" : {
-				name : "Interdisciplinary Practice",
-				description : desc([
-					"When I use my action to cast a spell, I can make one weapon attack as a bonus action."
-				]),
-				source : ["SCGtD", 137],
-				submenu : "[apothecary level 14+]",
-				prereqeval : function(v) { return classes.known.apothecary.level >= 14; },
-				action : ["bonus action", "Attack (after spell)"],
-			},
-			"laboratory assistant" : {
-				name : "Laboratory Assistant",
-				description : desc([
-					"I learn the spell Find Familiar, and I always have it prepared. It doesn’t count against the number of apothecary spells I can prepare."
-				]),
-				source : ["SCGtD", 137],
-				spellcastingBonus : [{
-					selection : ["find familiar"],
+					description : desc([
+						"I learn two additional cantrips of my choice from any class’s spell list."
+					]),
+					source : ["SCGtD", 137],
+					spellcastingBonus : [{
+						name : "Extracurricular Research",
+						times : 2,
+						level: [0, 0],
+					}],
+				},
+				"inoculation" : {
+					name : "Inoculation",
+					description : desc([
+						"I have resistance to necrotic damage, and my hit point maximum can’t be reduced. In addition, I'm immune to diseases."
+					]),
+					source : ["SCGtD", 137],
+					dmgres : ["necrotic"],
+				},
+				"interdisciplinary practice (prereq: level 14 apothecary)" : {
+					name : "Interdisciplinary Practice",
+					description : desc([
+						"When I use my action to cast a spell, I can make one weapon attack as a bonus action."
+					]),
+					source : ["SCGtD", 137],
+					submenu : "[apothecary level 14+]",
+					prereqeval : function(v) { return classes.known.apothecary.level >= 14; },
+					action : ["bonus action", "Attack (after spell)"],
+				},
+				"laboratory assistant" : {
 					name : "Laboratory Assistant",
-					firstCol : "markedbox"
-				}],
-			},
-			"liability insurance (prereq: level 14 apothecary)" : {
-				name : "Liability Insurance",
-				description : desc([
-					"I can cast Contingency once on myself without material components. I can’t do so again until you finish a long rest."
-				]),
-				source : ["SCGtD", 137],
-				submenu : "[apothecary level 14+]",
-				prereqeval : function(v) { return classes.known.apothecary.level >= 14; },
-				spellcastingBonus : [{
-					selection : ["contingency"],
+					description : desc([
+						"I learn the spell Find Familiar, and I always have it prepared. It doesn’t count against the number of apothecary spells I can prepare."
+					]),
+					source : ["SCGtD", 137],
+					spellcastingBonus : [{
+						selection : ["find familiar"],
+						name : "Laboratory Assistant",
+						firstCol : "markedbox"
+					}],
+				},
+				"liability insurance (prereq: level 14 apothecary)" : {
 					name : "Liability Insurance",
-					firstCol : "oncelr",
-					}],
-				spellChanges : {
-					"contingency" : {
-						components : "V,S",
+					description : desc([
+						"I can cast Contingency once on myself without material components. I can’t do so again until you finish a long rest."
+					]),
+					source : ["SCGtD", 137],
+					submenu : "[apothecary level 14+]",
+					prereqeval : function(v) { return classes.known.apothecary.level >= 14; },
+					spellcastingBonus : [{
+						selection : ["contingency"],
+						name : "Liability Insurance",
+						firstCol : "oncelr",
+						}],
+					spellChanges : {
+						"contingency" : {
+							components : "V,S",
+						}
 					}
-				}
-			},
-			"medical expertise" : {
-				name : "Medical Expertise",
-				description : desc([
-					"I gain proficiency in the Medicine and Nature skills. My proficiency bonus is doubled for any ability check I make that uses either of these skills."
-				]),
-				source : ["SCGtD", 137],
-				skills : ["Medicine", "Nature"]
-			},
-			"medical lexicon" : {
-				name : "Medical Lexicon",
-				description : desc([
-					"I learn six languages of my choice. You can cast Detect Poison and Disease at will."
-				]),
-				source : ["SCGtD", 137],
-				spellcastingBonus : [{
-					selection : ["detect poison and disease"],
+				},
+				"medical expertise" : {
+					name : "Medical Expertise",
+					description : desc([
+						"I gain proficiency in the Medicine and Nature skills. My proficiency bonus is doubled for any ability check I make that uses either of these skills."
+					]),
+					source : ["SCGtD", 137],
+					skills : ["Medicine", "Nature"]
+				},
+				"medical lexicon" : {
 					name : "Medical Lexicon",
-					firstCol : "atwill",
-					}],
-				languageProfs : [6]
-			},
-			"nerve agent (prereq: level 6 apothecary)" : {
-				name : "Nerve Agent",
-				description : desc([
-					"When I deal poison damage with my apothecary spells, I can choose to deal psychic damage instead."
-				]),
-				source : ["SCGtD", 137],
-				submenu : "[apothecary level 06+]",
-				prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
-			},
-			"noxious blood (prereq: level 6 apothecary)" : {
-				name : "Noxious Blood",
-				description : desc([
-					"When a creature hits me with a melee attack while within 5 feet of me, it takes poison damage equal to 1d6 + my Constitution modifier."
-				]),
-				source : ["SCGtD", 138],
-				submenu : "[apothecary level 06+]",
-				prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
-			},
-			"pharmacology" : {
-				name : "Pharmacology",
-				description : desc([
-					"When I cast a spell using an apothecary spell slot or my Greater Formula feature which restores hit points to a creature, the creature regains additional hit points equal to my Intelligence modifier."
-				]),
-				source : ["SCGtD", 138],
-			},
-			"physiological analysis" : {
-				name : "Physiological Analysis",
-				description : desc([
-					"If I spend at least 1 minute observing or interacting with another creature outside combat, I can learn certain information about its physiology. The Game Master reveals to me two of the following characteristics of my choice:",
-					" \u2022 Any one ability score",
-					" \u2022 Armor Class",
-					" \u2022 Current hit points",
-					" \u2022 Resistances (if any)",
-					" \u2022 Immunities (if any)",
-					" \u2022 Vulnerabilities (if any)",
-					"   Alternatively, I can spend 1 minute observing a corpse. After 1 minute, I determine the cause of death."
-				]),
-				source : ["SCGtD", 138],
-			},
-			"practical resuscitation (prereq: level 10 apothecary)" : {
-				name : "Practical Resuscitation",
-				description : desc([
-					"When I cast a spell that has the sole effect of restoring a creature to life (but not undeath), such as Raise Dead, I don’t need material components to cast the spell if the creature has died within the past hour."
-				]),
-				source : ["SCGtD", 138],
-				submenu : "[apothecary level 10+]",
-				prereqeval : function(v) { return classes.known.apothecary.level >= 10; },
-			},
-			"putrefaction" : {
-				name : "Putrefaction",
-				description : desc([
-					"My apothecary spells and abilities ignore undead creatures’ resistance or immunity to poison damage and immunity to the poisoned condition."
-				]),
-				source : ["SCGtD", 138]
-			},
-			"rapid response" : {
-				name : "Rapid Response",
-				description : desc([
-					"When I cast an apothecary spell that restores hit points to a creature, before or after casting the spell, I can move up to my speed without provoking opportunity attacks."
-				]),
-				source : ["SCGtD", 138],
-			},
-			"routine procedure (prereq: level 10 apothecary)" : {
-				name : "Routine Procedure",
-				description : desc([
-					"I can cast Lesser Restoration at-will without expending a spell slot."
-				]),
-				source : ["SCGtD", 138],
-				submenu : "[apothecary level 10+]",
-				prereqeval : function(v) { return classes.known.apothecary.level >= 10; },
-				spellcastingBonus : [{
-					selection : ["lesser restoration"],
+					description : desc([
+						"I learn six languages of my choice. You can cast Detect Poison and Disease at will."
+					]),
+					source : ["SCGtD", 137],
+					spellcastingBonus : [{
+						selection : ["detect poison and disease"],
+						name : "Medical Lexicon",
+						firstCol : "atwill",
+						}],
+					languageProfs : [6]
+				},
+				"nerve agent (prereq: level 6 apothecary)" : {
+					name : "Nerve Agent",
+					description : desc([
+						"When I deal poison damage with my apothecary spells, I can choose to deal psychic damage instead."
+					]),
+					source : ["SCGtD", 137],
+					submenu : "[apothecary level 06+]",
+					prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
+				},
+				"noxious blood (prereq: level 6 apothecary)" : {
+					name : "Noxious Blood",
+					description : desc([
+						"When a creature hits me with a melee attack while within 5 feet of me, it takes poison damage equal to 1d6 + my Constitution modifier."
+					]),
+					source : ["SCGtD", 138],
+					submenu : "[apothecary level 06+]",
+					prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
+				},
+				"pharmacology" : {
+					name : "Pharmacology",
+					description : desc([
+						"When I cast a spell using an apothecary spell slot or my Greater Formula feature which restores hit points to a creature, the creature regains additional hit points equal to my Intelligence modifier."
+					]),
+					source : ["SCGtD", 138],
+				},
+				"physiological analysis" : {
+					name : "Physiological Analysis",
+					description : desc([
+						"If I spend at least 1 minute observing or interacting with another creature outside combat, I can learn certain information about its physiology. The Game Master reveals to me two of the following characteristics of my choice:",
+						" \u2022 Any one ability score",
+						" \u2022 Armor Class",
+						" \u2022 Current hit points",
+						" \u2022 Resistances (if any)",
+						" \u2022 Immunities (if any)",
+						" \u2022 Vulnerabilities (if any)",
+						"   Alternatively, I can spend 1 minute observing a corpse. After 1 minute, I determine the cause of death."
+					]),
+					source : ["SCGtD", 138],
+				},
+				"practical resuscitation (prereq: level 10 apothecary)" : {
+					name : "Practical Resuscitation",
+					description : desc([
+						"When I cast a spell that has the sole effect of restoring a creature to life (but not undeath), such as Raise Dead, I don’t need material components to cast the spell if the creature has died within the past hour."
+					]),
+					source : ["SCGtD", 138],
+					submenu : "[apothecary level 10+]",
+					prereqeval : function(v) { return classes.known.apothecary.level >= 10; },
+				},
+				"putrefaction" : {
+					name : "Putrefaction",
+					description : desc([
+						"My apothecary spells and abilities ignore undead creatures’ resistance or immunity to poison damage and immunity to the poisoned condition."
+					]),
+					source : ["SCGtD", 138]
+				},
+				"rapid response" : {
+					name : "Rapid Response",
+					description : desc([
+						"When I cast an apothecary spell that restores hit points to a creature, before or after casting the spell, I can move up to my speed without provoking opportunity attacks."
+					]),
+					source : ["SCGtD", 138],
+				},
+				"routine procedure (prereq: level 10 apothecary)" : {
 					name : "Routine Procedure",
-					firstCol : "atwill",
-				}],
-			},
-			"stolen secrets (prereq: level 10 apothecary)" : {
-				name : "Stolen Secrets",
-				description : desc([
-					"I learn one spell from any class’s spell list. It must be of a level for which I have apothecary spell slots or lower. The spell is treated as an apothecary spell for me, and doesn’t count against the number of apothecary spells you know."
-				]),
-				source : ["SCGtD", 138],
-				submenu : "[apothecary level 10+]",
-				prereqeval : function(v) { return classes.known.apothecary.level >= 10; },
-				spellcastingBonus : [{
-					name : "Stolen Secrets",
-					times : 1,
-					level: [1, 9],
-				}],
-			},
-			"subject preparation (prereq: level 10 apothecary)" : {
-				name : "Subject Preparation",
-				description : desc([
-					"When I hit a creature with a melee weapon attack, that creature has disadvantage on the next saving throw it makes against an apothecary spell I cast before the end of my next turn."
-				]),
-				source : ["SCGtD", 138],
-				submenu : "[apothecary level 10+]",
-				prereqeval : function(v) { return classes.known.apothecary.level >= 10; },
-			},
-			"surgeon’s instinct" : {
-				name : "Surgeon’s Instinct",
-				description : desc([
-					"I have blindsight out to a range of 10 feet."
-				]),
-				source : ["SCGtD", 138],
-				vision : ["Blindsight", "+10"]
-			},
-			"surgical strikes (prereq: level 6 apothecary)" : {
-				name : "Surgical Strikes",
-				description : desc([
-					"I can attack twice, instead of once, when I take the Attack action on my turn."
-				]),
-				source : ["SCGtD", 138],
-				submenu : "[apothecary level 06+]",
-				prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
-				action : ["action", "Surgical Strikes (2 attacks per action)"],
-			},
-			"toxicology (prereq: level 6 apothecary)" : {
-				name : "Toxicology",
-				description : desc([
-					"I add my Intelligence modifier to the damage rolls of spells that deal poison damage."
-				]),
-				source : ["SCGtD", 138],
-				submenu : "[apothecary level 06+]",
-				prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
-			},
-			"triage" : {
-				name : "Triage",
-				description : desc([
-					"I learn the Spare the Dying cantrip if I don’t know it already. When I cast this cantrip, it has a range of 60 feet."
-				]),
-				source : ["SCGtD", 138],
-				spellcastingBonus : [{
-					selection : ["spare the dying"],
-					name : "Triage",
+					description : desc([
+						"I can cast Lesser Restoration at-will without expending a spell slot."
+					]),
+					source : ["SCGtD", 138],
+					submenu : "[apothecary level 10+]",
+					prereqeval : function(v) { return classes.known.apothecary.level >= 10; },
+					spellcastingBonus : [{
+						selection : ["lesser restoration"],
+						name : "Routine Procedure",
+						firstCol : "atwill",
 					}],
-				spellChanges : {
-					"spare the dying" : {
-						range : "60 ft"
+				},
+				"stolen secrets (prereq: level 10 apothecary)" : {
+					name : "Stolen Secrets",
+					description : desc([
+						"I learn one spell from any class’s spell list. It must be of a level for which I have apothecary spell slots or lower. The spell is treated as an apothecary spell for me, and doesn’t count against the number of apothecary spells you know."
+					]),
+					source : ["SCGtD", 138],
+					submenu : "[apothecary level 10+]",
+					prereqeval : function(v) { return classes.known.apothecary.level >= 10; },
+					spellcastingBonus : [{
+						name : "Stolen Secrets",
+						times : 1,
+						level: [1, 9],
+					}],
+				},
+				"subject preparation (prereq: level 10 apothecary)" : {
+					name : "Subject Preparation",
+					description : desc([
+						"When I hit a creature with a melee weapon attack, that creature has disadvantage on the next saving throw it makes against an apothecary spell I cast before the end of my next turn."
+					]),
+					source : ["SCGtD", 138],
+					submenu : "[apothecary level 10+]",
+					prereqeval : function(v) { return classes.known.apothecary.level >= 10; },
+				},
+				"surgeon’s instinct" : {
+					name : "Surgeon’s Instinct",
+					description : desc([
+						"I have blindsight out to a range of 10 feet."
+					]),
+					source : ["SCGtD", 138],
+					vision : ["Blindsight", "+10"]
+				},
+				"surgical strikes (prereq: level 6 apothecary)" : {
+					name : "Surgical Strikes",
+					description : desc([
+						"I can attack twice, instead of once, when I take the Attack action on my turn."
+					]),
+					source : ["SCGtD", 138],
+					submenu : "[apothecary level 06+]",
+					prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
+					action : ["action", "Surgical Strikes (2 attacks per action)"],
+				},
+				"toxicology (prereq: level 6 apothecary)" : {
+					name : "Toxicology",
+					description : desc([
+						"I add my Intelligence modifier to the damage rolls of spells that deal poison damage."
+					]),
+					source : ["SCGtD", 138],
+					submenu : "[apothecary level 06+]",
+					prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
+				},
+				"triage" : {
+					name : "Triage",
+					description : desc([
+						"I learn the Spare the Dying cantrip if I don’t know it already. When I cast this cantrip, it has a range of 60 feet."
+					]),
+					source : ["SCGtD", 138],
+					spellcastingBonus : [{
+						selection : ["spare the dying"],
+						name : "Triage",
+						}],
+					spellChanges : {
+						"spare the dying" : {
+							range : "60 ft"
+						}
 					}
-				}
-			},
-			"unfailing focus (prereq: level 6 apothecary)" : {
-				name : "Unfailing Focus",
-				description : desc([
-					"When I fail a Constitution saving throw to maintain concentration on an apothecary spell, I can choose to succeed instead. Once I use this feature, I can’t do so again until I finish a short or long rest."
-				]),
-				source : ["SCGtD", 138],
-				submenu : "[apothecary level 06+]",
-				prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
-				usages : 1,
-				recovery : "short rest",
-			},
-			"venomous instruments (prereq: level 10 apothecary)" : {
-				name : "Venomous Instruments",
-				description : desc([
-					"When I hit a creature with a weapon attack, the creature takes extra poison damage equal to my Intelligence modifier."
-				]),
-				source : ["SCGtD", 138],
-				submenu : "[apothecary level 10+]",
-				prereqeval : function(v) { return classes.known.apothecary.level >= 10; },
-			},
-			"virulence" : {
-				name : "Virulence",
-				description : desc([
-					"When I roll a 1 on a damage die for an apothecary spell that deals poison damage, I can reroll the die. I must use the new result, even if the new roll is a 1."
-				]),
-				source : ["SCGtD", 138]
-			},
-			"vital signs" : {
-				name : "Vital Signs",
-				description : desc([
-					"When a creature I can see within 30 feet of me fails a saving throw or death saving throw, I can use my reaction to add my Intelligence modifier to the creature’s roll, potentially turning a failure into a success. I must finish a short rest before I can use this theory on the same creature again."
-				]),
-				source : ["SCGtD", 138],
-				action : ["reaction", "Vital Signs"]
-			},
-			"vivisection (prereq: level 6 apothecary)" : {
-				name : "Vivisection",
-				description : desc([
-					"My weapon attacks score a critical hit on a 19 or 20."
-				]),
-				source : ["SCGtD", ],
-				submenu : "[apothecary level 06+]",
-				prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
-				calcChanges : {
-					atkAdd : [
-						function (fields, v) {
-							if (!v.isSpell && !v.CritChance && !v.isDC && classes.known.fighter && classes.known.fighter.level < 15) {
-								fields.Description += (fields.Description ? '; ' : '') + 'Crit on 19-20';
-								v.CritChance = 19;
-							};
-						},
-						"My weapon attacks score a critical on a to hit roll of both 19 and 20.",
-						19
-					]
-				}
-			},
+				},
+				"unfailing focus (prereq: level 6 apothecary)" : {
+					name : "Unfailing Focus",
+					description : desc([
+						"When I fail a Constitution saving throw to maintain concentration on an apothecary spell, I can choose to succeed instead. Once I use this feature, I can’t do so again until I finish a short or long rest."
+					]),
+					source : ["SCGtD", 138],
+					submenu : "[apothecary level 06+]",
+					prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
+					usages : 1,
+					recovery : "short rest",
+				},
+				"venomous instruments (prereq: level 10 apothecary)" : {
+					name : "Venomous Instruments",
+					description : desc([
+						"When I hit a creature with a weapon attack, the creature takes extra poison damage equal to my Intelligence modifier."
+					]),
+					source : ["SCGtD", 138],
+					submenu : "[apothecary level 10+]",
+					prereqeval : function(v) { return classes.known.apothecary.level >= 10; },
+				},
+				"virulence" : {
+					name : "Virulence",
+					description : desc([
+						"When I roll a 1 on a damage die for an apothecary spell that deals poison damage, I can reroll the die. I must use the new result, even if the new roll is a 1."
+					]),
+					source : ["SCGtD", 138]
+				},
+				"vital signs" : {
+					name : "Vital Signs",
+					description : desc([
+						"When a creature I can see within 30 feet of me fails a saving throw or death saving throw, I can use my reaction to add my Intelligence modifier to the creature’s roll, potentially turning a failure into a success. I must finish a short rest before I can use this theory on the same creature again."
+					]),
+					source : ["SCGtD", 138],
+					action : ["reaction", "Vital Signs"]
+				},
+				"vivisection (prereq: level 6 apothecary)" : {
+					name : "Vivisection",
+					description : desc([
+						"My weapon attacks score a critical hit on a 19 or 20."
+					]),
+					source : ["SCGtD", ],
+					submenu : "[apothecary level 06+]",
+					prereqeval : function(v) { return classes.known.apothecary.level >= 6; },
+					calcChanges : {
+						atkAdd : [
+							function (fields, v) {
+								if (!v.isSpell && !v.CritChance && !v.isDC && classes.known.fighter && classes.known.fighter.level < 15) {
+									fields.Description += (fields.Description ? '; ' : '') + 'Crit on 19-20';
+									v.CritChance = 19;
+								};
+							},
+							"My weapon attacks score a critical on a to hit roll of both 19 and 20.",
+							19
+						]
+					}
+				},
 			/*
 			"" : {
 				name : "",
@@ -543,6 +544,7 @@ ClassList["apothecary"] = {
 			*/
 
 	    }, //esoteric theories
+		
 		"greater formula" : {
 	    	name : "Greater Formula",
 	    	source : ["SCGtD", 136],
@@ -938,6 +940,7 @@ AddSubClass("apothecary", "mutagenist", {
 	source : ["SCGtD", 143],
 	fullname : "Mutagenist",
 	spellcastingExtra : ["jump", "toxic shield", "alter self", "enhance ability", "haste", "water breathing", "polymorph", "stoneskin", "reincarnate", "septic shock"],
+	attacks : [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	features : {
 		"subclassfeature1" : {
 			name : "Natural Philosophy",
@@ -960,50 +963,119 @@ AddSubClass("apothecary", "mutagenist", {
 			]),
 		},
 		"subclassfeature3" : {
-			name : "Transmogrifying Elixir (TERMINAR)",
+			name : "Transmogrifying Elixir", //terminar
 			source : ["SCGtD", 144],
 			minlevel : 3,
 			description : desc([
 				"As a bonus action, I may expend a spell slot to transform for one minute, be reduced to 0 hit points or be incapacitated.",
-				"I maintain my personality, alignment, and game statistics, but I experience many other changes.."
+				"I maintain my personality, alignment, and game statistics, but I experience many other changes."
 			]),
 			toNotesPage : [{
 				name : "Transmogrification",
 				note : [
 					" \u2022 My Strength and Intelligence ability scores are swapped.",
 					" \u2022 My size becomes Large, my jump distance is doubled, and I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.",
-					" \u2022 Each of my hands transform into a big meaty fist, which I can use to make melee weapon attacks. It counts as a simple weapon for me. My big meaty fists deal 1d10 + my Strength modifier + my Apothecary level bludgeoning damage on a hit.", /*AÑADIR ATAQUE*/
+					" \u2022 Each of my hands transform into a big meaty fist, which I can use to make melee weapon attacks. It counts as a simple weapon for me. My big meaty fists deal 1d10 + my Strength modifier + my Apothecary level bludgeoning damage on a hit.",
 					" \u2022 I cannot cast or concentrate on spells.",
-					" \u2022 I have darkvision out to a range of 120 feet.", /*AÑADIR VISIÓN*/
+					" \u2022 I have darkvision out to a range of 120 feet.",
 					" \u2022 I gain temporary hit points equal to five times my Apothecary level.",
 					" \u2022 My speed increases by 5 feet per level of spell slot used.",
-					" \u2022 My AC is 13 + the level of spell slot used.", /*AÑADIR ARMADURA*/
+					" \u2022 My AC is 13 + the level of spell slot used.",
 					" \u2022 At the start of each of my turns and as long as I have at least 1 hit point remaining, I regain a number of hit points equal to the level of the spell slot used."
 				]
 			}],
 			weaponsAdd : {
 				select : ["Big Meaty Fist"]
 			},
-			calcChanges : {
-						atkCalc : [
-							function (fields, v, output) {
-								if (v.baseWeaponName == 'big meaty fist') output.extraDmg += What('lvls');
-							},
-			/*AÑADIR ACCION Y REVISAR*/
+			calcChanges: {
+				atkCalc: [
+					function (fields, v, output) {
+						if (v.baseWeaponName === 'big meaty fist' && classes.known.apothecary) {
+							output.extraDmg += classes.known.apothecary.level;
+						}
+					},
+					'I add my Apothecary level to the damage of my meaty fist.',
+				],
+			}, //atkCalc
+			action : [
+				["bonus action", "Transmogrification (expend a SS)"]
+			],
+			vision : [
+				["Darkvision", 120],
+			]
+		}, //subclassfeature3
+		"subclassfeature4" : {
+			name : "Potent Biology",
+			source : ["SCGtD", 144],
+			minlevel : 6,
+			description : desc([
+				"When transmogrified, my big meaty fist attacks count as magical for overcoming resistance and immunity to non-magical attacks and damage",
+				"When I attack with my big meaty fist, I can expend a spell slot to deal an additional 1d8 force damage per SS level"
+			]),
+		},
+		"subclassfeature5" : {
+			name : "Adaptive Genetics",
+			source : ["SCGtD", 144],
+			minlevel : 10,
+			description : desc([
+				"When reduced to 0 hit points, my other can self takes over (Check page 3 notes)"
+			]),
+			toNotesPage : [{
+				name : "Adaptive Genetics",
+				note : [
+					"When in my natural form and reduced to 0 hit points I can immediately transform using my Transmogrifying Elixir feature expending a spell slot as normal. I regain a number of hit points equal to my Apothecary level when I do (in addition to gaining temporary hit points from my transformation).",
+					"When I'm reduced to 0 hit points in my transmogrified form, I revert to my natural form with 1 hit point remaining. If so, I can’t assume my transmogrified form again until I finish a short or long rest."
+				],
+				page3notes : true,
+			}],
+		},
+		"subclassfeature6" : {
+			name : "Unnatural Evolution",
+			source : ["SCGtD", 144],
+			minlevel : 14,
+			description : desc([
+				"I can use my Greater Formulas feature to transmogrify as if I had used a spell slot of that level.",
+				"When I transform in this way I gain one genome mutation.",
+			]),
+			toNotesPage : [{
+				name : "Genome Mutations",
+				note : [
+					" \u2022 Draconic Genome. I grow fleshy wings from my back and my skin takes on a scaly appearance. I gain a flying speed equal to my walking speed and as an action can spew bile in a 30-foot cone. All creatures in the area must succeed on a Constitution saving throw against my spell save DC or take 8d6 acid damage, or half as much on a successful save. Once I use this feature, I can not do so again until I finish a short or long rest.",
+					" \u2022 Giant Genome. I become a hulking mass of flesh and muscle, turning myrself into a living siege weapon. My size becomes Huge and all damage dealt to objects and structures is now doubled. As an action, I can expend a spell slot on my turn to slam my fists into the ground, sending shockwaves and rubble crashing around you. All creatures in a 30-foot radius centered on me must succeed on a Dexterity saving throw against my spell save DC or they take 8d6 bludgeoning damage and are knocked prone. If they succeed on the saving throw, they take half damage and are not knocked prone.",
+					" \u2022 Cerebellum Genome. I maintain a fraction of my mind as I transform, allowing remnants of my studies to linger in my monstrous brain. I now have the ability to maintain concentration on spells while in my transmogrified form. While transmogrified, my concentration can’t be broken as a result of taking damage.",
+				]
+			}],
+		},
+		"subclassfeature7" : {
+			name : "The New Flesh",
+			source : ["SCGtD", 144],
+			minlevel : 18,
+			description : desc([
+				"I gain aditional benefits while transmogrified"
+			]),
+			NotesPage : [{
+				name : "The New Flesh",
+				amendTo : "Transmogrification",
+				note : [
+					" \u2022 As long as I have one or more hit points remaining, I can use a bonus action and expend a spell slot to regain hit points equal to ten times the level of the spell slot used.",
+					" \u2022 If I fail a saving throw, as a reaction I can expend a spell slot to succeed instead.",
+					" \u2022 Now my Strength score becomes equal to my Intelligence score when transmogrified. Additionally, I can also cast spells while in my transmogrified form."
+				],
+			}]
 		},
 	}, //mutagenist features
 }); //mutagenist subclass
 
-WeaponsList["big meaty fist"] = { /*CORREGIR*/
-	name : "Big Meaty Fist",
-	source : ["SCGtD", 143],
-	type : "Simple",
-	ability : 4,
-	bilitytodamage: true,
-	damage : [1, 10, "bludgeoning"],
-	range : "Melee",
-	description : "",
-	list : "melee",
+WeaponsList["big meaty fist"] = {
+    name: "Big Meaty Fist",
+    regExpSearch: /^(?=.*big)(?=.*meaty)(?=.*fist).*$/i,
+    source: [["SCGtD", 143]],
+    type: "Simple",
+    ability: 4,
+    damage: [1, 10, "bludgeoning"],
+    range: "Melee",
+    description: "",
+    list: "melee",
 };
 
 AddSubClass("apothecary", "pathogenist", {
@@ -1011,8 +1083,23 @@ AddSubClass("apothecary", "pathogenist", {
 	subname : "Pathogenist",
 	source : ["SCGtD", 145],
 	fullname : "Pathogenist",
-	spellcastingExtra : [],
+	spellcastingExtra : ["infect", "inflict wounds", "blindness/deafness", "biohazard", "pestilence", "venomous aura", "blight", "blood worm", "contagion", "insect plague"],
 	features : {
+		"subclassfeature2" : {
+			name : "Plague Proficiency",
+			source : ["SCGtD", 154],
+			minlevel : 1,
+			description : desc([
+				"I learn the chill touch cantrip.",
+				"I gain proficiency with the herbalism kit. If i'm already have this proficiency, I gain proficiency with one other type of artisan’s tools of my choice."
+			]),
+			spellcastingBonus : [{
+		        name : "Plague Proficiency",
+		        times : 1,
+				selection : ["chill touch"],
+			}],
+			toolProf : ["herbalism kit", 1]
+		},
 		"subclassfeature2" : {
 			name : "Pathogenist Spells",
 			source : ["SCGtD", 145],
@@ -1021,6 +1108,160 @@ AddSubClass("apothecary", "pathogenist", {
 				"I gain additional spells that I always have prepared. These spells count as apothecary spells, but they don't count against the number of apothecary spells I prepare."
 			]),
 		},
+		"subclassfeature3" : {
+			name : "Pernicious Pathogens",
+			source : ["SCGtD", 145],
+			minlevel : 3,
+			description : desc([
+				"Whenever a creature casts a spell or uses a trait or feature that would cure or remove one of my diseases, the creature must first make an ability check using its spellcasting ability (or its Charisma modifier if it doesn't have any) against my spell save DC.",
+				"On a failed check, the creature’s spell, trait, or feature fails and has no effect. Any material components used are expended, and any spell slot expended is wasted."
+			]),
+		},
+		"subclassfeature3" : {
+			name : "Mutant Strain",
+			source : ["SCGtD", 145],
+			minlevel : 3,
+			description : desc([
+				"I lean a number of mutant strains of my choice, and each time I gain a level in this class, I can replace one mutant strain I know with a different one.",
+				"Whenever you cast a spell which inflicts diseases I can apply an additional effect from my mutant strain to one of the targets of the spell, lasting for the duration of that spell.",
+			]),
+			additional : [
+				"0 strains", //lvl1,
+				"0 strains", //lvl2,
+				"2 strains", //lvl3,
+				"2 strains", //lvl4,
+				"2 strains", //lvl5,
+				"2 strains", //lvl6,
+				"2 strains", //lvl7,
+				"2 strains", //lvl8,
+				"3 strains", //lvl9,
+				"3 strains", //lvl10,
+				"3 strains", //lvl11,
+				"3 strains", //lvl12,
+				"3 strains", //lvlX13,
+				"3 strains", //lvlX14,
+				"4 strains", //lvl15,
+				"4 strains", //lvl16,
+				"4 strains", //lvl17,
+				"4 strains", //lvl18,
+				"4 strains", //lvl19,
+				"4 strains", //lvl20,
+			],
+			extraname : "Mutant Strain",
+			extrachoices : ["dizziness", "fatigue", "coughing fits", "shivers", "weakness (prereq: level 9 apothecary)", "dry eyes (prereq: level 9 apothecary)", "intense fever (prereq: level 9 apothecary)", "lesions (prereq: level 9 apothecary)", "nausea (prereq: level 15 apothecary)", "dystrophy (prereq: level 15 apothecary)"],
+				extraTimes : levels.map(function(n) {
+					return n < 3 ? 2 : n < 9 ? 3 : 4;
+				}),
+				"dizziness" : {
+					name : "Dizziness",
+					description : desc([
+						"The target can’t take reactions"
+					]),
+				},
+				"fatigue" : {
+						name : "Fatigue",
+						description : desc([
+							"Each time the target fails a saving throw against my disease, its speed is reduced to five feet until the start of its next turn."
+						]),
+				},
+				"coughing fits" : {
+					name : "Coughing Fits",
+					description : desc([
+						"At the start of each of the targets’ turns, it must make a Constitution saving throw against my spell save DC. On a failed save, it is unable to speak until the start of its next turn."
+					]),
+				},
+				"shivers" : {
+					name : "Shivers",
+					description : desc([
+						"The target shakes uncontrollably. At the start of each of the target’s turns, it drops whatever it is holding in its hands."
+					]),
+				},
+				"weakness (prereq: level 9 apothecary)" : {
+					name : "Weakness",
+					description : desc([
+						"The target deals half damage with melee weapon attacks."
+					]),
+					prereqeval : function(v) { return classes.known.apothecary.level >= 9; },
+				},
+				"dry eyes (prereq: level 9 apothecary)" : {
+					name : "Dry Eyes",
+					description : desc([
+						"Each time the target fails a saving throw against my disease, it becomes blinded until the start of its next turn."
+					]),
+					prereqeval : function(v) { return classes.known.apothecary.level >= 9; },
+				},
+				"intense fever (prereq: level 9 apothecary)" : {
+					name : "Intense Fever",
+					description : desc([
+						"The target can’t regain hit points."
+					]),
+					prereqeval : function(v) { return classes.known.apothecary.level >= 9; },
+				},
+				"lesions (prereq: level 9 apothecary)" : {
+					name : "Lesions",
+					description : desc([
+						"The target loses any damage resistances."
+					]),
+					prereqeval : function(v) { return classes.known.apothecary.level >= 9; },
+				},
+				"nausea (prereq: level 15 apothecary)" : {
+					name : "Nausea",
+					description : desc([
+						"Each time a target fails a saving throw against my disease, it becomes incapacitated until the start of its next turn."
+					]),
+					prereqeval : function(v) { return classes.known.apothecary.level >= 15; },
+				},
+				"dystrophy (prereq: level 15 apothecary)" : {
+					name : "Dystrophy",
+					description : desc([
+						"The target becomes vulnerable to bludgeoning, piercing, and slashing damage."
+					]),
+					prereqeval : function(v) { return classes.known.apothecary.level >= 15; },
+				},
+		}, //suclassfeature3
+		"subclassfeature4" : {
+			name : "Breakthrough Infection",
+			source : ["SCGtD", 146],
+			minlevel : 6,
+			description : desc([
+				"When I cast a spell using an apothecary spell slot or my Greater Formula feature that causes disease, that spell ignores any creature’s immunity to disease. Such creatures instead make any saving throws against my diseases with advantage."
+			]),
+		},
+		"subclassfeature5" : {
+			name : "Outbreak",
+			source : ["SCGtD", 146],
+			minlevel : 6,
+			description : desc([
+				"When a creature infected by one of my diseases dies, I can use my reaction to spread the disease to a different creature I can see within 30 feet of that creature."
+			]),
+			action : [
+				["reaction", "Outbreak"]
+			]
+		},
+		"subclassfeature6" : {
+			name : "Insidious Incubation",
+			source : ["SCGtD", 146],
+			minlevel : 10,
+			description : desc([
+				"When I start casting infect, I can modify it so that it doesn’t require concentration. If I do so, the spell’s duration becomes 1 minute for that casting. I must finish a short or long rest before using this feature again."
+			]),
+		},
+		"subclassfeature7" : {
+			name : "Immunocompromised",
+			source : ["SCGtD", 46],
+			minlevel : 14,
+			description : desc([
+				"A creature infected with one of my diseases has disadvantage on saving throws against my apothecary spells."
+			]),
+		},
+		"subclassfeature8" : {
+			name : "Rapid Evolution",
+			source : ["SCGtD", 146],
+			minlevel : 18,
+			description : desc([
+				"Whenever I cast a spell which inflicts diseases, I can apply an two additional effects from my mutant strain to one of the targets of the spell, instead of one."
+			]),
+		}, 
 	}, //pathogenist features
 }); //pathogenist subclass
 
