@@ -1270,8 +1270,25 @@ AddSubClass("apothecary", "reanimator", {
 	subname : "Reanimator",
 	source : ["SCGtD", 146],
 	fullname : "Reanimator",
-	spellcastingExtra : [],
+	spellcastingExtra : ["false life", "inflict wounds", "gentle repose", "invigorate", "lightning bolt", "revivify", "death ward", "corpse explosion", "raise dead", "nerve gas"],
 	features : {
+		"subclassfeature1" : {
+			name : "Spark of Life",
+			source : ["SCGtD", 146],
+			minlevel : 1,
+			description : desc([
+				"I learn the shocking grasp and spare the dying cantrips."
+			]),
+			spellcastingBonus : [{
+		        name : "Spark of Life",
+		        times : 1,
+				selection : ["shocking grasp"],
+			}, {
+		        name : "Spark of Life",
+		        times : 1,
+				selection : ["spare the dying"],
+			}],
+		},
 		"subclassfeature2" : {
 			name : "Reanimator Spells",
 			source : ["SCGtD", 146],
@@ -1280,6 +1297,67 @@ AddSubClass("apothecary", "reanimator", {
 				"I gain additional spells that I always have prepared. These spells count as apothecary spells, but they don't count against the number of apothecary spells I prepare."
 			]),
 		},
+		"subclassfeature3" : {
+			name : "Corpsewrought Creature",
+			source : ["SCGtD", 147],
+			minlevel : 3,
+			description : desc([
+				"I have created a Corpsewrought Creature that is friendly to me and obeys my commands",
+				"It takes its turn immediately after mine; it Dodges unless I use a bonus action to command another action",
+				"If I'm incapacitated, it acts independently; if it dies, I can revive it within 1 hour using a healer's kit and an apothecary spell slot",
+				"I can create a new Creature at the end of a long rest with suitable materials; creating a new one or my death causes the old one to perish"
+			]),
+			action : [
+				["bonus action", "Command Creature"]
+			]
+		},
+		"subclassfeature4" : {
+			name : "Bodyguard",
+			source : ["SCGtD", 147],
+			minlevel : 6,
+			description : desc([
+				"When a creature within 5 feet of my corpsewrought creature makes an attack against me, it can use its reaction to make a melee weapon attack against the attacking creature.",
+				"My corpsewrought creature’s slam attack counts as magical for the purposes of overcoming resistance and immunity to nonmagical attacks and damage.",
+				"I can cast animate dead once using an Apothecary spell slot. I can’t cast this spell again until I finish a long rest."
+			]),
+			spellcastingBonus : [{
+		        name : "Bodyguard",
+		        times : 1,
+				selection : ["animate dead"],
+				firstCol : "oncelr",
+			}],
+		},
+		"subclassfeature5" : {
+			name : "Reanimated Head",
+			source : ["SCGtD", 147],
+			minlevel : 6,
+			description : desc([
+				"I have a reanimated humanoid head that I may use as a spellcasting focus, and can use it to cast speak with dead without expending a spell slot once per short rest.",
+				"The head speaks common and one other language of my choice.",
+				"Whenever I make an Intelligence ability check that lets me add my proficiency bonus, I can treat a d20 roll of 9 or lower as a 10.",
+				"I gain proficiency in the Arcana and Investigation skills.",
+			]),
+			spellcastingBonus : [{
+		        name : "Bodyguard",
+		        times : 1,
+				selection : ["speak with dead"],
+				firstCol : "oncelr",
+			}],
+			skills : [
+				["Investigation"],
+				["Arcana"]
+			],
+		},
+		"subclassfeature6" : {
+			name : "Behold, My Creation",
+			source : ["SCGtD", 147],
+			minlevel : 10,
+			description : desc([
+				"My corpsewrought creature’s size increases to Large, and its speed increases to 40 feet.",
+				"When my corpsewrought creature hits a creature with a melee attack, it can immediately make a grapple attempt against the target.",
+				"The DC to escape this grapple is equal to 8 + the corpsewrought creature’s strength modifier (+4) + your PB."
+			]),
+		}, 
 	}, //reanimator features
 }); //reanimator subclass
 
